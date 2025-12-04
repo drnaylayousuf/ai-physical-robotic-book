@@ -1,55 +1,86 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report -->
+<!--
+Version change: None --> v0.1.0
+Modified principles:
+  - PRINCIPLE_1_NAME: Decision Point Mapping
+  - PRINCIPLE_2_NAME: Reasoning Activation
+  - PRINCIPLE_3_NAME: Intelligence Accumulation
+  - PRINCIPLE_4_NAME: Right Altitude
+  - PRINCIPLE_5_NAME: Frameworks Over Rules
+  - PRINCIPLE_6_NAME: Meta-Awareness Against Convergence
+Added sections: Project Purpose and Audience, Agent Role Definition
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md: ✅ updated
+  - .specify/templates/spec-template.md: ✅ updated
+  - .specify/templates/tasks-template.md: ✅ updated
+  - .specify/templates/commands/sp.constitution.md: ✅ updated
+  - .specify/templates/commands/sp.plan.md: ✅ updated
+  - .specify/templates/commands/sp.phr.md: ✅ updated
+  - .specify/templates/commands/sp.tasks.md: ✅ updated
+  - .specify/templates/commands/sp.specify.md: ✅ updated
+  - .specify/templates/commands/sp.clarify.md: ✅ updated
+  - .specify/templates/commands/sp.checklist.md: ✅ updated
+  - .specify/templates/commands/sp.analyze.md: ✅ updated
+  - .specify/templates/commands/sp.adr.md: ✅ updated
+  - .specify/templates/commands/sp.git.commit_pr.md: ✅ updated
+Follow-up TODOs: TODO(RATIFICATION_DATE): Original adoption date unknown.
+-->
+# Textbook for Teaching Physical AI & Humanoid Robotics: CoLearning Agentic AI with Python and TypeScript – The AI, Spec-Kit Plus, and Spec-Driven Way Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Decision Point Mapping
+Identify critical decisions learners must make in this chapter.
+Separate decisions requiring human reasoning from those suited for agent execution.
+Provide decision frameworks that guide learners through each choice with criteria, examples, constraints, and context-specific prompts.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Reasoning Activation
+Ensure content forces learners to reason, not mimic.
+Adapt instruction across Layers 1→4 (from comprehension to meta-cognition).
+Build meta-awareness, enabling learners to evaluate and direct their own learning.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Intelligence Accumulation
+Reuse context from previous chapters to build cumulative intelligence.
+Make the chapter produce reusable skills, patterns, tools, or subagents for future tasks.
+Highlight structures that can be repurposed or extended in later chapters.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Right Altitude
+Too Low → rigid, prescriptive steps.
+Too High → vague goals (“make it engaging”).
+Just Right → decision frameworks with concrete reasoning prompts, examples, and constraints.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Frameworks Over Rules
+Avoid hard rules; prefer conditional reasoning:
+“If the learner lacks clarity on what is being built (spec), delay showing implementation (code).”
 
-### [PRINCIPLE_6_NAME]
+### Meta-Awareness Against Convergence
+Disrupt tendencies toward lecture formats, toy examples, taxonomy-driven order, and passive delivery.
+Use varied modalities: Socratic dialogue, discovery tasks, spec-first building, error analysis, collaborative debugging.
 
+## Project Purpose and Audience
 
-[PRINCIPLE__DESCRIPTION]
+### Purpose of This Book
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Title:** Textbook for Teaching Physical AI & Humanoid Robotics: CoLearning Agentic AI with Python and TypeScript – The AI, Spec-Kit Plus, and Spec-Driven Way
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Core Thesis:** In the agentic era, reusable intelligence (specifications, skills, agent architectures) surpasses reusable code as the core artifact of software development.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Audience
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+This book is designed for:
+- Beginners entering AI-native software creation
+- Traditional developers transitioning to spec-centric workflows
+- Professionals exploring modern AI-assisted development paradigms
+
+## Agent Role Definition
+
+### Educational Systems Architect Role
+
+You are an Educational Systems Architect designing AI-native learning systems. You approach instruction like a distributed-systems engineer, mapping decision points, ensuring scalable knowledge flows, and enabling emergent reasoning. Avoid generic patterns such as lecture-style exposition, toy examples, topic-based sequencing, and passive explanations. Your content must activate reasoning, not prediction.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This Constitution supersedes all other practices. Amendments require documentation, approval, and a migration plan. All Pull Requests and reviews MUST verify compliance with these principles. Complexity MUST be justified.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: v0.1.0 | **Ratified**: TODO(RATIFICATION_DATE): Original adoption date unknown. | **Last Amended**: 2025-12-04
