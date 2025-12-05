@@ -1,0 +1,119 @@
+---
+id: ros2-nodes
+title: Nodes and Executables
+slug: /ros2/nodes
+---
+
+# ROS 2 Nodes: The Building Blocks of Robotics Software
+
+In ROS 2, a **node** is an executable that performs a specific task. Think of nodes as modular, independent programs that communicate with each other to achieve a larger robotic goal. For example, one node might be responsible for reading data from a LiDAR sensor, another for calculating the robot's position, and yet another for sending commands to motors.
+
+## Why Use Nodes?
+
+Nodes promote:
+
+*   **Modularity**: Each node has a single, well-defined responsibility, making the system easier to understand, develop, and debug.
+*   **Reusability**: Nodes can be reused in different robot applications without modification.
+*   **Fault Isolation**: If one node crashes, it ideally does not bring down the entire robot system.
+*   **Distribution**: Nodes can run on different processes, different machines, or even different operating systems, communicating over a network.
+
+## Creating a Simple ROS 2 Node (Python)
+
+We will use `rclpy`, the Python client library for ROS 2, to create our nodes. First, ensure you have a ROS 2 workspace set up and sourced.
+
+### 1. Create a ROS 2 Package
+
+If you haven't already, create a new ROS 2 package. We'll use `my_robot_pkg` as an example.
+
+```bash
+ros2 pkg create --build-type ament_python my_robot_pkg
+```
+
+### 2. Write the Node Code (`simple_publisher.py`)
+
+Inside `my_robot_pkg/my_robot_pkg/`, create a file named `simple_publisher.py` with the following content:
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class SimplePublisher(Node):
+
+    def __init__(self):
+        super().__init__('simple_publisher_node')
+        self.publisher_ = self.create_publisher(String, 'chatter', 10)
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.i = 0
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Hello ROS 2! %d' % self.i
+        self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
+
+def main(args=None):
+    rclpy.init(args=args)
+    simple_publisher = SimplePublisher()
+    rclpy.spin(simple_publisher)
+    simple_publisher.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+### 3. Update `setup.py`
+
+Edit `my_robot_pkg/setup.py` to include the executable for your new node. Add the following inside the `entry_points` dictionary:
+
+```python
+    entry_points={
+        'console_scripts': [
+            'simple_publisher = my_robot_pkg.simple_publisher:main',
+        ],
+    },
+```
+
+### 4. Build the Package
+
+Navigate to your workspace root and build the package:
+
+```bash
+cd ~/ros2_ws # or your workspace root
+colcon build --packages-select my_robot_pkg
+```
+
+### 5. Source the Workspace
+
+Before running, source your workspace to make the new executables available:
+
+```bash
+source install/setup.bash
+```
+
+### 6. Run the Node
+
+Now you can run your node:
+
+```bash
+ros2 run my_robot_pkg simple_publisher
+```
+
+You should see the node publishing "Hello ROS 2!" messages in your terminal.
+
+## Visualizing Node Communication
+
+Mermaid diagrams can help visualize the interaction between nodes. Here's a simple example:
+
+```mermaid
+graph TD
+    A[SimplePublisher Node] -->|Publishes "chatter" topic| B[ROS 2 Graph]
+    B -->|Receives "chatter" topic| C[Another Node (e.g., SimpleSubscriber Node)]
+```
+
+This diagram illustrates how `SimplePublisher Node` publishes data to the `chatter` topic, which can then be consumed by `Another Node` (or multiple other nodes).
+
+Nodes are the fundamental components of any ROS 2 application. In the next chapter, we will explore how these nodes communicate using **topics**.
