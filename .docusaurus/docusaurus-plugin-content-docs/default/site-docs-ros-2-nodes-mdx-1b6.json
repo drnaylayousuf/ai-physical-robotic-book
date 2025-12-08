@@ -1,0 +1,19 @@
+{
+  "id": "ros2/ros2-nodes",
+  "title": "Nodes and Executables",
+  "description": "In ROS 2, a node is an executable that performs a specific task. Think of nodes as modular, independent programs that communicate with each other to achieve a larger robotic goal. For example, one node might be responsible for reading data from a LiDAR sensor, another for calculating the robot's position, and yet another for sending commands to motors.",
+  "source": "@site/docs/ros2/nodes.mdx",
+  "sourceDirName": "ros2",
+  "slug": "/ros2/nodes",
+  "permalink": "/docs/ros2/nodes",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/nodes.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ros2-nodes",
+    "title": "Nodes and Executables",
+    "slug": "/ros2/nodes"
+  }
+}

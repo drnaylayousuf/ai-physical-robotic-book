@@ -1,0 +1,19 @@
+{
+  "id": "ros2/ros2-services",
+  "title": "Services and Request/Response",
+  "description": "Services in ROS 2 provide a synchronous request/response communication model, ideal for operations that require an immediate result or a single exchange of information between two nodes. Unlike topics, which are one-to-many and asynchronous, services are one-to-one and block until a response is received.",
+  "source": "@site/docs/ros2/services.mdx",
+  "sourceDirName": "ros2",
+  "slug": "/ros2/services",
+  "permalink": "/docs/ros2/services",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/services.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ros2-services",
+    "title": "Services and Request/Response",
+    "slug": "/ros2/services"
+  }
+}

@@ -7,7 +7,7 @@
 
 ## Summary
 
-Generate a complete, production-ready Docusaurus v3 book for the "Physical AI & Humanoid Robotics" course, structured for local development. This involves creating all necessary documentation folders, generating detailed Markdown content with code examples and diagrams, incorporating labs and exercises, and updating Docusaurus configuration files for navigation and rendering.
+[Extract from feature spec: primary requirement + technical approach from research]
 
 ## Technical Context
 
@@ -17,15 +17,15 @@ Generate a complete, production-ready Docusaurus v3 book for the "Physical AI & 
   the iteration process.
 -->
 
-**Language/Version**: Python, C++, TypeScript, JavaScript
-**Primary Dependencies**: ROS 2, Gazebo, Unity, NVIDIA Isaac Sim & Isaac ROS, Whisper, LLM planning, Docusaurus v3
-**Storage**: N/A (Documentation/files)
-**Testing**: Docusaurus build/serve, content rendering, link validation
-**Target Platform**: Local development environment (Windows/Linux/macOS for Docusaurus, Linux for ROS/Gazebo/Isaac Sim)
-**Project Type**: Documentation/Technical Book
-**Performance Goals**: Fast local build and serving, efficient rendering of Mermaid diagrams and code blocks
-**Constraints**: Must use existing Docusaurus structure, no new project creation, no dependency reinstallation, all content under `/docs`
-**Scale/Scope**: Complete technical book for a 13-week course, covering multiple advanced robotics topics with labs and exercises
+**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
+**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
+**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
+**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Project Type**: [single/web/mobile - determines source structure]  
+**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
+**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
+**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
 
 ## Constitution Check
 
@@ -47,29 +47,52 @@ specs/[###-feature]/
 └── tasks.md             # Phase 2 output (/sp.tasks command - NOT created by /sp.plan)
 ```
 
-### Docusaurus Book Content (repository root)
+### Source Code (repository root)
+<!--
+  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+  for this feature. Delete unused options and expand the chosen structure with
+  real paths (e.g., apps/admin, packages/something). The delivered plan must
+  not include Option labels.
+-->
 
 ```text
-docs/
-├── intro/
-├── physical-ai/
-├── ros2/
-├── gazebo/
-├── unity/
-├── isaac/
-├── vla/
-├── humanoid/
-├── capstone/
-├── hardware/
-└── weekly/
+# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+src/
+├── models/
+├── services/
+├── cli/
+└── lib/
 
-docusaurus.config.js
-sidebars.js
-README.md
-package.json
+tests/
+├── contract/
+├── integration/
+└── unit/
+
+# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
+backend/
+├── src/
+│   ├── models/
+│   ├── services/
+│   └── api/
+└── tests/
+
+frontend/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   └── services/
+└── tests/
+
+# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
+api/
+└── [same as backend above]
+
+ios/ or android/
+└── [platform-specific structure: feature modules, UI flows, platform tests]
 ```
 
-**Structure Decision**: The Docusaurus book content will be organized as specified, with a dedicated directory for each module under `/docs`. Configuration files (`docusaurus.config.js`, `sidebars.js`) will be updated at the project root.
+**Structure Decision**: [Document the selected structure and reference the real
+directories captured above]
 
 ## Complexity Tracking
 

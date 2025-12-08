@@ -1,0 +1,28 @@
+{
+  "id": "modules/module1-ros2/urdf-humanoids",
+  "title": "URDF for Humanoid Robot Models",
+  "description": "In this section, we delve into the Unified Robot Description Format (URDF), a critical XML-based file format used in ROS 2 to describe the physical properties of a robot. URDF defines the robot's kinematics (how its parts are connected) and dynamics (mass, inertia), which are essential for simulation, visualization, and control. For humanoid robots, precise URDF modeling is paramount due to their complex articulated structure and balance requirements.",
+  "source": "@site/docs/modules/module1-ros2/urdf-humanoids.md",
+  "sourceDirName": "modules/module1-ros2",
+  "slug": "/modules/module1-ros2/urdf-humanoids",
+  "permalink": "/docs/modules/module1-ros2/urdf-humanoids",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/urdf-humanoids.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "urdf-humanoids",
+    "title": "URDF for Humanoid Robot Models",
+    "sidebar_label": "URDF & Humanoids"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Nodes, Topics, Services",
+    "permalink": "/docs/modules/module1-ros2/nodes-topics-services"
+  },
+  "next": {
+    "title": "Module 2: Robotics Simulation - Introduction",
+    "permalink": "/docs/modules/module2-simulation/intro"
+  }
+}

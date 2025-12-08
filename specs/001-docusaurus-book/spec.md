@@ -1,105 +1,185 @@
-# Feature Specification: Docusaurus Book for Physical AI & Humanoid Robotics Course
+TITLE:
+Physical AI & Humanoid Robotics: Building Embodied Intelligent Systems
 
-**Feature Branch**: `001-docusaurus-book`
-**Created**: 2025-12-04
-**Status**: Draft
-**Input**: User description: "Generate a complete, production-ready Docusaurus v3 book for the course Physical AI & Humanoid Robotics, structured for local development."
+INSTRUCTION TO AI:
+You are an expert technical writer, curriculum designer, and robotics engineer. Your task is to generate a complete book using Docusaurus structure and the Spec-Kit Plus methodology. I will manually set up the Docusaurus environment; your job is to produce all book content, structure, chapters, sidebars, API references, diagrams, code blocks, and assets in Markdown.
 
-## User Scenarios & Testing *(mandatory)*
+Follow this specification exactly.
 
-### User Story 1 - Access Course Content (Priority: P1)
+📘 BOOK WRITING SPECIFICATION
+1. BOOK GOAL & SCOPE
 
-A student wants to access the course material for Physical AI & Humanoid Robotics locally in a well-structured and easy-to-navigate format.
+Produce a full textbook that teaches Physical AI—AI systems that interact with the physical world—centered around Humanoid Robotics, ROS 2, Gazebo, Unity, NVIDIA Isaac, and Vision-Language-Action systems.
 
-**Why this priority**: This is the core functionality, allowing students to learn.
+The book must cover:
 
-**Independent Test**: The Docusaurus book can be built and served locally, and all chapters are accessible through the sidebar.
+Physical AI & Embodied Intelligence
 
-**Acceptance Scenarios**:
+ROS 2 Fundamentals
 
-1. **Given** a student has cloned the repository and set up Docusaurus locally, **When** they run `npm start`, **Then** the Docusaurus site launches in their browser.
-2. **Given** the Docusaurus site is running, **When** the student navigates through the sidebar, **Then** all module overviews and subchapters are displayed correctly.
-3. **Given** a chapter is open, **When** the student views the content, **Then** MDX, Mermaid diagrams, code blocks (Python, C++, ROS 2 CLI, Isaac scripts, launch files), and KaTeX math are rendered correctly.
+Gazebo & Unity Simulation
 
----
+NVIDIA Isaac Platform
 
-### User Story 2 - Explore Specific Modules (Priority: P2)
+Bipedal Control & Humanoid Mechanics
 
-A student wants to focus on a particular module, such as ROS 2 or NVIDIA Isaac, and find all relevant content, code examples, and diagrams within that module.
+Vision-Language-Action Robotics (LLM-Driven Robots)
 
-**Why this priority**: Allows targeted learning and deep dives into specific topics.
+Conversational Robotics (Speech → Action)
 
-**Independent Test**: A student can navigate directly to any module and find comprehensive content related to that module.
+Capstone: Autonomous Humanoid Project
 
-**Acceptance Scenarios**:
+Lab Setup, Hardware Requirements, and Cloud Architecture
 
-1. **Given** the Docusaurus site is running, **When** a student clicks on "Module 1: ROS 2" in the sidebar, **Then** the ROS 2 module overview is displayed, followed by its 5-10 subchapters.
-2. **Given** a student is viewing a ROS 2 subchapter, **When** they see code examples, **Then** Python ROS 2 nodes, launch files, and URDF/XACRO examples are present and correctly formatted with syntax highlighting.
-3. **Given** a student is viewing a chapter, **When** they encounter a diagram, **Then** it is rendered as a Mermaid diagram showing architecture or pipelines.
+2. STRUCTURE THE BOOK USING DOCUSAURUS FORMAT
 
----
+Produce content in this folder structure:
 
-### User Story 3 - Understand Hardware and Weekly Breakdown (Priority: P3)
+/docs
+    /intro
+        overview.md
+        why-physical-ai-matters.md
+        learning-outcomes.md
 
-A student wants to understand the recommended hardware for the course and see the weekly breakdown of topics.
+    /modules
+        /module1-ros2
+            intro.md
+            ros2-architecture.md
+            nodes-topics-services.md
+            urdf-humanoids.md
 
-**Why this priority**: Provides practical context and helps students plan their learning.
+        /module2-simulation
+            intro.md
+            gazebo-physics.md
+            unity-visualization.md
+            sensor-simulation.md
 
-**Independent Test**: The Hardware Lab and Weekly Breakdown sections are easily accessible and provide clear information.
+        /module3-isaac
+            intro.md
+            isaac-sim.md
+            isaac-ros.md
+            nav2-humanoids.md
 
-**Acceptance Scenarios**:
+        /module4-vla
+            intro.md
+            whisper-voice-to-action.md
+            llm-planning.md
+            multimodal-robotics.md
 
-1. **Given** the Docusaurus site is running, **When** a student navigates to the "Hardware Lab" section, **Then** they see details about high-performance workstations, Jetson Orin Edge kits, Intel RealSense D435i, and robot options.
-2. **Given** the Docusaurus site is running, **When** a student navigates to the "Weekly Breakdown" section, **Then** they see a week-by-week schedule covering ROS 2, simulation, Isaac Sim, humanoid development, and conversational robotics for 13 weeks.
+    /humanoid
+        kinematics.md
+        bipedal-locomotion.md
+        manipulation.md
+        interaction-design.md
 
----
+    /conversational-robotics
+        gpt-robots.md
+        speech-recognition.md
+        multimodal-interaction.md
 
-### Edge Cases
+    /capstone
+        overview.md
+        system-architecture.md
+        pipeline.md
+        final-demo.md
 
-- What happens when a code block contains an unsupported language? (Assume Docusaurus handles this gracefully, possibly falling back to plain text)
-- How does the system handle very large images or complex Mermaid diagrams that might impact rendering performance? (Assume Docusaurus optimizes, or basic browser performance is sufficient)
+    /lab
+        hardware.md
+        edge-kits.md
+        robot-options.md
+        cloud-vs-onprem.md
+        latency-trap.md
 
-## Requirements *(mandatory)*
+/sidebar.js  (auto-generated by AI)
 
-### Functional Requirements
 
-- **FR-001**: The Docusaurus book MUST transform the course specification into a full Docusaurus book.
-- **FR-002**: The book MUST include MDX chapters, Mermaid diagrams, Python, C++, ROS 2 CLI, Isaac scripts, and launch file code examples.
-- **FR-003**: The book MUST be structured for local development with a `/docs` folder containing `/intro`, `/module-1-ros2`, `/module-2-digital-twin`, `/module-3-isaac`, `/module-4-vla`, `/capstone`, `/hardware-lab`, `/weekly-breakdown`, and `/glossary` subfolders.
-- **FR-004**: Each module folder MUST contain an `index.mdx` overview and 5-10 subchapters.
-- **FR-005**: The Docusaurus configuration (`docusaurus.config.js`) MUST enable navbar/footer, Prism syntax highlighting, Mermaid diagrams, and KaTeX math.
-- **FR-006**: The `sidebars.js` file MUST reflect all modules and their respective subchapters.
-- **FR-007**: Module 1 (ROS 2) content MUST cover architecture, nodes, topics, QoS, URDF/XACRO humanoid modeling, and Python ROS 2 nodes and launch files.
-- **FR-008**: Module 2 (Digital Twin) content MUST cover Gazebo physics simulation, sensor simulation (LiDAR, IMU, cameras), Unity high-fidelity HRI rendering, PID, and sensor integration.
-- **FR-009**: Module 3 (NVIDIA Isaac) content MUST cover Isaac Sim USD assets & domain randomization, VSLAM & Nav2 path planning, and reinforcement learning pipelines.
-- **FR-010**: Module 4 (VLA) content MUST cover Voice-to-Action (OpenAI Whisper), LLM planning → ROS 2 action sequences, and multimodal perception and manipulation.
-- **FR-011**: The Capstone section MUST cover a full pipeline: Voice → LLM → Navigation → Perception → Object Manipulation.
-- **FR-012**: The Hardware Lab section MUST detail high-performance workstations, Jetson Orin Edge kits, Intel RealSense D435i, robot options (Unitree Go2/G1/OP3 or proxy robots), and Cloud-native Ether Lab setup.
-- **FR-013**: The Weekly Breakdown section MUST cover Weeks 1–13 of the course.
-- **FR-014**: The Glossary section MUST define Robotics, AI, and Simulation terminology.
-- **FR-015**: All content MUST use MDX formatting and professional textbook style.
-- **FR-016**: Code blocks MUST use Prism syntax highlighting.
-- **FR-017**: KaTeX math MUST be enabled and used for mathematical expressions.
-- **FR-018**: Folder and file naming MUST be consistent.
+Each file must contain:
 
-### Key Entities
+Clear headings
 
-- **Course**: Represents the Physical AI & Humanoid Robotics course content.
-- **Module**: A major section of the course (e.g., ROS 2, Digital Twin).
-- **Chapter/Subchapter**: Individual units of content within a module.
-- **Diagram**: Visual representations (Mermaid) of architectures or pipelines.
-- **Code Example**: Snippets demonstrating concepts in Python, C++, ROS 2, Isaac Sim.
-- **Hardware**: Recommended physical components for the lab.
-- **Glossary Term**: Definitions of key terminology.
+Diagrams (ASCII or Mermaid syntax)
 
-## Success Criteria *(mandatory)*
+Code examples (Python, ROS 2 rclpy, URDF, etc.)
 
-### Measurable Outcomes
+System architectures
 
-- **SC-001**: The generated Docusaurus book successfully builds and serves locally without errors.
-- **SC-002**: All specified content modules and subchapters are accessible and render correctly in the local Docusaurus environment.
-- **SC-003**: Mermaid diagrams, code blocks, and KaTeX math expressions render accurately across all relevant chapters.
-- **SC-004**: The Docusaurus site's navigation (navbar, footer, sidebars) functions as expected, allowing seamless movement between sections.
-- **SC-005**: The book's folder structure precisely matches the defined `/docs` hierarchy, with each module containing an `index.mdx` and 5-10 subchapters.
-- **SC-006**: The `docusaurus.config.js` and `sidebars.js` files are correctly configured to support the content and navigation requirements.
-- **SC-007**: The content in each module, Capstone, Hardware Lab, Weekly Breakdown, and Glossary sections accurately reflects the requirements outlined in the feature description.
+Tables
+
+Step-by-step instructions
+
+Project snippets
+
+3. WRITING STYLE GUIDELINES
+
+Write like a robotics textbook used at a university.
+
+Tone: clear, authoritative, practical, not overly academic.
+
+Include diagrams (Mermaid) and robot architecture charts.
+
+Provide real code that can run.
+
+Include examples of ROS 2 rclpy nodes, URDF files, Nav2 configs, and Isaac Sim scripts.
+
+Include exercises and checkpoints per chapter.
+
+Ensure hardware sections are actionable and realistic.
+
+Cross-link chapters using Docusaurus Markdown conventions.
+
+Create a glossary, index, and recommended resources page.
+
+4. SPECIAL REQUIREMENT: INTEGRATE THE PROVIDED COURSE MATERIAL
+
+All content from the source text I provided must be incorporated, expanded, structured, and explained in textbook-quality depth.
+You must transform the raw course description into a polished, complete book.
+
+Do not copy word-for-word—rewrite into refined, coherent textbook prose.
+
+5. SPEC-KIT PLUS REQUIREMENTS
+
+Generate:
+
+book.yaml (Spec-Kit Plus config)
+
+Each Markdown chapter
+
+Table of contents
+
+Sidebar definitions
+
+Assets folder structure
+
+API reference stubs
+
+You may generate long outputs—this is expected.
+
+6. AI TOOLS ASSUMED AVAILABLE TO YOU
+
+You may use:
+
+Claude Code (supports multi-file generation)
+
+Spec-Kit Plus (for spec-driven documentation generation)
+
+Docusaurus Markdown syntax
+
+Mermaid diagrams
+
+Code fences for syntax highlighting
+
+7. FINAL INSTRUCTION
+
+Once you begin, generate the entire book content file by file, starting by producing:
+
+book.yaml
+
+Docusaurus sidebar structure
+
+Chapter files
+
+Images/diagrams (in Markdown/ASCII/Mermaid)
+
+Appendices, Glossary, Resources
+
+Continue until the entire book is complete.

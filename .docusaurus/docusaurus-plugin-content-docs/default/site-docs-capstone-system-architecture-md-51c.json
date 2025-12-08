@@ -1,0 +1,28 @@
+{
+  "id": "capstone/system-architecture",
+  "title": "System Architecture for Physical AI Humanoid Robot",
+  "description": "This document outlines the high-level system architecture for the Physical AI Humanoid Robot capstone project. The architecture integrates multiple complex subsystems to create a cohesive system capable of perceiving, reasoning, and acting in the physical world through natural language interaction.",
+  "source": "@site/docs/capstone/system-architecture.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/system-architecture",
+  "permalink": "/docs/capstone/system-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/system-architecture.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "system-architecture",
+    "title": "System Architecture for Physical AI Humanoid Robot",
+    "sidebar_label": "System Architecture"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Capstone Overview",
+    "permalink": "/docs/capstone/capstone-overview"
+  },
+  "next": {
+    "title": "AI Pipeline",
+    "permalink": "/docs/capstone/capstone-pipeline"
+  }
+}

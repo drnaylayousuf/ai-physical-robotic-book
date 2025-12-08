@@ -1,0 +1,28 @@
+{
+  "id": "humanoid/bipedal-locomotion",
+  "title": "Humanoid Robot Bipedal Locomotion",
+  "description": "Bipedal locomotion—the ability to walk on two legs—is one of the defining characteristics of humanoid robots and simultaneously one of their most challenging aspects. Achieving stable, efficient, and versatile walking in humanoids requires sophisticated control strategies that manage balance, generate gaits, and adapt to diverse terrains. This section explores the fundamental concepts and techniques behind bipedal locomotion.",
+  "source": "@site/docs/humanoid/bipedal-locomotion.md",
+  "sourceDirName": "humanoid",
+  "slug": "/humanoid/bipedal-locomotion",
+  "permalink": "/docs/humanoid/bipedal-locomotion",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/bipedal-locomotion.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "bipedal-locomotion",
+    "title": "Humanoid Robot Bipedal Locomotion",
+    "sidebar_label": "Bipedal Locomotion"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Multimodal Robotics",
+    "permalink": "/docs/modules/module4-vla/multimodal-robotics"
+  },
+  "next": {
+    "title": "Manipulation",
+    "permalink": "/docs/humanoid/manipulation"
+  }
+}

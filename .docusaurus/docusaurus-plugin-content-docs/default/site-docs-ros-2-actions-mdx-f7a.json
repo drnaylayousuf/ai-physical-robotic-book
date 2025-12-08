@@ -1,0 +1,19 @@
+{
+  "id": "ros2/ros2-actions",
+  "title": "Actions and Long-Running Tasks",
+  "description": "Actions in ROS 2 are designed for long-running, goal-oriented tasks that may require periodic feedback and the ability to be preempted (cancelled). They build upon the concepts of topics and services, providing a more robust communication pattern for complex operations like moving a robot to a target pose, grasping an object, or performing a lengthy computation.",
+  "source": "@site/docs/ros2/actions.mdx",
+  "sourceDirName": "ros2",
+  "slug": "/ros2/actions",
+  "permalink": "/docs/ros2/actions",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/actions.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ros2-actions",
+    "title": "Actions and Long-Running Tasks",
+    "slug": "/ros2/actions"
+  }
+}

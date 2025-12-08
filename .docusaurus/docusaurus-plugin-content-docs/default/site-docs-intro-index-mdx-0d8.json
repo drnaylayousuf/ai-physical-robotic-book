@@ -1,0 +1,19 @@
+{
+  "id": "intro/intro",
+  "title": "Introduction",
+  "description": "Welcome to the Physical AI & Humanoid Robotics course! This book is designed to guide you through the exciting world of embodied intelligence, where AI systems interact with the physical world through robotic bodies. Over the next 13 weeks, you will learn to build, simulate, and control autonomous humanoids that respond to voice commands, using cutting-edge technologies like ROS 2, Gazebo, Unity, and NVIDIA Isaac Sim.",
+  "source": "@site/docs/intro/index.mdx",
+  "sourceDirName": "intro",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/index.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "intro",
+    "title": "Introduction",
+    "slug": "/"
+  }
+}

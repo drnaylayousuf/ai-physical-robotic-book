@@ -1,0 +1,28 @@
+{
+  "id": "modules/module4-vla/multimodal-robotics",
+  "title": "Multimodal Robotics for Comprehensive Understanding",
+  "description": "For humanoid robots to truly operate intelligently and robustly in complex, human-centric environments, they must integrate information from multiple sensory modalities, much like humans do. This field, known as Multimodal Robotics, combines vision, language, audio, touch, and other sensor data to achieve a comprehensive understanding of the world, enabling richer perception, more robust reasoning, and more intuitive human-robot interaction. It is a critical component of advanced Vision-Language-Action (VLA) systems.",
+  "source": "@site/docs/modules/module4-vla/multimodal-robotics.md",
+  "sourceDirName": "modules/module4-vla",
+  "slug": "/modules/module4-vla/multimodal-robotics",
+  "permalink": "/docs/modules/module4-vla/multimodal-robotics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/multimodal-robotics.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "multimodal-robotics",
+    "title": "Multimodal Robotics for Comprehensive Understanding",
+    "sidebar_label": "Multimodal Robotics"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "LLM Planning",
+    "permalink": "/docs/modules/module4-vla/llm-planning"
+  },
+  "next": {
+    "title": "Bipedal Locomotion",
+    "permalink": "/docs/humanoid/bipedal-locomotion"
+  }
+}

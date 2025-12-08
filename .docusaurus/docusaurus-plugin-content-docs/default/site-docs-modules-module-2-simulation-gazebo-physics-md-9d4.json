@@ -1,0 +1,24 @@
+{
+  "id": "modules/module2-simulation/gazebo-physics",
+  "title": "Gazebo and Physics Simulation: Bringing Robots to Life Virtually",
+  "description": "Gazebo is a powerful open-source 3D robotics simulator that allows you to accurately test your robot designs and algorithms in a virtual environment. It's an essential tool for physical AI development, providing realistic physics simulation, high-quality rendering, and a robust interface for sensors and actuators. For humanoid robots, which involve complex dynamics and balance, Gazebo's accurate physics engine is indispensable.",
+  "source": "@site/docs/modules/module2-simulation/gazebo-physics.md",
+  "sourceDirName": "modules/module2-simulation",
+  "slug": "/modules/module2-simulation/gazebo-physics",
+  "permalink": "/docs/modules/module2-simulation/gazebo-physics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/gazebo-physics.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 2: Robotics Simulation - Introduction",
+    "permalink": "/docs/modules/module2-simulation/intro"
+  },
+  "next": {
+    "title": "Unity for Robotics Visualization and Interaction",
+    "permalink": "/docs/modules/module2-simulation/unity-visualization"
+  }
+}

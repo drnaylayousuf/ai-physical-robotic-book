@@ -1,0 +1,19 @@
+{
+  "id": "index",
+  "title": "Physical AI & Humanoid Robotics - Index",
+  "description": "This index provides an organized reference to key topics, concepts, and content covered throughout the \"Physical AI & Humanoid Robotics\" book. It serves as a comprehensive guide to help you quickly locate specific information across all modules and chapters.",
+  "source": "@site/docs/index.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/index.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "index",
+    "title": "Physical AI & Humanoid Robotics - Index",
+    "sidebar_label": "Index"
+  }
+}

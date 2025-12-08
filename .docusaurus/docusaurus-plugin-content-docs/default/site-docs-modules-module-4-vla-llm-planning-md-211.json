@@ -1,0 +1,28 @@
+{
+  "id": "modules/module4-vla/llm-planning",
+  "title": "LLM-Driven Task Planning for Robotics",
+  "description": "One of the most exciting advancements in Vision-Language-Action (VLA) robotics is the use of Large Language Models (LLMs) for high-level task planning. Instead of meticulously programming every robot action, LLMs can interpret human commands, reason about the environment, and generate executable plans or even code snippets for robots. This greatly enhances a robot's flexibility and ability to handle novel situations.",
+  "source": "@site/docs/modules/module4-vla/llm-planning.md",
+  "sourceDirName": "modules/module4-vla",
+  "slug": "/modules/module4-vla/llm-planning",
+  "permalink": "/docs/modules/module4-vla/llm-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/llm-planning.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "llm-planning",
+    "title": "LLM-Driven Task Planning for Robotics",
+    "sidebar_label": "LLM Planning"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Whisper & Voice-to-Action",
+    "permalink": "/docs/modules/module4-vla/whisper-voice-to-action"
+  },
+  "next": {
+    "title": "Multimodal Robotics",
+    "permalink": "/docs/modules/module4-vla/multimodal-robotics"
+  }
+}

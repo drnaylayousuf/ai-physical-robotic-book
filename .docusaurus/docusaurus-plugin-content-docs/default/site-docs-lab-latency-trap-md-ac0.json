@@ -1,0 +1,24 @@
+{
+  "id": "lab/latency-trap",
+  "title": "The Latency Trap in Physical AI & Humanoid Robotics",
+  "description": "Latency is one of the most critical and often underestimated challenges in Physical AI and humanoid robotics. The \"latency trap\" refers to the phenomenon where seemingly acceptable delays in AI processing, communication, or control create cascading failures that compromise robot safety, performance, and user experience. Understanding and managing latency is essential for successful Physical AI systems.",
+  "source": "@site/docs/lab/latency-trap.md",
+  "sourceDirName": "lab",
+  "slug": "/lab/latency-trap",
+  "permalink": "/docs/lab/latency-trap",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/latency-trap.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "latency-trap",
+    "title": "The Latency Trap in Physical AI & Humanoid Robotics",
+    "sidebar_label": "The Latency Trap"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Cloud vs. On-Premise AI",
+    "permalink": "/docs/lab/cloud-vs-onprem"
+  }
+}

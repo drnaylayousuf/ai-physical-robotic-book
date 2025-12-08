@@ -1,0 +1,28 @@
+{
+  "id": "conversational-robotics/speech-recognition",
+  "title": "Speech Recognition for Conversational Robots",
+  "description": "Speech recognition is a fundamental component of conversational robotics, enabling robots to understand spoken human commands and engage in natural dialogue. This technology transforms audio input into text that can be processed by natural language understanding systems, forming the bridge between human speech and robotic action. For humanoid robots, robust speech recognition is essential for creating intuitive and accessible interactions.",
+  "source": "@site/docs/conversational-robotics/speech-recognition.md",
+  "sourceDirName": "conversational-robotics",
+  "slug": "/conversational-robotics/speech-recognition",
+  "permalink": "/docs/conversational-robotics/speech-recognition",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/conversational-robotics/speech-recognition.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "speech-recognition",
+    "title": "Speech Recognition for Conversational Robots",
+    "sidebar_label": "Speech Recognition"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "GPT & Conversational Robots",
+    "permalink": "/docs/conversational-robotics/gpt-robots"
+  },
+  "next": {
+    "title": "Multimodal Interaction",
+    "permalink": "/docs/conversational-robotics/multimodal-interaction"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "humanoid/manipulation",
+  "title": "Humanoid Robot Manipulation",
+  "description": "Humanoid robot manipulation refers to the ability of these robots to interact physically with objects in their environment using their arms, hands, and grippers. This capability is crucial for performing tasks in human-centric spaces, from grasping tools and operating machinery to handling delicate items and assisting in daily activities. Achieving dexterous and robust manipulation involves complex interplay of kinematics, dynamics, sensing, and control.",
+  "source": "@site/docs/humanoid/manipulation.md",
+  "sourceDirName": "humanoid",
+  "slug": "/humanoid/manipulation",
+  "permalink": "/docs/humanoid/manipulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/manipulation.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "manipulation",
+    "title": "Humanoid Robot Manipulation",
+    "sidebar_label": "Manipulation"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Bipedal Locomotion",
+    "permalink": "/docs/humanoid/bipedal-locomotion"
+  },
+  "next": {
+    "title": "Interaction Design",
+    "permalink": "/docs/humanoid/interaction-design"
+  }
+}

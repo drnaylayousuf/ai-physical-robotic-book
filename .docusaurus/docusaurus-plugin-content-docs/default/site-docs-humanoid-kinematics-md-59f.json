@@ -1,0 +1,28 @@
+{
+  "id": "humanoid/kinematics",
+  "title": "Humanoid Robot Kinematics",
+  "description": "Kinematics is the study of motion without considering the forces that cause it. For humanoid robots, understanding kinematics is fundamental to controlling their pose, manipulating objects, and achieving stable locomotion. This section will cover forward kinematics, inverse kinematics, and the concept of degrees of freedom (DoF) as applied to the complex articulated structure of humanoids.",
+  "source": "@site/docs/humanoid/kinematics.md",
+  "sourceDirName": "humanoid",
+  "slug": "/humanoid/kinematics",
+  "permalink": "/docs/humanoid/kinematics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/kinematics.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "kinematics",
+    "title": "Humanoid Robot Kinematics",
+    "sidebar_label": "Kinematics"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Multimodal Robotics",
+    "permalink": "/docs/modules/module4-vla/multimodal-robotics"
+  },
+  "next": {
+    "title": "Bipedal Locomotion",
+    "permalink": "/docs/humanoid/bipedal-locomotion"
+  }
+}

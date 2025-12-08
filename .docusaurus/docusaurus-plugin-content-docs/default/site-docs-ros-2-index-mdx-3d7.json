@@ -1,0 +1,19 @@
+{
+  "id": "ros2/ros2-overview",
+  "title": "ROS 2 Overview",
+  "description": "ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It's a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot applications. ROS 2 is designed to be production-ready, supporting multiple programming languages, real-time control, and distributed systems across various platforms.",
+  "source": "@site/docs/ros2/index.mdx",
+  "sourceDirName": "ros2",
+  "slug": "/ros2",
+  "permalink": "/docs/ros2",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/index.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ros2-overview",
+    "title": "ROS 2 Overview",
+    "slug": "/ros2"
+  }
+}

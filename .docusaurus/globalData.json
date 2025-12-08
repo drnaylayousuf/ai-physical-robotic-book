@@ -1,0 +1,242 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "api-reference",
+              "path": "/docs/api-reference"
+            },
+            {
+              "id": "capstone/capstone-overview",
+              "path": "/docs/capstone/capstone-overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-pipeline",
+              "path": "/docs/capstone/capstone-pipeline",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/final-demo",
+              "path": "/docs/capstone/final-demo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/system-architecture",
+              "path": "/docs/capstone/system-architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "conversational-robotics/gpt-robots",
+              "path": "/docs/conversational-robotics/gpt-robots",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "conversational-robotics/multimodal-interaction",
+              "path": "/docs/conversational-robotics/multimodal-interaction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "conversational-robotics/speech-recognition",
+              "path": "/docs/conversational-robotics/speech-recognition",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "glossary",
+              "path": "/docs/glossary"
+            },
+            {
+              "id": "humanoid/bipedal-locomotion",
+              "path": "/docs/humanoid/bipedal-locomotion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "humanoid/interaction-design",
+              "path": "/docs/humanoid/interaction-design",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "humanoid/manipulation",
+              "path": "/docs/humanoid/manipulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "index",
+              "path": "/docs/"
+            },
+            {
+              "id": "intro/intro",
+              "path": "/docs/"
+            },
+            {
+              "id": "intro/learning-outcomes",
+              "path": "/docs/intro/learning-outcomes",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/overview",
+              "path": "/docs/intro/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/why-physical-ai-matters",
+              "path": "/docs/intro/why-physical-ai-matters",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "lab/cloud-vs-onprem",
+              "path": "/docs/lab/cloud-vs-onprem",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "lab/edge-kits",
+              "path": "/docs/lab/edge-kits",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "lab/hardware",
+              "path": "/docs/lab/hardware",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "lab/latency-trap",
+              "path": "/docs/lab/latency-trap",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "lab/robot-options",
+              "path": "/docs/lab/robot-options",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module1-ros2/intro",
+              "path": "/docs/modules/module1-ros2/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module1-ros2/nodes-topics-services",
+              "path": "/docs/modules/module1-ros2/nodes-topics-services",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module1-ros2/ros2-architecture",
+              "path": "/docs/modules/module1-ros2/ros2-architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module1-ros2/urdf-humanoids",
+              "path": "/docs/modules/module1-ros2/urdf-humanoids",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module2-simulation/gazebo-physics",
+              "path": "/docs/modules/module2-simulation/gazebo-physics",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module2-simulation/intro",
+              "path": "/docs/modules/module2-simulation/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module2-simulation/sensor-simulation",
+              "path": "/docs/modules/module2-simulation/sensor-simulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module2-simulation/unity-visualization",
+              "path": "/docs/modules/module2-simulation/unity-visualization",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module3-isaac/isaac-intro",
+              "path": "/docs/modules/module3-isaac/isaac-intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module3-isaac/isaac-ros",
+              "path": "/docs/modules/module3-isaac/isaac-ros",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module3-isaac/isaac-sim",
+              "path": "/docs/modules/module3-isaac/isaac-sim",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module3-isaac/nav2-humanoids",
+              "path": "/docs/modules/module3-isaac/nav2-humanoids",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module4-vla/llm-planning",
+              "path": "/docs/modules/module4-vla/llm-planning",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module4-vla/multimodal-robotics",
+              "path": "/docs/modules/module4-vla/multimodal-robotics",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module4-vla/vla-intro",
+              "path": "/docs/modules/module4-vla/vla-intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "modules/module4-vla/whisper-voice-to-action",
+              "path": "/docs/modules/module4-vla/whisper-voice-to-action",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "physical-ai/physical-ai-overview",
+              "path": "/docs/physical-ai"
+            },
+            {
+              "id": "resources",
+              "path": "/docs/resources"
+            },
+            {
+              "id": "ros2/ros2-actions",
+              "path": "/docs/ros2/actions"
+            },
+            {
+              "id": "ros2/ros2-nodes",
+              "path": "/docs/ros2/nodes"
+            },
+            {
+              "id": "ros2/ros2-overview",
+              "path": "/docs/ros2"
+            },
+            {
+              "id": "ros2/ros2-services",
+              "path": "/docs/ros2/services"
+            },
+            {
+              "id": "ros2/ros2-topics",
+              "path": "/docs/ros2/topics"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro/overview",
+                "label": "intro/overview"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

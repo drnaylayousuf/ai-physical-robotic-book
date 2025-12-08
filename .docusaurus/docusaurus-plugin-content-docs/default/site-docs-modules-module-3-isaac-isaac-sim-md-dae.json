@@ -1,0 +1,28 @@
+{
+  "id": "modules/module3-isaac/isaac-sim",
+  "title": "NVIDIA Isaac Sim for High-Fidelity Simulation",
+  "description": "NVIDIA Isaac Sim is a powerful, robotics simulation and synthetic data generation platform built on NVIDIA Omniverse. It offers a highly realistic, physically accurate, and scalable environment for developing, testing, and training AI-powered robots, particularly crucial for complex systems like humanoids. Isaac Sim leverages Universal Scene Description (USD) for its scene representation, enabling rich, collaborative, and interoperable 3D workflows.",
+  "source": "@site/docs/modules/module3-isaac/isaac-sim.md",
+  "sourceDirName": "modules/module3-isaac",
+  "slug": "/modules/module3-isaac/isaac-sim",
+  "permalink": "/docs/modules/module3-isaac/isaac-sim",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/isaac-sim.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "isaac-sim",
+    "title": "NVIDIA Isaac Sim for High-Fidelity Simulation",
+    "sidebar_label": "Isaac Sim"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/modules/module3-isaac/isaac-intro"
+  },
+  "next": {
+    "title": "Isaac ROS",
+    "permalink": "/docs/modules/module3-isaac/isaac-ros"
+  }
+}

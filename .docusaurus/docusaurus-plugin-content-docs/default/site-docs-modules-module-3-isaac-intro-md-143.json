@@ -1,0 +1,28 @@
+{
+  "id": "modules/module3-isaac/isaac-intro",
+  "title": "Introduction to NVIDIA Isaac Platform",
+  "description": "Welcome to Module 3: NVIDIA Isaac Platform. As physical AI and humanoid robotics advance, the demand for powerful simulation, accelerated AI development, and seamless deployment on specialized hardware grows. NVIDIA's Isaac Platform is a comprehensive suite of tools and SDKs designed to meet these needs, providing a unified framework for robotics development, from simulation to real-world deployment.",
+  "source": "@site/docs/modules/module3-isaac/intro.md",
+  "sourceDirName": "modules/module3-isaac",
+  "slug": "/modules/module3-isaac/isaac-intro",
+  "permalink": "/docs/modules/module3-isaac/isaac-intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "isaac-intro",
+    "title": "Introduction to NVIDIA Isaac Platform",
+    "sidebar_label": "Introduction"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Realistic Sensor Simulation: The Eyes and Ears of Virtual Robots",
+    "permalink": "/docs/modules/module2-simulation/sensor-simulation"
+  },
+  "next": {
+    "title": "Isaac Sim",
+    "permalink": "/docs/modules/module3-isaac/isaac-sim"
+  }
+}

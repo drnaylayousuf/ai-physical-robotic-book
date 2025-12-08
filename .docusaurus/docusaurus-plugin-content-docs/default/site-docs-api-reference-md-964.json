@@ -1,0 +1,19 @@
+{
+  "id": "api-reference",
+  "title": "API Reference for Physical AI & Humanoid Robotics",
+  "description": "This document provides reference information for key APIs and interfaces used in Physical AI and humanoid robotics applications. It covers ROS 2 interfaces, NVIDIA Isaac ROS packages, and other relevant APIs.",
+  "source": "@site/docs/api-reference.md",
+  "sourceDirName": ".",
+  "slug": "/api-reference",
+  "permalink": "/docs/api-reference",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api-reference.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "api-reference",
+    "title": "API Reference for Physical AI & Humanoid Robotics",
+    "sidebar_label": "API Reference"
+  }
+}

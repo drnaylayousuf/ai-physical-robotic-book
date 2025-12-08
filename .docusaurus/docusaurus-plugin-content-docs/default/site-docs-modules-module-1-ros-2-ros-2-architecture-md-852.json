@@ -1,0 +1,24 @@
+{
+  "id": "modules/module1-ros2/ros2-architecture",
+  "title": "ROS 2 Architecture: The Robotics Graph",
+  "description": "ROS 2 is built upon a distributed, graph-based architecture that enables flexible and scalable robot software development. Understanding this architecture is fundamental to effectively using ROS 2 for any robotics project, especially for complex systems like humanoids.",
+  "source": "@site/docs/modules/module1-ros2/ros2-architecture.md",
+  "sourceDirName": "modules/module1-ros2",
+  "slug": "/modules/module1-ros2/ros2-architecture",
+  "permalink": "/docs/modules/module1-ros2/ros2-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/ros2-architecture.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 1: ROS 2 Fundamentals - Introduction",
+    "permalink": "/docs/modules/module1-ros2/intro"
+  },
+  "next": {
+    "title": "Nodes, Topics, Services",
+    "permalink": "/docs/modules/module1-ros2/nodes-topics-services"
+  }
+}

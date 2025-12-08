@@ -1,0 +1,24 @@
+{
+  "id": "modules/module2-simulation/sensor-simulation",
+  "title": "Realistic Sensor Simulation: The Eyes and Ears of Virtual Robots",
+  "description": "For physical AI systems, especially humanoid robots, accurate and realistic sensor data is paramount. In simulation environments like Gazebo and Unity, replicating the behavior of real-world sensors is critical for developing robust perception and control algorithms. This section will explore the importance of sensor simulation, common sensor types, and how their data is modeled and accessed.",
+  "source": "@site/docs/modules/module2-simulation/sensor-simulation.md",
+  "sourceDirName": "modules/module2-simulation",
+  "slug": "/modules/module2-simulation/sensor-simulation",
+  "permalink": "/docs/modules/module2-simulation/sensor-simulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/sensor-simulation.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Unity for Robotics Visualization and Interaction",
+    "permalink": "/docs/modules/module2-simulation/unity-visualization"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/docs/modules/module3-isaac/isaac-intro"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "humanoid/interaction-design",
+  "title": "Human-Robot Interaction Design for Humanoids",
+  "description": "Human-Robot Interaction (HRI) design is a critical discipline for humanoid robotics, focusing on creating intuitive, safe, and effective interfaces between humans and robots. Unlike traditional robots operating in isolated environments, humanoids are designed to work alongside, assist, and communicate with humans in shared spaces. This necessitates careful attention to social, cognitive, and physical interaction paradigms.",
+  "source": "@site/docs/humanoid/interaction-design.md",
+  "sourceDirName": "humanoid",
+  "slug": "/humanoid/interaction-design",
+  "permalink": "/docs/humanoid/interaction-design",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/interaction-design.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "interaction-design",
+    "title": "Human-Robot Interaction Design for Humanoids",
+    "sidebar_label": "Interaction Design"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Manipulation",
+    "permalink": "/docs/humanoid/manipulation"
+  },
+  "next": {
+    "title": "GPT & Conversational Robots",
+    "permalink": "/docs/conversational-robotics/gpt-robots"
+  }
+}

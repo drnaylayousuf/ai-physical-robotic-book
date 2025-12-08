@@ -1,0 +1,28 @@
+{
+  "id": "lab/robot-options",
+  "title": "Humanoid Robot Platform Options for Research and Development",
+  "description": "Selecting the right humanoid robot platform is crucial for Physical AI research and development. This document provides an overview of available humanoid robot platforms, comparing their capabilities, limitations, and suitability for different research objectives and budget constraints.",
+  "source": "@site/docs/lab/robot-options.md",
+  "sourceDirName": "lab",
+  "slug": "/lab/robot-options",
+  "permalink": "/docs/lab/robot-options",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/robot-options.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "robot-options",
+    "title": "Humanoid Robot Platform Options for Research and Development",
+    "sidebar_label": "Robot Platform Options"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Edge AI Development Kits",
+    "permalink": "/docs/lab/edge-kits"
+  },
+  "next": {
+    "title": "Cloud vs. On-Premise AI",
+    "permalink": "/docs/lab/cloud-vs-onprem"
+  }
+}

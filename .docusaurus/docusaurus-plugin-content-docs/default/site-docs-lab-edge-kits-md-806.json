@@ -1,0 +1,28 @@
+{
+  "id": "lab/edge-kits",
+  "title": "Edge AI Development Kits for Robotics",
+  "description": "Edge AI development kits provide pre-integrated hardware and software solutions for implementing AI capabilities on robotic platforms. These kits are essential for Physical AI and humanoid robotics applications where real-time processing, low latency, and power efficiency are critical. This document explores various edge AI development options and their applications in robotics.",
+  "source": "@site/docs/lab/edge-kits.md",
+  "sourceDirName": "lab",
+  "slug": "/lab/edge-kits",
+  "permalink": "/docs/lab/edge-kits",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/edge-kits.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "edge-kits",
+    "title": "Edge AI Development Kits for Robotics",
+    "sidebar_label": "Edge AI Development Kits"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Hardware Requirements",
+    "permalink": "/docs/lab/hardware"
+  },
+  "next": {
+    "title": "Robot Platform Options",
+    "permalink": "/docs/lab/robot-options"
+  }
+}

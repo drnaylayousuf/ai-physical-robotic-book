@@ -1,0 +1,24 @@
+{
+  "id": "intro/why-physical-ai-matters",
+  "title": "Why Physical AI Matters",
+  "description": "Physical AI, the integration of artificial intelligence with robotic systems that interact with the real world, represents a monumental leap in technological advancement. Unlike purely software-based AI, physical AI systems embody intelligence in tangible forms, allowing them to perceive, reason, and act within dynamic and unstructured environments. This chapter explores the profound significance of physical AI and why its development is crucial for the future.",
+  "source": "@site/docs/intro/why-physical-ai-matters.md",
+  "sourceDirName": "intro",
+  "slug": "/intro/why-physical-ai-matters",
+  "permalink": "/docs/intro/why-physical-ai-matters",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/why-physical-ai-matters.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Overview of Physical AI & Humanoid Robotics",
+    "permalink": "/docs/intro/overview"
+  },
+  "next": {
+    "title": "Learning Outcomes",
+    "permalink": "/docs/intro/learning-outcomes"
+  }
+}

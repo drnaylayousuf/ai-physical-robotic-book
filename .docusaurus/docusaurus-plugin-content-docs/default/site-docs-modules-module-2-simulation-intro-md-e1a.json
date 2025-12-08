@@ -1,0 +1,24 @@
+{
+  "id": "modules/module2-simulation/intro",
+  "title": "Module 2: Robotics Simulation - Introduction",
+  "description": "Welcome to Module 2 of \"Physical AI & Humanoid Robotics.\" In this module, we shift our focus from the theoretical foundations of ROS 2 to the critical realm of robotics simulation. Simulation is an indispensable tool in modern robotics development, offering a safe, cost-effective, and efficient environment for testing, prototyping, and refining robot behaviors before deployment on physical hardware.",
+  "source": "@site/docs/modules/module2-simulation/intro.md",
+  "sourceDirName": "modules/module2-simulation",
+  "slug": "/modules/module2-simulation/intro",
+  "permalink": "/docs/modules/module2-simulation/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "URDF & Humanoids",
+    "permalink": "/docs/modules/module1-ros2/urdf-humanoids"
+  },
+  "next": {
+    "title": "Gazebo and Physics Simulation: Bringing Robots to Life Virtually",
+    "permalink": "/docs/modules/module2-simulation/gazebo-physics"
+  }
+}

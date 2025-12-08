@@ -1,0 +1,28 @@
+{
+  "id": "lab/cloud-vs-onprem",
+  "title": "Cloud vs. On-Premise AI for Physical AI & Humanoid Robotics",
+  "description": "The decision between cloud-based and on-premise AI processing is critical for Physical AI and humanoid robotics applications. This document explores the trade-offs, benefits, and challenges of each approach, providing guidance for system architects and researchers.",
+  "source": "@site/docs/lab/cloud-vs-onprem.md",
+  "sourceDirName": "lab",
+  "slug": "/lab/cloud-vs-onprem",
+  "permalink": "/docs/lab/cloud-vs-onprem",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/cloud-vs-onprem.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "cloud-vs-onprem",
+    "title": "Cloud vs. On-Premise AI for Physical AI & Humanoid Robotics",
+    "sidebar_label": "Cloud vs. On-Premise AI"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Robot Platform Options",
+    "permalink": "/docs/lab/robot-options"
+  },
+  "next": {
+    "title": "The Latency Trap",
+    "permalink": "/docs/lab/latency-trap"
+  }
+}

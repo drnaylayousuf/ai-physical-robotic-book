@@ -1,0 +1,28 @@
+{
+  "id": "modules/module3-isaac/nav2-humanoids",
+  "title": "Nav2 for Humanoid Robot Navigation",
+  "description": "The ROS 2 Navigation Stack (Nav2) is a powerful and flexible framework for enabling robots to autonomously navigate complex environments. While Nav2 is traditionally designed for wheeled mobile robots, adapting it for humanoid robots introduces unique challenges and requires specialized configurations due to their bipedal locomotion, dynamic stability concerns, and complex kinematics. This section explores how to leverage and customize Nav2 for humanoid navigation.",
+  "source": "@site/docs/modules/module3-isaac/nav2-humanoids.md",
+  "sourceDirName": "modules/module3-isaac",
+  "slug": "/modules/module3-isaac/nav2-humanoids",
+  "permalink": "/docs/modules/module3-isaac/nav2-humanoids",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/nav2-humanoids.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "nav2-humanoids",
+    "title": "Nav2 for Humanoid Robot Navigation",
+    "sidebar_label": "Nav2 & Humanoids"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Isaac ROS",
+    "permalink": "/docs/modules/module3-isaac/isaac-ros"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/docs/modules/module4-vla/vla-intro"
+  }
+}

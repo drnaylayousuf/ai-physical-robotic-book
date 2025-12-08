@@ -1,0 +1,28 @@
+{
+  "id": "capstone/capstone-pipeline",
+  "title": "AI Pipeline for Physical AI Humanoid Robot",
+  "description": "The AI pipeline represents the core data processing flow that transforms human input into physical robot actions. This pipeline integrates multiple AI technologies including speech recognition, large language models, computer vision, and control systems to create a seamless Physical AI experience. Understanding this pipeline is crucial for implementing, optimizing, and troubleshooting the system.",
+  "source": "@site/docs/capstone/pipeline.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/capstone-pipeline",
+  "permalink": "/docs/capstone/capstone-pipeline",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/pipeline.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "capstone-pipeline",
+    "title": "AI Pipeline for Physical AI Humanoid Robot",
+    "sidebar_label": "AI Pipeline"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "System Architecture",
+    "permalink": "/docs/capstone/system-architecture"
+  },
+  "next": {
+    "title": "Final Demonstration",
+    "permalink": "/docs/capstone/final-demo"
+  }
+}

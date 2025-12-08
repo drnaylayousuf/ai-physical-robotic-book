@@ -1,0 +1,28 @@
+{
+  "id": "modules/module4-vla/whisper-voice-to-action",
+  "title": "Whisper and Voice-to-Action for Robotics",
+  "description": "In Vision-Language-Action (VLA) robotics, the ability for a robot to understand spoken human commands is a crucial interface. This is where advanced Automatic Speech Recognition (ASR) models like OpenAI's Whisper play a pivotal role. Whisper, trained on a massive dataset of diverse audio, can accurately transcribe human speech into text, which can then be processed by Large Language Models (LLMs) for task planning and execution in robots.",
+  "source": "@site/docs/modules/module4-vla/whisper-voice-to-action.md",
+  "sourceDirName": "modules/module4-vla",
+  "slug": "/modules/module4-vla/whisper-voice-to-action",
+  "permalink": "/docs/modules/module4-vla/whisper-voice-to-action",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/whisper-voice-to-action.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "whisper-voice-to-action",
+    "title": "Whisper and Voice-to-Action for Robotics",
+    "sidebar_label": "Whisper & Voice-to-Action"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/modules/module4-vla/vla-intro"
+  },
+  "next": {
+    "title": "LLM Planning",
+    "permalink": "/docs/modules/module4-vla/llm-planning"
+  }
+}

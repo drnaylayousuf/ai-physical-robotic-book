@@ -1,0 +1,28 @@
+{
+  "id": "modules/module1-ros2/nodes-topics-services",
+  "title": "ROS 2 Nodes, Topics, and Services",
+  "description": "In the previous section, we introduced the core components of ROS 2 architecture. Now, we'll dive deeper into the practical implementation of Nodes, Topics, and Services, which are the fundamental building blocks for inter-process communication in ROS 2. We will primarily use rclpy, the Python client library, for our examples.",
+  "source": "@site/docs/modules/module1-ros2/nodes-topics-services.md",
+  "sourceDirName": "modules/module1-ros2",
+  "slug": "/modules/module1-ros2/nodes-topics-services",
+  "permalink": "/docs/modules/module1-ros2/nodes-topics-services",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/nodes-topics-services.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "nodes-topics-services",
+    "title": "ROS 2 Nodes, Topics, and Services",
+    "sidebar_label": "Nodes, Topics, Services"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "ROS 2 Architecture: The Robotics Graph",
+    "permalink": "/docs/modules/module1-ros2/ros2-architecture"
+  },
+  "next": {
+    "title": "URDF & Humanoids",
+    "permalink": "/docs/modules/module1-ros2/urdf-humanoids"
+  }
+}

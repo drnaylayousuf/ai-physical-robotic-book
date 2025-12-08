@@ -1,0 +1,19 @@
+{
+  "id": "ros2/ros2-topics",
+  "title": "Topics and Publish/Subscribe",
+  "description": "Topics are the most common way for nodes to exchange data in ROS 2. They implement a publish/subscribe communication model, enabling asynchronous, one-to-many data streaming. A node publishes messages to a named topic, and any other node interested in that data can subscribe to the same topic to receive those messages.",
+  "source": "@site/docs/ros2/topics.mdx",
+  "sourceDirName": "ros2",
+  "slug": "/ros2/topics",
+  "permalink": "/docs/ros2/topics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/topics.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ros2-topics",
+    "title": "Topics and Publish/Subscribe",
+    "slug": "/ros2/topics"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "modules/module2-simulation/unity-visualization",
+  "title": "Unity for Robotics Visualization and Interaction",
+  "description": "While Gazebo excels as a physics-accurate simulator for ROS 2, Unity, a powerful real-time 3D development platform, offers unparalleled capabilities for high-fidelity visualization, complex environmental rendering, and rich human-robot interaction (HRI) experiences. This makes Unity an excellent complementary tool for physical AI and humanoid robotics, especially when the visual fidelity and intuitive interaction are paramount.",
+  "source": "@site/docs/modules/module2-simulation/unity-visualization.md",
+  "sourceDirName": "modules/module2-simulation",
+  "slug": "/modules/module2-simulation/unity-visualization",
+  "permalink": "/docs/modules/module2-simulation/unity-visualization",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/unity-visualization.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Gazebo and Physics Simulation: Bringing Robots to Life Virtually",
+    "permalink": "/docs/modules/module2-simulation/gazebo-physics"
+  },
+  "next": {
+    "title": "Realistic Sensor Simulation: The Eyes and Ears of Virtual Robots",
+    "permalink": "/docs/modules/module2-simulation/sensor-simulation"
+  }
+}

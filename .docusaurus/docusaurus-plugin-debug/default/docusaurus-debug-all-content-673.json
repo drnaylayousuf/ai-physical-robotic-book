@@ -1,0 +1,1376 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "label": "Next",
+          "banner": null,
+          "badge": false,
+          "noIndex": false,
+          "className": "docs-version-current",
+          "path": "/docs",
+          "tagsPath": "/docs/tags",
+          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs",
+          "editUrlLocalized": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/i18n/en/docusaurus-plugin-content-docs/current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "C:\\Users\\nayla\\OneDrive\\Desktop\\humanoid-robotics-book\\sidebar.js",
+          "contentPath": "C:\\Users\\nayla\\OneDrive\\Desktop\\humanoid-robotics-book\\docs",
+          "contentPathLocalized": "C:\\Users\\nayla\\OneDrive\\Desktop\\humanoid-robotics-book\\i18n\\en\\docusaurus-plugin-content-docs\\current",
+          "docs": [
+            {
+              "id": "api-reference",
+              "title": "API Reference for Physical AI & Humanoid Robotics",
+              "description": "This document provides reference information for key APIs and interfaces used in Physical AI and humanoid robotics applications. It covers ROS 2 interfaces, NVIDIA Isaac ROS packages, and other relevant APIs.",
+              "source": "@site/docs/api-reference.md",
+              "sourceDirName": ".",
+              "slug": "/api-reference",
+              "permalink": "/docs/api-reference",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api-reference.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "api-reference",
+                "title": "API Reference for Physical AI & Humanoid Robotics",
+                "sidebar_label": "API Reference"
+              }
+            },
+            {
+              "id": "capstone/capstone-overview",
+              "title": "Capstone Project - Physical AI Humanoid Robot",
+              "description": "Welcome to the capstone project of the \"Physical AI & Humanoid Robotics\" book. This project represents the culmination of all the concepts, tools, and techniques covered in previous modules. You will design, simulate, and implement a functional Physical AI system on a humanoid robot platform that can perceive its environment, reason about tasks, and execute complex actions through natural language interaction.",
+              "source": "@site/docs/capstone/overview.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/capstone-overview",
+              "permalink": "/docs/capstone/capstone-overview",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/overview.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "capstone-overview",
+                "title": "Capstone Project - Physical AI Humanoid Robot",
+                "sidebar_label": "Capstone Overview"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Multimodal Interaction",
+                "permalink": "/docs/conversational-robotics/multimodal-interaction"
+              },
+              "next": {
+                "title": "System Architecture",
+                "permalink": "/docs/capstone/system-architecture"
+              }
+            },
+            {
+              "id": "capstone/capstone-pipeline",
+              "title": "AI Pipeline for Physical AI Humanoid Robot",
+              "description": "The AI pipeline represents the core data processing flow that transforms human input into physical robot actions. This pipeline integrates multiple AI technologies including speech recognition, large language models, computer vision, and control systems to create a seamless Physical AI experience. Understanding this pipeline is crucial for implementing, optimizing, and troubleshooting the system.",
+              "source": "@site/docs/capstone/pipeline.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/capstone-pipeline",
+              "permalink": "/docs/capstone/capstone-pipeline",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/pipeline.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "capstone-pipeline",
+                "title": "AI Pipeline for Physical AI Humanoid Robot",
+                "sidebar_label": "AI Pipeline"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "System Architecture",
+                "permalink": "/docs/capstone/system-architecture"
+              },
+              "next": {
+                "title": "Final Demonstration",
+                "permalink": "/docs/capstone/final-demo"
+              }
+            },
+            {
+              "id": "capstone/final-demo",
+              "title": "Final Demonstration - Physical AI Humanoid Robot",
+              "description": "The final demonstration represents the culmination of your Physical AI Humanoid Robot project. This document outlines the requirements, scenarios, and evaluation criteria for the demonstration, providing guidance on how to showcase the system's capabilities effectively.",
+              "source": "@site/docs/capstone/final-demo.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/final-demo",
+              "permalink": "/docs/capstone/final-demo",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/final-demo.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "final-demo",
+                "title": "Final Demonstration - Physical AI Humanoid Robot",
+                "sidebar_label": "Final Demonstration"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "AI Pipeline",
+                "permalink": "/docs/capstone/capstone-pipeline"
+              },
+              "next": {
+                "title": "Hardware Requirements",
+                "permalink": "/docs/lab/hardware"
+              }
+            },
+            {
+              "id": "capstone/system-architecture",
+              "title": "System Architecture for Physical AI Humanoid Robot",
+              "description": "This document outlines the high-level system architecture for the Physical AI Humanoid Robot capstone project. The architecture integrates multiple complex subsystems to create a cohesive system capable of perceiving, reasoning, and acting in the physical world through natural language interaction.",
+              "source": "@site/docs/capstone/system-architecture.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/system-architecture",
+              "permalink": "/docs/capstone/system-architecture",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/system-architecture.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "system-architecture",
+                "title": "System Architecture for Physical AI Humanoid Robot",
+                "sidebar_label": "System Architecture"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Capstone Overview",
+                "permalink": "/docs/capstone/capstone-overview"
+              },
+              "next": {
+                "title": "AI Pipeline",
+                "permalink": "/docs/capstone/capstone-pipeline"
+              }
+            },
+            {
+              "id": "conversational-robotics/gpt-robots",
+              "title": "GPT and LLM-Driven Conversational Robots",
+              "description": "Large Language Models (LLMs) like GPT have revolutionized the field of conversational robotics, enabling robots to engage in more natural, context-aware, and intelligent interactions with humans. These models, trained on vast amounts of text data, provide the foundation for understanding human language, generating appropriate responses, and even reasoning about complex tasks in a conversational manner.",
+              "source": "@site/docs/conversational-robotics/gpt-robots.md",
+              "sourceDirName": "conversational-robotics",
+              "slug": "/conversational-robotics/gpt-robots",
+              "permalink": "/docs/conversational-robotics/gpt-robots",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/conversational-robotics/gpt-robots.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "gpt-robots",
+                "title": "GPT and LLM-Driven Conversational Robots",
+                "sidebar_label": "GPT & Conversational Robots"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Interaction Design",
+                "permalink": "/docs/humanoid/interaction-design"
+              },
+              "next": {
+                "title": "Speech Recognition",
+                "permalink": "/docs/conversational-robotics/speech-recognition"
+              }
+            },
+            {
+              "id": "conversational-robotics/multimodal-interaction",
+              "title": "Multimodal Interaction in Conversational Robotics",
+              "description": "Multimodal interaction represents the next frontier in conversational robotics, moving beyond speech-only interfaces to incorporate multiple channels of communication including vision, gesture, touch, and context. By integrating information from various sensory modalities, robots can achieve a more comprehensive understanding of human intentions, provide richer feedback, and engage in more natural, intuitive interactions that mirror human communication patterns.",
+              "source": "@site/docs/conversational-robotics/multimodal-interaction.md",
+              "sourceDirName": "conversational-robotics",
+              "slug": "/conversational-robotics/multimodal-interaction",
+              "permalink": "/docs/conversational-robotics/multimodal-interaction",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/conversational-robotics/multimodal-interaction.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "multimodal-interaction",
+                "title": "Multimodal Interaction in Conversational Robotics",
+                "sidebar_label": "Multimodal Interaction"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Speech Recognition",
+                "permalink": "/docs/conversational-robotics/speech-recognition"
+              },
+              "next": {
+                "title": "Capstone Overview",
+                "permalink": "/docs/capstone/capstone-overview"
+              }
+            },
+            {
+              "id": "conversational-robotics/speech-recognition",
+              "title": "Speech Recognition for Conversational Robots",
+              "description": "Speech recognition is a fundamental component of conversational robotics, enabling robots to understand spoken human commands and engage in natural dialogue. This technology transforms audio input into text that can be processed by natural language understanding systems, forming the bridge between human speech and robotic action. For humanoid robots, robust speech recognition is essential for creating intuitive and accessible interactions.",
+              "source": "@site/docs/conversational-robotics/speech-recognition.md",
+              "sourceDirName": "conversational-robotics",
+              "slug": "/conversational-robotics/speech-recognition",
+              "permalink": "/docs/conversational-robotics/speech-recognition",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/conversational-robotics/speech-recognition.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "speech-recognition",
+                "title": "Speech Recognition for Conversational Robots",
+                "sidebar_label": "Speech Recognition"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "GPT & Conversational Robots",
+                "permalink": "/docs/conversational-robotics/gpt-robots"
+              },
+              "next": {
+                "title": "Multimodal Interaction",
+                "permalink": "/docs/conversational-robotics/multimodal-interaction"
+              }
+            },
+            {
+              "id": "glossary",
+              "title": "Glossary of Terms",
+              "description": "This glossary provides definitions for key terms used throughout the \"Physical AI & Humanoid Robotics\" book.",
+              "source": "@site/docs/glossary.md",
+              "sourceDirName": ".",
+              "slug": "/glossary",
+              "permalink": "/docs/glossary",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/glossary.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "glossary",
+                "title": "Glossary of Terms",
+                "sidebar_label": "Glossary"
+              }
+            },
+            {
+              "id": "humanoid/bipedal-locomotion",
+              "title": "Humanoid Robot Bipedal Locomotion",
+              "description": "Bipedal locomotion—the ability to walk on two legs—is one of the defining characteristics of humanoid robots and simultaneously one of their most challenging aspects. Achieving stable, efficient, and versatile walking in humanoids requires sophisticated control strategies that manage balance, generate gaits, and adapt to diverse terrains. This section explores the fundamental concepts and techniques behind bipedal locomotion.",
+              "source": "@site/docs/humanoid/bipedal-locomotion.md",
+              "sourceDirName": "humanoid",
+              "slug": "/humanoid/bipedal-locomotion",
+              "permalink": "/docs/humanoid/bipedal-locomotion",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/bipedal-locomotion.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "bipedal-locomotion",
+                "title": "Humanoid Robot Bipedal Locomotion",
+                "sidebar_label": "Bipedal Locomotion"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Multimodal Robotics",
+                "permalink": "/docs/modules/module4-vla/multimodal-robotics"
+              },
+              "next": {
+                "title": "Manipulation",
+                "permalink": "/docs/humanoid/manipulation"
+              }
+            },
+            {
+              "id": "humanoid/interaction-design",
+              "title": "Human-Robot Interaction Design for Humanoids",
+              "description": "Human-Robot Interaction (HRI) design is a critical discipline for humanoid robotics, focusing on creating intuitive, safe, and effective interfaces between humans and robots. Unlike traditional robots operating in isolated environments, humanoids are designed to work alongside, assist, and communicate with humans in shared spaces. This necessitates careful attention to social, cognitive, and physical interaction paradigms.",
+              "source": "@site/docs/humanoid/interaction-design.md",
+              "sourceDirName": "humanoid",
+              "slug": "/humanoid/interaction-design",
+              "permalink": "/docs/humanoid/interaction-design",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/interaction-design.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "interaction-design",
+                "title": "Human-Robot Interaction Design for Humanoids",
+                "sidebar_label": "Interaction Design"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Manipulation",
+                "permalink": "/docs/humanoid/manipulation"
+              },
+              "next": {
+                "title": "GPT & Conversational Robots",
+                "permalink": "/docs/conversational-robotics/gpt-robots"
+              }
+            },
+            {
+              "id": "humanoid/manipulation",
+              "title": "Humanoid Robot Manipulation",
+              "description": "Humanoid robot manipulation refers to the ability of these robots to interact physically with objects in their environment using their arms, hands, and grippers. This capability is crucial for performing tasks in human-centric spaces, from grasping tools and operating machinery to handling delicate items and assisting in daily activities. Achieving dexterous and robust manipulation involves complex interplay of kinematics, dynamics, sensing, and control.",
+              "source": "@site/docs/humanoid/manipulation.md",
+              "sourceDirName": "humanoid",
+              "slug": "/humanoid/manipulation",
+              "permalink": "/docs/humanoid/manipulation",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/humanoid/manipulation.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "manipulation",
+                "title": "Humanoid Robot Manipulation",
+                "sidebar_label": "Manipulation"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Bipedal Locomotion",
+                "permalink": "/docs/humanoid/bipedal-locomotion"
+              },
+              "next": {
+                "title": "Interaction Design",
+                "permalink": "/docs/humanoid/interaction-design"
+              }
+            },
+            {
+              "id": "index",
+              "title": "Physical AI & Humanoid Robotics - Index",
+              "description": "This index provides an organized reference to key topics, concepts, and content covered throughout the \"Physical AI & Humanoid Robotics\" book. It serves as a comprehensive guide to help you quickly locate specific information across all modules and chapters.",
+              "source": "@site/docs/index.md",
+              "sourceDirName": ".",
+              "slug": "/",
+              "permalink": "/docs/",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/index.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "index",
+                "title": "Physical AI & Humanoid Robotics - Index",
+                "sidebar_label": "Index"
+              }
+            },
+            {
+              "id": "intro/intro",
+              "title": "Introduction",
+              "description": "Welcome to the Physical AI & Humanoid Robotics course! This book is designed to guide you through the exciting world of embodied intelligence, where AI systems interact with the physical world through robotic bodies. Over the next 13 weeks, you will learn to build, simulate, and control autonomous humanoids that respond to voice commands, using cutting-edge technologies like ROS 2, Gazebo, Unity, and NVIDIA Isaac Sim.",
+              "source": "@site/docs/intro/index.mdx",
+              "sourceDirName": "intro",
+              "slug": "/",
+              "permalink": "/docs/",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/index.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "intro",
+                "title": "Introduction",
+                "slug": "/"
+              }
+            },
+            {
+              "id": "intro/learning-outcomes",
+              "title": "Learning Outcomes",
+              "description": "This introductory module aims to establish a foundational understanding of Physical AI and its profound implications, particularly within the domain of humanoid robotics. Upon completing this module, you will be able to:",
+              "source": "@site/docs/intro/learning-outcomes.md",
+              "sourceDirName": "intro",
+              "slug": "/intro/learning-outcomes",
+              "permalink": "/docs/intro/learning-outcomes",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/learning-outcomes.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Why Physical AI Matters",
+                "permalink": "/docs/intro/why-physical-ai-matters"
+              },
+              "next": {
+                "title": "Module 1: ROS 2 Fundamentals - Introduction",
+                "permalink": "/docs/modules/module1-ros2/intro"
+              }
+            },
+            {
+              "id": "intro/overview",
+              "title": "Overview of Physical AI & Humanoid Robotics",
+              "description": "This book explores the exciting and rapidly evolving fields of Physical AI and Humanoid Robotics. We will delve into the theoretical foundations, practical applications, and future potential of intelligent robots that interact with the physical world.",
+              "source": "@site/docs/intro/overview.md",
+              "sourceDirName": "intro",
+              "slug": "/intro/overview",
+              "permalink": "/docs/intro/overview",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/overview.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "Why Physical AI Matters",
+                "permalink": "/docs/intro/why-physical-ai-matters"
+              }
+            },
+            {
+              "id": "intro/why-physical-ai-matters",
+              "title": "Why Physical AI Matters",
+              "description": "Physical AI, the integration of artificial intelligence with robotic systems that interact with the real world, represents a monumental leap in technological advancement. Unlike purely software-based AI, physical AI systems embody intelligence in tangible forms, allowing them to perceive, reason, and act within dynamic and unstructured environments. This chapter explores the profound significance of physical AI and why its development is crucial for the future.",
+              "source": "@site/docs/intro/why-physical-ai-matters.md",
+              "sourceDirName": "intro",
+              "slug": "/intro/why-physical-ai-matters",
+              "permalink": "/docs/intro/why-physical-ai-matters",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/why-physical-ai-matters.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Overview of Physical AI & Humanoid Robotics",
+                "permalink": "/docs/intro/overview"
+              },
+              "next": {
+                "title": "Learning Outcomes",
+                "permalink": "/docs/intro/learning-outcomes"
+              }
+            },
+            {
+              "id": "lab/cloud-vs-onprem",
+              "title": "Cloud vs. On-Premise AI for Physical AI & Humanoid Robotics",
+              "description": "The decision between cloud-based and on-premise AI processing is critical for Physical AI and humanoid robotics applications. This document explores the trade-offs, benefits, and challenges of each approach, providing guidance for system architects and researchers.",
+              "source": "@site/docs/lab/cloud-vs-onprem.md",
+              "sourceDirName": "lab",
+              "slug": "/lab/cloud-vs-onprem",
+              "permalink": "/docs/lab/cloud-vs-onprem",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/cloud-vs-onprem.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "cloud-vs-onprem",
+                "title": "Cloud vs. On-Premise AI for Physical AI & Humanoid Robotics",
+                "sidebar_label": "Cloud vs. On-Premise AI"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Robot Platform Options",
+                "permalink": "/docs/lab/robot-options"
+              },
+              "next": {
+                "title": "The Latency Trap",
+                "permalink": "/docs/lab/latency-trap"
+              }
+            },
+            {
+              "id": "lab/edge-kits",
+              "title": "Edge AI Development Kits for Robotics",
+              "description": "Edge AI development kits provide pre-integrated hardware and software solutions for implementing AI capabilities on robotic platforms. These kits are essential for Physical AI and humanoid robotics applications where real-time processing, low latency, and power efficiency are critical. This document explores various edge AI development options and their applications in robotics.",
+              "source": "@site/docs/lab/edge-kits.md",
+              "sourceDirName": "lab",
+              "slug": "/lab/edge-kits",
+              "permalink": "/docs/lab/edge-kits",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/edge-kits.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "edge-kits",
+                "title": "Edge AI Development Kits for Robotics",
+                "sidebar_label": "Edge AI Development Kits"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Hardware Requirements",
+                "permalink": "/docs/lab/hardware"
+              },
+              "next": {
+                "title": "Robot Platform Options",
+                "permalink": "/docs/lab/robot-options"
+              }
+            },
+            {
+              "id": "lab/hardware",
+              "title": "Hardware Requirements for Physical AI & Humanoid Robotics",
+              "description": "Implementing Physical AI and humanoid robotics systems requires careful consideration of hardware capabilities, constraints, and trade-offs. This document outlines the essential hardware components and their requirements for building effective Physical AI systems, from simulation to deployment on physical platforms.",
+              "source": "@site/docs/lab/hardware.md",
+              "sourceDirName": "lab",
+              "slug": "/lab/hardware",
+              "permalink": "/docs/lab/hardware",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/hardware.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "hardware",
+                "title": "Hardware Requirements for Physical AI & Humanoid Robotics",
+                "sidebar_label": "Hardware Requirements"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Final Demonstration",
+                "permalink": "/docs/capstone/final-demo"
+              },
+              "next": {
+                "title": "Edge AI Development Kits",
+                "permalink": "/docs/lab/edge-kits"
+              }
+            },
+            {
+              "id": "lab/latency-trap",
+              "title": "The Latency Trap in Physical AI & Humanoid Robotics",
+              "description": "Latency is one of the most critical and often underestimated challenges in Physical AI and humanoid robotics. The \"latency trap\" refers to the phenomenon where seemingly acceptable delays in AI processing, communication, or control create cascading failures that compromise robot safety, performance, and user experience. Understanding and managing latency is essential for successful Physical AI systems.",
+              "source": "@site/docs/lab/latency-trap.md",
+              "sourceDirName": "lab",
+              "slug": "/lab/latency-trap",
+              "permalink": "/docs/lab/latency-trap",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/latency-trap.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "latency-trap",
+                "title": "The Latency Trap in Physical AI & Humanoid Robotics",
+                "sidebar_label": "The Latency Trap"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Cloud vs. On-Premise AI",
+                "permalink": "/docs/lab/cloud-vs-onprem"
+              }
+            },
+            {
+              "id": "lab/robot-options",
+              "title": "Humanoid Robot Platform Options for Research and Development",
+              "description": "Selecting the right humanoid robot platform is crucial for Physical AI research and development. This document provides an overview of available humanoid robot platforms, comparing their capabilities, limitations, and suitability for different research objectives and budget constraints.",
+              "source": "@site/docs/lab/robot-options.md",
+              "sourceDirName": "lab",
+              "slug": "/lab/robot-options",
+              "permalink": "/docs/lab/robot-options",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/lab/robot-options.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "robot-options",
+                "title": "Humanoid Robot Platform Options for Research and Development",
+                "sidebar_label": "Robot Platform Options"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Edge AI Development Kits",
+                "permalink": "/docs/lab/edge-kits"
+              },
+              "next": {
+                "title": "Cloud vs. On-Premise AI",
+                "permalink": "/docs/lab/cloud-vs-onprem"
+              }
+            },
+            {
+              "id": "modules/module1-ros2/intro",
+              "title": "Module 1: ROS 2 Fundamentals - Introduction",
+              "description": "Welcome to Module 1: ROS 2 Fundamentals. This module serves as your essential guide to understanding and utilizing the Robot Operating System 2 (ROS 2), a flexible framework for writing robot software. As we delve into Physical AI and humanoid robotics, a robust middleware like ROS 2 becomes indispensable for managing the complex interactions between various hardware components, sensors, actuators, and intelligent algorithms.",
+              "source": "@site/docs/modules/module1-ros2/intro.md",
+              "sourceDirName": "modules/module1-ros2",
+              "slug": "/modules/module1-ros2/intro",
+              "permalink": "/docs/modules/module1-ros2/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/intro.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Learning Outcomes",
+                "permalink": "/docs/intro/learning-outcomes"
+              },
+              "next": {
+                "title": "ROS 2 Architecture: The Robotics Graph",
+                "permalink": "/docs/modules/module1-ros2/ros2-architecture"
+              }
+            },
+            {
+              "id": "modules/module1-ros2/nodes-topics-services",
+              "title": "ROS 2 Nodes, Topics, and Services",
+              "description": "In the previous section, we introduced the core components of ROS 2 architecture. Now, we'll dive deeper into the practical implementation of Nodes, Topics, and Services, which are the fundamental building blocks for inter-process communication in ROS 2. We will primarily use rclpy, the Python client library, for our examples.",
+              "source": "@site/docs/modules/module1-ros2/nodes-topics-services.md",
+              "sourceDirName": "modules/module1-ros2",
+              "slug": "/modules/module1-ros2/nodes-topics-services",
+              "permalink": "/docs/modules/module1-ros2/nodes-topics-services",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/nodes-topics-services.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "nodes-topics-services",
+                "title": "ROS 2 Nodes, Topics, and Services",
+                "sidebar_label": "Nodes, Topics, Services"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "ROS 2 Architecture: The Robotics Graph",
+                "permalink": "/docs/modules/module1-ros2/ros2-architecture"
+              },
+              "next": {
+                "title": "URDF & Humanoids",
+                "permalink": "/docs/modules/module1-ros2/urdf-humanoids"
+              }
+            },
+            {
+              "id": "modules/module1-ros2/ros2-architecture",
+              "title": "ROS 2 Architecture: The Robotics Graph",
+              "description": "ROS 2 is built upon a distributed, graph-based architecture that enables flexible and scalable robot software development. Understanding this architecture is fundamental to effectively using ROS 2 for any robotics project, especially for complex systems like humanoids.",
+              "source": "@site/docs/modules/module1-ros2/ros2-architecture.md",
+              "sourceDirName": "modules/module1-ros2",
+              "slug": "/modules/module1-ros2/ros2-architecture",
+              "permalink": "/docs/modules/module1-ros2/ros2-architecture",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/ros2-architecture.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Module 1: ROS 2 Fundamentals - Introduction",
+                "permalink": "/docs/modules/module1-ros2/intro"
+              },
+              "next": {
+                "title": "Nodes, Topics, Services",
+                "permalink": "/docs/modules/module1-ros2/nodes-topics-services"
+              }
+            },
+            {
+              "id": "modules/module1-ros2/urdf-humanoids",
+              "title": "URDF for Humanoid Robot Models",
+              "description": "In this section, we delve into the Unified Robot Description Format (URDF), a critical XML-based file format used in ROS 2 to describe the physical properties of a robot. URDF defines the robot's kinematics (how its parts are connected) and dynamics (mass, inertia), which are essential for simulation, visualization, and control. For humanoid robots, precise URDF modeling is paramount due to their complex articulated structure and balance requirements.",
+              "source": "@site/docs/modules/module1-ros2/urdf-humanoids.md",
+              "sourceDirName": "modules/module1-ros2",
+              "slug": "/modules/module1-ros2/urdf-humanoids",
+              "permalink": "/docs/modules/module1-ros2/urdf-humanoids",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/urdf-humanoids.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "urdf-humanoids",
+                "title": "URDF for Humanoid Robot Models",
+                "sidebar_label": "URDF & Humanoids"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Nodes, Topics, Services",
+                "permalink": "/docs/modules/module1-ros2/nodes-topics-services"
+              },
+              "next": {
+                "title": "Module 2: Robotics Simulation - Introduction",
+                "permalink": "/docs/modules/module2-simulation/intro"
+              }
+            },
+            {
+              "id": "modules/module2-simulation/gazebo-physics",
+              "title": "Gazebo and Physics Simulation: Bringing Robots to Life Virtually",
+              "description": "Gazebo is a powerful open-source 3D robotics simulator that allows you to accurately test your robot designs and algorithms in a virtual environment. It's an essential tool for physical AI development, providing realistic physics simulation, high-quality rendering, and a robust interface for sensors and actuators. For humanoid robots, which involve complex dynamics and balance, Gazebo's accurate physics engine is indispensable.",
+              "source": "@site/docs/modules/module2-simulation/gazebo-physics.md",
+              "sourceDirName": "modules/module2-simulation",
+              "slug": "/modules/module2-simulation/gazebo-physics",
+              "permalink": "/docs/modules/module2-simulation/gazebo-physics",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/gazebo-physics.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Module 2: Robotics Simulation - Introduction",
+                "permalink": "/docs/modules/module2-simulation/intro"
+              },
+              "next": {
+                "title": "Unity for Robotics Visualization and Interaction",
+                "permalink": "/docs/modules/module2-simulation/unity-visualization"
+              }
+            },
+            {
+              "id": "modules/module2-simulation/intro",
+              "title": "Module 2: Robotics Simulation - Introduction",
+              "description": "Welcome to Module 2 of \"Physical AI & Humanoid Robotics.\" In this module, we shift our focus from the theoretical foundations of ROS 2 to the critical realm of robotics simulation. Simulation is an indispensable tool in modern robotics development, offering a safe, cost-effective, and efficient environment for testing, prototyping, and refining robot behaviors before deployment on physical hardware.",
+              "source": "@site/docs/modules/module2-simulation/intro.md",
+              "sourceDirName": "modules/module2-simulation",
+              "slug": "/modules/module2-simulation/intro",
+              "permalink": "/docs/modules/module2-simulation/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "URDF & Humanoids",
+                "permalink": "/docs/modules/module1-ros2/urdf-humanoids"
+              },
+              "next": {
+                "title": "Gazebo and Physics Simulation: Bringing Robots to Life Virtually",
+                "permalink": "/docs/modules/module2-simulation/gazebo-physics"
+              }
+            },
+            {
+              "id": "modules/module2-simulation/sensor-simulation",
+              "title": "Realistic Sensor Simulation: The Eyes and Ears of Virtual Robots",
+              "description": "For physical AI systems, especially humanoid robots, accurate and realistic sensor data is paramount. In simulation environments like Gazebo and Unity, replicating the behavior of real-world sensors is critical for developing robust perception and control algorithms. This section will explore the importance of sensor simulation, common sensor types, and how their data is modeled and accessed.",
+              "source": "@site/docs/modules/module2-simulation/sensor-simulation.md",
+              "sourceDirName": "modules/module2-simulation",
+              "slug": "/modules/module2-simulation/sensor-simulation",
+              "permalink": "/docs/modules/module2-simulation/sensor-simulation",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/sensor-simulation.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Unity for Robotics Visualization and Interaction",
+                "permalink": "/docs/modules/module2-simulation/unity-visualization"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/docs/modules/module3-isaac/isaac-intro"
+              }
+            },
+            {
+              "id": "modules/module2-simulation/unity-visualization",
+              "title": "Unity for Robotics Visualization and Interaction",
+              "description": "While Gazebo excels as a physics-accurate simulator for ROS 2, Unity, a powerful real-time 3D development platform, offers unparalleled capabilities for high-fidelity visualization, complex environmental rendering, and rich human-robot interaction (HRI) experiences. This makes Unity an excellent complementary tool for physical AI and humanoid robotics, especially when the visual fidelity and intuitive interaction are paramount.",
+              "source": "@site/docs/modules/module2-simulation/unity-visualization.md",
+              "sourceDirName": "modules/module2-simulation",
+              "slug": "/modules/module2-simulation/unity-visualization",
+              "permalink": "/docs/modules/module2-simulation/unity-visualization",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module2-simulation/unity-visualization.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Gazebo and Physics Simulation: Bringing Robots to Life Virtually",
+                "permalink": "/docs/modules/module2-simulation/gazebo-physics"
+              },
+              "next": {
+                "title": "Realistic Sensor Simulation: The Eyes and Ears of Virtual Robots",
+                "permalink": "/docs/modules/module2-simulation/sensor-simulation"
+              }
+            },
+            {
+              "id": "modules/module3-isaac/isaac-intro",
+              "title": "Introduction to NVIDIA Isaac Platform",
+              "description": "Welcome to Module 3: NVIDIA Isaac Platform. As physical AI and humanoid robotics advance, the demand for powerful simulation, accelerated AI development, and seamless deployment on specialized hardware grows. NVIDIA's Isaac Platform is a comprehensive suite of tools and SDKs designed to meet these needs, providing a unified framework for robotics development, from simulation to real-world deployment.",
+              "source": "@site/docs/modules/module3-isaac/intro.md",
+              "sourceDirName": "modules/module3-isaac",
+              "slug": "/modules/module3-isaac/isaac-intro",
+              "permalink": "/docs/modules/module3-isaac/isaac-intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "isaac-intro",
+                "title": "Introduction to NVIDIA Isaac Platform",
+                "sidebar_label": "Introduction"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Realistic Sensor Simulation: The Eyes and Ears of Virtual Robots",
+                "permalink": "/docs/modules/module2-simulation/sensor-simulation"
+              },
+              "next": {
+                "title": "Isaac Sim",
+                "permalink": "/docs/modules/module3-isaac/isaac-sim"
+              }
+            },
+            {
+              "id": "modules/module3-isaac/isaac-ros",
+              "title": "NVIDIA Isaac ROS for Accelerated Robotics",
+              "description": "NVIDIA Isaac ROS is a collection of hardware-accelerated packages for ROS 2 that leverage NVIDIA GPUs to dramatically improve the performance of robotics applications. It bridges the gap between the ROS 2 ecosystem and NVIDIA's accelerated computing platform, enabling developers to build more capable and efficient physical AI and humanoid robotic systems.",
+              "source": "@site/docs/modules/module3-isaac/isaac-ros.md",
+              "sourceDirName": "modules/module3-isaac",
+              "slug": "/modules/module3-isaac/isaac-ros",
+              "permalink": "/docs/modules/module3-isaac/isaac-ros",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/isaac-ros.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "isaac-ros",
+                "title": "NVIDIA Isaac ROS for Accelerated Robotics",
+                "sidebar_label": "Isaac ROS"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Isaac Sim",
+                "permalink": "/docs/modules/module3-isaac/isaac-sim"
+              },
+              "next": {
+                "title": "Nav2 & Humanoids",
+                "permalink": "/docs/modules/module3-isaac/nav2-humanoids"
+              }
+            },
+            {
+              "id": "modules/module3-isaac/isaac-sim",
+              "title": "NVIDIA Isaac Sim for High-Fidelity Simulation",
+              "description": "NVIDIA Isaac Sim is a powerful, robotics simulation and synthetic data generation platform built on NVIDIA Omniverse. It offers a highly realistic, physically accurate, and scalable environment for developing, testing, and training AI-powered robots, particularly crucial for complex systems like humanoids. Isaac Sim leverages Universal Scene Description (USD) for its scene representation, enabling rich, collaborative, and interoperable 3D workflows.",
+              "source": "@site/docs/modules/module3-isaac/isaac-sim.md",
+              "sourceDirName": "modules/module3-isaac",
+              "slug": "/modules/module3-isaac/isaac-sim",
+              "permalink": "/docs/modules/module3-isaac/isaac-sim",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/isaac-sim.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "isaac-sim",
+                "title": "NVIDIA Isaac Sim for High-Fidelity Simulation",
+                "sidebar_label": "Isaac Sim"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/docs/modules/module3-isaac/isaac-intro"
+              },
+              "next": {
+                "title": "Isaac ROS",
+                "permalink": "/docs/modules/module3-isaac/isaac-ros"
+              }
+            },
+            {
+              "id": "modules/module3-isaac/nav2-humanoids",
+              "title": "Nav2 for Humanoid Robot Navigation",
+              "description": "The ROS 2 Navigation Stack (Nav2) is a powerful and flexible framework for enabling robots to autonomously navigate complex environments. While Nav2 is traditionally designed for wheeled mobile robots, adapting it for humanoid robots introduces unique challenges and requires specialized configurations due to their bipedal locomotion, dynamic stability concerns, and complex kinematics. This section explores how to leverage and customize Nav2 for humanoid navigation.",
+              "source": "@site/docs/modules/module3-isaac/nav2-humanoids.md",
+              "sourceDirName": "modules/module3-isaac",
+              "slug": "/modules/module3-isaac/nav2-humanoids",
+              "permalink": "/docs/modules/module3-isaac/nav2-humanoids",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/nav2-humanoids.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "nav2-humanoids",
+                "title": "Nav2 for Humanoid Robot Navigation",
+                "sidebar_label": "Nav2 & Humanoids"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Isaac ROS",
+                "permalink": "/docs/modules/module3-isaac/isaac-ros"
+              },
+              "next": {
+                "title": "Introduction",
+                "permalink": "/docs/modules/module4-vla/vla-intro"
+              }
+            },
+            {
+              "id": "modules/module4-vla/llm-planning",
+              "title": "LLM-Driven Task Planning for Robotics",
+              "description": "One of the most exciting advancements in Vision-Language-Action (VLA) robotics is the use of Large Language Models (LLMs) for high-level task planning. Instead of meticulously programming every robot action, LLMs can interpret human commands, reason about the environment, and generate executable plans or even code snippets for robots. This greatly enhances a robot's flexibility and ability to handle novel situations.",
+              "source": "@site/docs/modules/module4-vla/llm-planning.md",
+              "sourceDirName": "modules/module4-vla",
+              "slug": "/modules/module4-vla/llm-planning",
+              "permalink": "/docs/modules/module4-vla/llm-planning",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/llm-planning.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "llm-planning",
+                "title": "LLM-Driven Task Planning for Robotics",
+                "sidebar_label": "LLM Planning"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Whisper & Voice-to-Action",
+                "permalink": "/docs/modules/module4-vla/whisper-voice-to-action"
+              },
+              "next": {
+                "title": "Multimodal Robotics",
+                "permalink": "/docs/modules/module4-vla/multimodal-robotics"
+              }
+            },
+            {
+              "id": "modules/module4-vla/multimodal-robotics",
+              "title": "Multimodal Robotics for Comprehensive Understanding",
+              "description": "For humanoid robots to truly operate intelligently and robustly in complex, human-centric environments, they must integrate information from multiple sensory modalities, much like humans do. This field, known as Multimodal Robotics, combines vision, language, audio, touch, and other sensor data to achieve a comprehensive understanding of the world, enabling richer perception, more robust reasoning, and more intuitive human-robot interaction. It is a critical component of advanced Vision-Language-Action (VLA) systems.",
+              "source": "@site/docs/modules/module4-vla/multimodal-robotics.md",
+              "sourceDirName": "modules/module4-vla",
+              "slug": "/modules/module4-vla/multimodal-robotics",
+              "permalink": "/docs/modules/module4-vla/multimodal-robotics",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/multimodal-robotics.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "multimodal-robotics",
+                "title": "Multimodal Robotics for Comprehensive Understanding",
+                "sidebar_label": "Multimodal Robotics"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "LLM Planning",
+                "permalink": "/docs/modules/module4-vla/llm-planning"
+              },
+              "next": {
+                "title": "Bipedal Locomotion",
+                "permalink": "/docs/humanoid/bipedal-locomotion"
+              }
+            },
+            {
+              "id": "modules/module4-vla/vla-intro",
+              "title": "Introduction to Vision-Language-Action (VLA) Robotics",
+              "description": "Welcome to Module 4: Vision-Language-Action (VLA) Robotics. This is a cutting-edge field at the intersection of computer vision, natural language processing, and robot control, aiming to create robots that can understand human instructions in natural language, perceive the world through visual input, and perform complex physical actions. VLA robotics is crucial for achieving truly intelligent and intuitive human-robot interaction, especially for humanoids operating in unstructured environments.",
+              "source": "@site/docs/modules/module4-vla/intro.md",
+              "sourceDirName": "modules/module4-vla",
+              "slug": "/modules/module4-vla/vla-intro",
+              "permalink": "/docs/modules/module4-vla/vla-intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "vla-intro",
+                "title": "Introduction to Vision-Language-Action (VLA) Robotics",
+                "sidebar_label": "Introduction"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Nav2 & Humanoids",
+                "permalink": "/docs/modules/module3-isaac/nav2-humanoids"
+              },
+              "next": {
+                "title": "Whisper & Voice-to-Action",
+                "permalink": "/docs/modules/module4-vla/whisper-voice-to-action"
+              }
+            },
+            {
+              "id": "modules/module4-vla/whisper-voice-to-action",
+              "title": "Whisper and Voice-to-Action for Robotics",
+              "description": "In Vision-Language-Action (VLA) robotics, the ability for a robot to understand spoken human commands is a crucial interface. This is where advanced Automatic Speech Recognition (ASR) models like OpenAI's Whisper play a pivotal role. Whisper, trained on a massive dataset of diverse audio, can accurately transcribe human speech into text, which can then be processed by Large Language Models (LLMs) for task planning and execution in robots.",
+              "source": "@site/docs/modules/module4-vla/whisper-voice-to-action.md",
+              "sourceDirName": "modules/module4-vla",
+              "slug": "/modules/module4-vla/whisper-voice-to-action",
+              "permalink": "/docs/modules/module4-vla/whisper-voice-to-action",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module4-vla/whisper-voice-to-action.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "whisper-voice-to-action",
+                "title": "Whisper and Voice-to-Action for Robotics",
+                "sidebar_label": "Whisper & Voice-to-Action"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/docs/modules/module4-vla/vla-intro"
+              },
+              "next": {
+                "title": "LLM Planning",
+                "permalink": "/docs/modules/module4-vla/llm-planning"
+              }
+            },
+            {
+              "id": "physical-ai/physical-ai-overview",
+              "title": "Physical AI Overview",
+              "description": "Physical AI, also known as Embodied Intelligence, refers to artificial intelligence systems that are integrated into physical bodies (robots) and interact with the real world through sensors and actuators. Unlike traditional AI that operates solely in virtual environments, Physical AI agents perceive their surroundings, make decisions, and execute actions in dynamic, often unpredictable, physical spaces.",
+              "source": "@site/docs/physical-ai/index.mdx",
+              "sourceDirName": "physical-ai",
+              "slug": "/physical-ai",
+              "permalink": "/docs/physical-ai",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/physical-ai/index.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "physical-ai-overview",
+                "title": "Physical AI Overview",
+                "slug": "/physical-ai"
+              }
+            },
+            {
+              "id": "resources",
+              "title": "Recommended Resources for Physical AI & Humanoid Robotics",
+              "description": "This page provides a curated list of resources to support your learning and development in Physical AI and humanoid robotics. These include books, papers, tools, communities, and educational materials.",
+              "source": "@site/docs/resources.md",
+              "sourceDirName": ".",
+              "slug": "/resources",
+              "permalink": "/docs/resources",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/resources.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "resources",
+                "title": "Recommended Resources for Physical AI & Humanoid Robotics",
+                "sidebar_label": "Resources"
+              }
+            },
+            {
+              "id": "ros2/ros2-actions",
+              "title": "Actions and Long-Running Tasks",
+              "description": "Actions in ROS 2 are designed for long-running, goal-oriented tasks that may require periodic feedback and the ability to be preempted (cancelled). They build upon the concepts of topics and services, providing a more robust communication pattern for complex operations like moving a robot to a target pose, grasping an object, or performing a lengthy computation.",
+              "source": "@site/docs/ros2/actions.mdx",
+              "sourceDirName": "ros2",
+              "slug": "/ros2/actions",
+              "permalink": "/docs/ros2/actions",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/actions.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "ros2-actions",
+                "title": "Actions and Long-Running Tasks",
+                "slug": "/ros2/actions"
+              }
+            },
+            {
+              "id": "ros2/ros2-nodes",
+              "title": "Nodes and Executables",
+              "description": "In ROS 2, a node is an executable that performs a specific task. Think of nodes as modular, independent programs that communicate with each other to achieve a larger robotic goal. For example, one node might be responsible for reading data from a LiDAR sensor, another for calculating the robot's position, and yet another for sending commands to motors.",
+              "source": "@site/docs/ros2/nodes.mdx",
+              "sourceDirName": "ros2",
+              "slug": "/ros2/nodes",
+              "permalink": "/docs/ros2/nodes",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/nodes.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "ros2-nodes",
+                "title": "Nodes and Executables",
+                "slug": "/ros2/nodes"
+              }
+            },
+            {
+              "id": "ros2/ros2-overview",
+              "title": "ROS 2 Overview",
+              "description": "ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It's a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot applications. ROS 2 is designed to be production-ready, supporting multiple programming languages, real-time control, and distributed systems across various platforms.",
+              "source": "@site/docs/ros2/index.mdx",
+              "sourceDirName": "ros2",
+              "slug": "/ros2",
+              "permalink": "/docs/ros2",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/index.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "ros2-overview",
+                "title": "ROS 2 Overview",
+                "slug": "/ros2"
+              }
+            },
+            {
+              "id": "ros2/ros2-services",
+              "title": "Services and Request/Response",
+              "description": "Services in ROS 2 provide a synchronous request/response communication model, ideal for operations that require an immediate result or a single exchange of information between two nodes. Unlike topics, which are one-to-many and asynchronous, services are one-to-one and block until a response is received.",
+              "source": "@site/docs/ros2/services.mdx",
+              "sourceDirName": "ros2",
+              "slug": "/ros2/services",
+              "permalink": "/docs/ros2/services",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/services.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "ros2-services",
+                "title": "Services and Request/Response",
+                "slug": "/ros2/services"
+              }
+            },
+            {
+              "id": "ros2/ros2-topics",
+              "title": "Topics and Publish/Subscribe",
+              "description": "Topics are the most common way for nodes to exchange data in ROS 2. They implement a publish/subscribe communication model, enabling asynchronous, one-to-many data streaming. A node publishes messages to a named topic, and any other node interested in that data can subscribe to the same topic to receive those messages.",
+              "source": "@site/docs/ros2/topics.mdx",
+              "sourceDirName": "ros2",
+              "slug": "/ros2/topics",
+              "permalink": "/docs/ros2/topics",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ros2/topics.mdx",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {
+                "id": "ros2-topics",
+                "title": "Topics and Publish/Subscribe",
+                "slug": "/ros2/topics"
+              }
+            }
+          ],
+          "drafts": [],
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "doc",
+                "id": "intro/overview"
+              },
+              {
+                "type": "doc",
+                "id": "intro/why-physical-ai-matters"
+              },
+              {
+                "type": "doc",
+                "id": "intro/learning-outcomes"
+              },
+              {
+                "type": "category",
+                "label": "Modules",
+                "items": [
+                  {
+                    "type": "category",
+                    "label": "Module 1 - ROS 2 Fundamentals",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "modules/module1-ros2/intro"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module1-ros2/ros2-architecture"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module1-ros2/nodes-topics-services"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module1-ros2/urdf-humanoids"
+                      }
+                    ],
+                    "collapsed": true,
+                    "collapsible": true
+                  },
+                  {
+                    "type": "category",
+                    "label": "Module 2 - Simulation",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "modules/module2-simulation/intro"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module2-simulation/gazebo-physics"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module2-simulation/unity-visualization"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module2-simulation/sensor-simulation"
+                      }
+                    ],
+                    "collapsed": true,
+                    "collapsible": true
+                  },
+                  {
+                    "type": "category",
+                    "label": "Module 3 - NVIDIA Isaac Platform",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "modules/module3-isaac/isaac-intro"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module3-isaac/isaac-sim"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module3-isaac/isaac-ros"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module3-isaac/nav2-humanoids"
+                      }
+                    ],
+                    "collapsed": true,
+                    "collapsible": true
+                  },
+                  {
+                    "type": "category",
+                    "label": "Module 4 - Vision-Language-Action Robotics (LLM-Driven Robots)",
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "modules/module4-vla/vla-intro"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module4-vla/whisper-voice-to-action"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module4-vla/llm-planning"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "modules/module4-vla/multimodal-robotics"
+                      }
+                    ],
+                    "collapsed": true,
+                    "collapsible": true
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Humanoid Robotics",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "humanoid/bipedal-locomotion"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "humanoid/manipulation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "humanoid/interaction-design"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Conversational Robotics",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "conversational-robotics/gpt-robots"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "conversational-robotics/speech-recognition"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "conversational-robotics/multimodal-interaction"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Capstone Project",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "capstone/capstone-overview"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "capstone/system-architecture"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "capstone/capstone-pipeline"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "capstone/final-demo"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Lab Setup",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "lab/hardware"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "lab/edge-kits"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "lab/robot-options"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "lab/cloud-vs-onprem"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "lab/latency-trap"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {},
+  "docusaurus-theme-classic": {},
+  "docusaurus-bootstrap-plugin": {},
+  "docusaurus-mdx-fallback-plugin": {}
+}

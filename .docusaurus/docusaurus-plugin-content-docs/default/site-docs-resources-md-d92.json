@@ -1,0 +1,19 @@
+{
+  "id": "resources",
+  "title": "Recommended Resources for Physical AI & Humanoid Robotics",
+  "description": "This page provides a curated list of resources to support your learning and development in Physical AI and humanoid robotics. These include books, papers, tools, communities, and educational materials.",
+  "source": "@site/docs/resources.md",
+  "sourceDirName": ".",
+  "slug": "/resources",
+  "permalink": "/docs/resources",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/resources.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "resources",
+    "title": "Recommended Resources for Physical AI & Humanoid Robotics",
+    "sidebar_label": "Resources"
+  }
+}

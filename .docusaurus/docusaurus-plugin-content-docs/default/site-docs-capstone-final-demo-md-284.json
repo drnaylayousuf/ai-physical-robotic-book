@@ -1,0 +1,28 @@
+{
+  "id": "capstone/final-demo",
+  "title": "Final Demonstration - Physical AI Humanoid Robot",
+  "description": "The final demonstration represents the culmination of your Physical AI Humanoid Robot project. This document outlines the requirements, scenarios, and evaluation criteria for the demonstration, providing guidance on how to showcase the system's capabilities effectively.",
+  "source": "@site/docs/capstone/final-demo.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/final-demo",
+  "permalink": "/docs/capstone/final-demo",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/capstone/final-demo.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "final-demo",
+    "title": "Final Demonstration - Physical AI Humanoid Robot",
+    "sidebar_label": "Final Demonstration"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "AI Pipeline",
+    "permalink": "/docs/capstone/capstone-pipeline"
+  },
+  "next": {
+    "title": "Hardware Requirements",
+    "permalink": "/docs/lab/hardware"
+  }
+}

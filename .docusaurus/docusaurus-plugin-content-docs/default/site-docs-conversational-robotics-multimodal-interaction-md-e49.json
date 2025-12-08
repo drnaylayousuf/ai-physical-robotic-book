@@ -1,0 +1,28 @@
+{
+  "id": "conversational-robotics/multimodal-interaction",
+  "title": "Multimodal Interaction in Conversational Robotics",
+  "description": "Multimodal interaction represents the next frontier in conversational robotics, moving beyond speech-only interfaces to incorporate multiple channels of communication including vision, gesture, touch, and context. By integrating information from various sensory modalities, robots can achieve a more comprehensive understanding of human intentions, provide richer feedback, and engage in more natural, intuitive interactions that mirror human communication patterns.",
+  "source": "@site/docs/conversational-robotics/multimodal-interaction.md",
+  "sourceDirName": "conversational-robotics",
+  "slug": "/conversational-robotics/multimodal-interaction",
+  "permalink": "/docs/conversational-robotics/multimodal-interaction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/conversational-robotics/multimodal-interaction.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "multimodal-interaction",
+    "title": "Multimodal Interaction in Conversational Robotics",
+    "sidebar_label": "Multimodal Interaction"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Speech Recognition",
+    "permalink": "/docs/conversational-robotics/speech-recognition"
+  },
+  "next": {
+    "title": "Capstone Overview",
+    "permalink": "/docs/capstone/capstone-overview"
+  }
+}

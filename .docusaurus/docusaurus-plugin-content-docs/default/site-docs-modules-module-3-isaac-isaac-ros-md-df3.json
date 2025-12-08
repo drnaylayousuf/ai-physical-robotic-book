@@ -1,0 +1,28 @@
+{
+  "id": "modules/module3-isaac/isaac-ros",
+  "title": "NVIDIA Isaac ROS for Accelerated Robotics",
+  "description": "NVIDIA Isaac ROS is a collection of hardware-accelerated packages for ROS 2 that leverage NVIDIA GPUs to dramatically improve the performance of robotics applications. It bridges the gap between the ROS 2 ecosystem and NVIDIA's accelerated computing platform, enabling developers to build more capable and efficient physical AI and humanoid robotic systems.",
+  "source": "@site/docs/modules/module3-isaac/isaac-ros.md",
+  "sourceDirName": "modules/module3-isaac",
+  "slug": "/modules/module3-isaac/isaac-ros",
+  "permalink": "/docs/modules/module3-isaac/isaac-ros",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module3-isaac/isaac-ros.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "isaac-ros",
+    "title": "NVIDIA Isaac ROS for Accelerated Robotics",
+    "sidebar_label": "Isaac ROS"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Isaac Sim",
+    "permalink": "/docs/modules/module3-isaac/isaac-sim"
+  },
+  "next": {
+    "title": "Nav2 & Humanoids",
+    "permalink": "/docs/modules/module3-isaac/nav2-humanoids"
+  }
+}

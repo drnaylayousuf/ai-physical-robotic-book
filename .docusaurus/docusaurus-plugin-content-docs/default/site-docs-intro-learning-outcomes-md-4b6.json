@@ -1,0 +1,27 @@
+{
+  "id": "intro/learning-outcomes",
+  "title": "Learning Outcomes",
+  "description": "This introductory module aims to establish a foundational understanding of Physical AI and its profound implications, particularly within the domain of humanoid robotics. Upon completing this module, you will be able to:",
+  "source": "@site/docs/intro/learning-outcomes.md",
+  "sourceDirName": "intro",
+  "slug": "/intro/learning-outcomes",
+  "permalink": "/docs/intro/learning-outcomes",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro/learning-outcomes.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Why Physical AI Matters",
+    "permalink": "/docs/intro/why-physical-ai-matters"
+  },
+  "next": {
+    "title": "Module 1: ROS 2 Fundamentals - Introduction",
+    "permalink": "/docs/modules/module1-ros2/intro"
+  }
+}

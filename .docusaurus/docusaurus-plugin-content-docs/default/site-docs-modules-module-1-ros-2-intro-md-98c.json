@@ -1,0 +1,27 @@
+{
+  "id": "modules/module1-ros2/intro",
+  "title": "Module 1: ROS 2 Fundamentals - Introduction",
+  "description": "Welcome to Module 1: ROS 2 Fundamentals. This module serves as your essential guide to understanding and utilizing the Robot Operating System 2 (ROS 2), a flexible framework for writing robot software. As we delve into Physical AI and humanoid robotics, a robust middleware like ROS 2 becomes indispensable for managing the complex interactions between various hardware components, sensors, actuators, and intelligent algorithms.",
+  "source": "@site/docs/modules/module1-ros2/intro.md",
+  "sourceDirName": "modules/module1-ros2",
+  "slug": "/modules/module1-ros2/intro",
+  "permalink": "/docs/modules/module1-ros2/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/modules/module1-ros2/intro.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Learning Outcomes",
+    "permalink": "/docs/intro/learning-outcomes"
+  },
+  "next": {
+    "title": "ROS 2 Architecture: The Robotics Graph",
+    "permalink": "/docs/modules/module1-ros2/ros2-architecture"
+  }
+}

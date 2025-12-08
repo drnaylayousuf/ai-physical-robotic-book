@@ -1,0 +1,19 @@
+{
+  "id": "physical-ai/physical-ai-overview",
+  "title": "Physical AI Overview",
+  "description": "Physical AI, also known as Embodied Intelligence, refers to artificial intelligence systems that are integrated into physical bodies (robots) and interact with the real world through sensors and actuators. Unlike traditional AI that operates solely in virtual environments, Physical AI agents perceive their surroundings, make decisions, and execute actions in dynamic, often unpredictable, physical spaces.",
+  "source": "@site/docs/physical-ai/index.mdx",
+  "sourceDirName": "physical-ai",
+  "slug": "/physical-ai",
+  "permalink": "/docs/physical-ai",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/physical-ai/index.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "physical-ai-overview",
+    "title": "Physical AI Overview",
+    "slug": "/physical-ai"
+  }
+}
