@@ -1,0 +1,64 @@
+# API Contract: Chatbot Service
+
+## Overview
+This document describes the API contract for the chatbot service used by the floating widget component.
+
+## Base URL
+`http://localhost:8000/api`
+
+## Endpoints
+
+### POST /ask
+Submit a user query and receive a response from the RAG system.
+
+#### Request
+```json
+{
+  "query": "string, the user's question",
+  "context": {
+    "pageId": "string, identifier for the current page",
+    "pageTitle": "string, title of the current page",
+    "pageContentPreview": "string, preview of current page content",
+    "sectionInfo": {
+      "currentHeading": "string, current section heading",
+      "url": "string, current page URL",
+      "pathname": "string, current page path"
+    },
+    "lastUpdated": "string, ISO date of last update"
+  }
+}
+```
+
+#### Response
+```json
+{
+  "response": "string, the AI-generated response",
+  "sources": [
+    {
+      "title": "string, title of the source document",
+      "url": "string, URL to the source",
+      "content": "string, relevant content snippet"
+    }
+  ],
+  "status": "string, success or error",
+  "timestamp": "string, ISO date of response"
+}
+```
+
+#### Error Response
+```json
+{
+  "error": "string, error message",
+  "status": "string, error status code",
+  "timestamp": "string, ISO date of error"
+}
+```
+
+### Headers
+- `Content-Type: application/json`
+- `Accept: application/json`
+
+### Status Codes
+- `200`: Success
+- `400`: Bad request (invalid input)
+- `500`: Internal server error

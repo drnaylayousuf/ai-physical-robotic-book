@@ -151,6 +151,21 @@
               }
             },
             {
+              "id": "chatbot-floating-widget",
+              "title": "Chatbot Floating Widget Documentation",
+              "description": "Overview",
+              "source": "@site/docs/chatbot-floating-widget.md",
+              "sourceDirName": ".",
+              "slug": "/chatbot-floating-widget",
+              "permalink": "/docs/chatbot-floating-widget",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/chatbot-floating-widget.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
               "id": "conversational-robotics/gpt-robots",
               "title": "GPT and LLM-Driven Conversational Robots",
               "description": "Large Language Models (LLMs) like GPT have revolutionized the field of conversational robotics, enabling robots to engage in more natural, context-aware, and intelligent interactions with humans. These models, trained on vast amounts of text data, provide the foundation for understanding human language, generating appropriate responses, and even reasoning about complex tasks in a conversational manner.",
@@ -1364,8 +1379,33 @@
     "default": [
       {
         "type": "jsx",
+        "permalink": "/dashboard",
+        "source": "@site/src/pages/dashboard.tsx"
+      },
+      {
+        "type": "jsx",
         "permalink": "/",
         "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/onboarding",
+        "source": "@site/src/pages/onboarding.tsx"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/profile",
+        "source": "@site/src/pages/profile.tsx"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/signin",
+        "source": "@site/src/pages/signin.tsx"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/signup",
+        "source": "@site/src/pages/signup.tsx"
       }
     ]
   },

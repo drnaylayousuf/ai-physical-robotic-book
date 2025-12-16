@@ -1,0 +1,34 @@
+---
+id: ros2-overview
+title: ROS 2 Overview
+slug: /ros2
+---
+
+# ROS 2: The Robot Operating System
+
+ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It's a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot applications. ROS 2 is designed to be production-ready, supporting multiple programming languages, real-time control, and distributed systems across various platforms.
+
+## Why ROS 2?
+
+Modern robotics applications are inherently complex, involving multiple sensors, actuators, and decision-making algorithms. ROS 2 provides:
+
+*   **Modularity**: Break down complex problems into smaller, manageable components (nodes).
+*   **Communication**: Standardized mechanisms for components to exchange data (topics, services, actions).
+*   **Tooling**: A rich ecosystem of tools for visualization, debugging, and simulation.
+*   **Community**: A large and active community contributing to its development and providing support.
+*   **Multi-Platform**: Support for Linux, Windows, and macOS, facilitating development and deployment.
+
+## Core Concepts of ROS 2
+
+At the heart of ROS 2 are several fundamental concepts that enable distributed and modular robot applications. We will explore these in detail:
+
+1.  **Nodes**: Executables that perform computations (e.g., a node for reading sensor data, another for controlling motors).
+2.  **Topics**: A publish/subscribe mechanism for asynchronous, one-to-many communication.
+3.  **Services**: A request/response mechanism for synchronous, one-to-one communication.
+4.  **Actions**: For long-running, goal-oriented tasks that require feedback and potential cancellation.
+5.  **`rclpy`**: The Python client library for ROS 2, allowing you to write ROS 2 applications in Python.
+6.  **Launch Files**: XML or Python files used to orchestrate the startup of multiple ROS 2 nodes and configurations.
+7.  **URDF (Unified Robot Description Format)**: An XML format for describing the kinematic and dynamic properties of a robot.
+8.  **Packages**: The primary unit of organization in ROS 2, containing nodes, launch files, and other resources.
+
+In the following chapters, we will dive deeper into each of these concepts, providing practical examples and exercises to solidify your understanding. You will learn how to create your own ROS 2 packages and build a foundation for developing sophisticated robotic systems.

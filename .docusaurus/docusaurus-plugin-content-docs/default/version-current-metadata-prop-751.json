@@ -351,6 +351,11 @@
       "description": "This document outlines the high-level system architecture for the Physical AI Humanoid Robot capstone project. The architecture integrates multiple complex subsystems to create a cohesive system capable of perceiving, reasoning, and acting in the physical world through natural language interaction.",
       "sidebar": "tutorialSidebar"
     },
+    "chatbot-floating-widget": {
+      "id": "chatbot-floating-widget",
+      "title": "Chatbot Floating Widget Documentation",
+      "description": "Overview"
+    },
     "conversational-robotics/gpt-robots": {
       "id": "conversational-robotics/gpt-robots",
       "title": "GPT and LLM-Driven Conversational Robots",

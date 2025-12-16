@@ -1,0 +1,62 @@
+---
+id: physical-ai-overview
+title: Physical AI Overview
+slug: /physical-ai
+---
+
+# Physical AI & Embodied Intelligence
+
+Physical AI, also known as Embodied Intelligence, refers to artificial intelligence systems that are integrated into physical bodies (robots) and interact with the real world through sensors and actuators. Unlike traditional AI that operates solely in virtual environments, Physical AI agents perceive their surroundings, make decisions, and execute actions in dynamic, often unpredictable, physical spaces.
+
+## The Humanoid Landscape
+
+Humanoid robots represent a significant frontier in Physical AI. Their bipedal form and human-like manipulation capabilities make them ideal for tasks in human-centric environments, from assisting in homes and hospitals to performing complex industrial work. The development of humanoids involves overcoming significant challenges in balance, locomotion, manipulation, and human-robot interaction (HRI).
+
+### Key Characteristics of Humanoids:
+
+*   **Bipedal Locomotion**: Walking, running, and navigating complex terrains on two legs.
+*   **Manipulation**: Using arms and hands to interact with objects.
+*   **Sensory Perception**: Gathering information about the environment through various sensors.
+*   **Human-Robot Interaction (HRI)**: Communicating and collaborating with humans naturally.
+
+## Essential Sensors for Physical AI
+
+Robots perceive the world through a suite of sensors, each providing different types of information. Understanding these sensors is crucial for building robust Physical AI systems.
+
+### 1. LiDAR (Light Detection and Ranging)
+*   **Function**: Measures distances to objects by illuminating the target with a laser and measuring the time for the reflected light to return.
+*   **Output**: Generates a 2D or 3D point cloud representing the robot's surroundings.
+*   **Applications**: Mapping, localization, obstacle detection, navigation.
+
+### 2. RGB-D Cameras
+*   **Function**: Combines a standard color (RGB) image with a depth (D) image, providing both visual appearance and distance information for each pixel.
+*   **Output**: Color images and depth maps.
+*   **Applications**: Object recognition, 3D reconstruction, human pose estimation, grasping. (e.g., Intel RealSense, Microsoft Azure Kinect)
+
+### 3. IMUs (Inertial Measurement Units)
+*   **Function**: Measures a robot's orientation, angular velocity, and linear acceleration.
+*   **Components**: Typically includes accelerometers, gyroscopes, and sometimes magnetometers.
+*   **Output**: 3-axis acceleration, 3-axis angular velocity, and orientation (pitch, roll, yaw).
+*   **Applications**: Balance control, gait analysis, navigation (especially in GPS-denied environments), motion tracking.
+
+### 4. F/T Sensors (Force/Torque Sensors)
+*   **Function**: Measures forces and torques applied to a robot's end-effectors (e.g., hands, feet).
+*   **Output**: 6-axis force and torque data.
+*   **Applications**: Compliant control for manipulation, grasping delicate objects, detecting collisions, force feedback in human-robot collaboration.
+
+## Physics-Aware AI
+
+Traditional AI often treats the world as abstract data. Physics-aware AI, however, explicitly incorporates the laws of physics into its models and decision-making processes. This is vital for Physical AI because:
+
+*   **Realism**: It enables more realistic simulations and predictions of robot behavior in the physical world.
+*   **Robustness**: Robots can better handle uncertainties and disturbances by understanding underlying physical principles.
+*   **Safety**: By predicting physical interactions, robots can operate more safely around humans and in complex environments.
+*   **Efficiency**: Physics-informed models can learn faster and require less real-world data, leveraging prior knowledge.
+
+Incorporating physics into AI often involves techniques like:
+
+*   **Physics Engines**: Using simulation environments (Gazebo, Isaac Sim) that accurately model rigid body dynamics, contacts, and friction.
+*   **Differentiable Physics**: Integrating physics simulations directly into neural networks, allowing for end-to-end learning where the physics itself is part of the optimization process.
+*   **Model Predictive Control (MPC)**: Using a dynamic model of the robot and its environment to predict future states and optimize control actions over a receding horizon.
+
+By combining rich sensory input with physics-aware AI, we can develop humanoids that are not only intelligent but also physically competent and safe.

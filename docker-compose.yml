@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://user:password@db:5432/rag_chatbot
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_API_KEY=
+      - QDRANT_COLLECTION_NAME=book_chunks
+      - GEMINI_API_KEY=
+      - GEMINI_MODEL=gemini-2.5-flash
+      - COHERE_API_KEY=
+      - BOOK_CONTENT_PATH=./doc
+      - CHUNK_SIZE=512
+      - CHUNK_OVERLAP=64
+      - MAX_CONTEXT_LENGTH=2048
+      - SECRET_KEY=your-secret-key-here
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+    depends_on:
+      - db
+      - qdrant
+    volumes:
+      - ./doc:/app/doc
+      - ./backend:/app/backend
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: rag_chatbot
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  postgres_data:
+  qdrant_data:

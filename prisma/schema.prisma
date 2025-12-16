@@ -1,0 +1,32 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String       @id @default(cuid())
+  email          String       @unique
+  name           String?
+  emailVerified  DateTime?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  profile        UserProfile?
+}
+
+model UserProfile {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id])
+  pythonProficiency   String   // enum values: "BEGINNER", "INTERMEDIATE", "EXPERT"
+  operatingSystem     String   // enum values: "WINDOWS", "MACOS", "LINUX", "OTHER"
+  preferredEnvironment String  // enum values: "LOCAL_MACHINE", "CLOUD_ENVIRONMENT"
+  onboardingComplete  Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

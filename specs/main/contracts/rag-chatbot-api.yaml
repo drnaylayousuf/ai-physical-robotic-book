@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: RAG Chatbot API for Physical AI and Humanoid Robotics Book
+  description: API for interacting with the RAG chatbot system
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://api.yourdomain.com
+    description: Production server
+
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns system status
+      responses:
+        '200':
+          description: System is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  timestamp:
+                    type: string
+                    example: "2025-12-09T10:00:00Z"
+
+  /metadata:
+    get:
+      summary: Get book metadata
+      description: Returns book structure and chapter information
+      responses:
+        '200':
+          description: Book metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  title:
+                    type: string
+                    example: "Physical AI & Humanoid Robotics"
+                  chapters:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: "ch1-intro"
+                        title:
+                          type: string
+                          example: "Introduction to Physical AI"
+                        path:
+                          type: string
+                          example: "/docs/intro/overview.md"
+
+  /auth/register:
+    post:
+      summary: Register a new user
+      description: Creates a new user account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - email
+                - password
+              properties:
+                username:
+                  type: string
+                  example: "johndoe"
+                email:
+                  type: string
+                  format: email
+                  example: "john@example.com"
+                password:
+                  type: string
+                  format: password
+                  example: "securepassword123"
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  username:
+                    type: string
+                    example: "johndoe"
+                  email:
+                    type: string
+                    example: "john@example.com"
+
+  /auth/login:
+    post:
+      summary: User login
+      description: Authenticates user and returns access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                  example: "johndoe"
+                password:
+                  type: string
+                  format: password
+                  example: "securepassword123"
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  token_type:
+                    type: string
+                    example: "bearer"
+
+  /auth/profile:
+    get:
+      summary: Get user profile
+      description: Returns authenticated user's profile information
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User profile retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  username:
+                    type: string
+                    example: "johndoe"
+                  email:
+                    type: string
+                    example: "john@example.com"
+                  role:
+                    type: string
+                    example: "user"
+
+  /ask:
+    post:
+      summary: Ask a question about the book
+      description: Handles RAG-based question answering with two modes
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - question
+                - mode
+              properties:
+                question:
+                  type: string
+                  example: "What is embodied intelligence?"
+                mode:
+                  type: string
+                  enum: [full_book, selected_text]
+                  example: "full_book"
+                selected_text:
+                  type: string
+                  example: "Embodied intelligence refers to AI systems that interact with the physical world..."
+                user_id:
+                  type: string
+                  example: "12345"
+      responses:
+        '200':
+          description: Question answered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    example: "Embodied intelligence refers to AI systems that interact with the physical world through sensors and actuators..."
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        chunk_id:
+                          type: string
+                          example: "ch1-p12-abc123"
+                        content:
+                          type: string
+                          example: "Embodied intelligence is the idea that intelligence emerges from the interaction between an agent and its environment..."
+                        confidence:
+                          type: number
+                          format: float
+                          example: 0.85
+                  references:
+                    type: array
+                    items:
+                      type: string
+                    example: ["ch1-para-12", "ch2-para-5"]
+
+  /ingest:
+    post:
+      summary: Ingest book content
+      description: Upload and vectorize book content from doc folder (admin access only)
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Content ingested successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  chunks_processed:
+                    type: integer
+                    example: 150
+                  timestamp:
+                    type: string
+                    example: "2025-12-09T10:00:00Z"
+
+  /admin:
+    get:
+      summary: Administrative functions
+      description: Administrative functions (admin access only)
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Admin data retrieved successfully
+
+  /moderate:
+    get:
+      summary: Content moderation
+      description: Content moderation functions (moderator and admin access)
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Moderation data retrieved successfully
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

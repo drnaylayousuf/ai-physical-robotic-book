@@ -3,16 +3,76 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/__docusaurus/debug',
+    component: ComponentCreator('/__docusaurus/debug', '0ce'),
+    exact: true
+  },
+  {
+    path: '/__docusaurus/debug/config',
+    component: ComponentCreator('/__docusaurus/debug/config', 'dd5'),
+    exact: true
+  },
+  {
+    path: '/__docusaurus/debug/content',
+    component: ComponentCreator('/__docusaurus/debug/content', 'd9f'),
+    exact: true
+  },
+  {
+    path: '/__docusaurus/debug/globalData',
+    component: ComponentCreator('/__docusaurus/debug/globalData', '68f'),
+    exact: true
+  },
+  {
+    path: '/__docusaurus/debug/metadata',
+    component: ComponentCreator('/__docusaurus/debug/metadata', '3f0'),
+    exact: true
+  },
+  {
+    path: '/__docusaurus/debug/registry',
+    component: ComponentCreator('/__docusaurus/debug/registry', 'c47'),
+    exact: true
+  },
+  {
+    path: '/__docusaurus/debug/routes',
+    component: ComponentCreator('/__docusaurus/debug/routes', '108'),
+    exact: true
+  },
+  {
+    path: '/dashboard',
+    component: ComponentCreator('/dashboard', 'c07'),
+    exact: true
+  },
+  {
+    path: '/onboarding',
+    component: ComponentCreator('/onboarding', 'd54'),
+    exact: true
+  },
+  {
+    path: '/profile',
+    component: ComponentCreator('/profile', '55e'),
+    exact: true
+  },
+  {
+    path: '/signin',
+    component: ComponentCreator('/signin', 'b81'),
+    exact: true
+  },
+  {
+    path: '/signup',
+    component: ComponentCreator('/signup', 'b30'),
+    exact: true
+  },
+  {
     path: '/docs',
-    component: ComponentCreator('/docs', 'ce5'),
+    component: ComponentCreator('/docs', '465'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '663'),
+        component: ComponentCreator('/docs', 'd1f'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '3a1'),
+            component: ComponentCreator('/docs', '41d'),
             routes: [
               {
                 path: '/docs/',
@@ -52,6 +112,11 @@ export default [
                 component: ComponentCreator('/docs/capstone/system-architecture', 'c67'),
                 exact: true,
                 sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/chatbot-floating-widget',
+                component: ComponentCreator('/docs/chatbot-floating-widget', 'aa1'),
+                exact: true
               },
               {
                 path: '/docs/conversational-robotics/gpt-robots',

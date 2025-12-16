@@ -11,14 +11,21 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push"
   },
   "dependencies": {
     "@docusaurus/core": "3.1.0",
     "@docusaurus/preset-classic": "3.1.0",
     "@mdx-js/react": "^3.0.0",
+    "@neondatabase/serverless": "^0.9.3",
+    "@prisma/client": "^5.22.0",
+    "better-auth": "^0.4.5",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
+    "prisma": "^5.10.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

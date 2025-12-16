@@ -35,6 +35,10 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "chatbot-floating-widget",
+              "path": "/docs/chatbot-floating-widget"
+            },
+            {
               "id": "conversational-robotics/gpt-robots",
               "path": "/docs/conversational-robotics/gpt-robots",
               "sidebar": "tutorialSidebar"

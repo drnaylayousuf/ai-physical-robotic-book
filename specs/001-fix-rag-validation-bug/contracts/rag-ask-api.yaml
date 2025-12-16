@@ -1,0 +1,54 @@
+# API Contract: RAG Ask Endpoint
+
+## Endpoint: `POST /api/ask`
+
+### Request
+```json
+{
+  "question": "string (required)",
+  "mode": "string (required, enum: 'full_book', 'selected_text')",
+  "selected_text": "string (optional)",
+  "user_id": "string (optional)"
+}
+```
+
+### Response (Success - 200)
+```json
+{
+  "response": "string",
+  "sources": [
+    {
+      "chunk_id": "string",
+      "content": "string",
+      "score": "number",
+      "source": "string"
+    }
+  ],
+  "references": ["string"]
+}
+```
+
+### Response (Validation Error - 400)
+```json
+{
+  "detail": "string"
+}
+```
+
+### Response (Server Error - 500)
+```json
+{
+  "detail": "string"
+}
+```
+
+### Validation Rules
+1. `question` must be 3-1000 characters and contain at least one alphanumeric character
+2. `mode` must be either "full_book" or "selected_text"
+3. When `mode` is "selected_text", `selected_text` must not be null, empty, or whitespace-only
+4. If validation fails, return 400 status with appropriate error message
+
+### Special Behavior
+- When `mode` is "selected_text" but `selected_text` is null/empty/whitespace-only:
+  - **Option 1**: Automatically fallback to "full_book" mode with appropriate logging
+  - **Option 2**: Return 400 validation error (to be determined by implementation)
