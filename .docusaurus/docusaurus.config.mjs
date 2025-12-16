@@ -52,7 +52,7 @@ export default {
           "label": "Book"
         },
         {
-          "href": "https://github.com/facebook/docusaurus",
+          "href": "https://github.com/drnaylayousuf/ai-physical-robotic-book",
           "label": "GitHub",
           "position": "right"
         }
@@ -93,7 +93,7 @@ export default {
           "items": [
             {
               "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
+              "href": "https://github.com/drnaylayousuf/ai-physical-robotic-book"
             }
           ]
         }
