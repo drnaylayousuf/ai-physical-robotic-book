@@ -12,16 +12,23 @@ class CohereEmbeddingService:
 
     def __init__(self):
         if not settings.COHERE_API_KEY:
-            raise ValueError("COHERE_API_KEY is required for Cohere embedding service")
-
-        self.client = cohere.Client(settings.COHERE_API_KEY)
-        self.model = settings.EMBEDDING_MODEL if settings.EMBEDDING_MODEL != "text-embedding-3-large" else "embed-english-v3.0"
-        logger.info(f"Configured Cohere embedding service with model: {self.model}")
+            logger.warning("COHERE_API_KEY not set. Cohere embedding service will use fallback embeddings.")
+            self.client = None
+            self.model = settings.EMBEDDING_MODEL if settings.EMBEDDING_MODEL != "text-embedding-3-large" else "embed-english-v3.0"
+        else:
+            self.client = cohere.Client(settings.COHERE_API_KEY)
+            self.model = settings.EMBEDDING_MODEL if settings.EMBEDDING_MODEL != "text-embedding-3-large" else "embed-english-v3.0"
+            logger.info(f"Configured Cohere embedding service with model: {self.model}")
 
     async def generate_embedding(self, text: str) -> List[float]:
         """
         Generate embedding for text using Cohere API
         """
+        if self.client is None:
+            # Return a default embedding as fallback when API key is not set
+            logger.warning("Cohere client not available, returning default embedding")
+            return [0.0] * settings.EMBEDDING_DIMENSION
+
         try:
             # Use the Cohere API to generate embeddings
             response = self.client.embed(
@@ -44,6 +51,11 @@ class CohereEmbeddingService:
         """
         if not texts:
             return []
+
+        if self.client is None:
+            # Return default embeddings as fallback when API key is not set
+            logger.warning("Cohere client not available, returning default embeddings for batch")
+            return [[0.0] * settings.EMBEDDING_DIMENSION for _ in texts]
 
         try:
             # Use the Cohere API to generate embeddings for batch

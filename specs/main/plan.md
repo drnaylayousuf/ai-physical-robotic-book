@@ -1,47 +1,66 @@
-# Implementation Plan: Integrated RAG Chatbot for Physical AI and Humanoid Robotics Book
+# Implementation Plan: [FEATURE]
 
-**Branch**: `feature/humanoid-robotics-rag-chatbot` | **Date**: 2025-12-09 | **Spec**: [specs/humanoid-robotics-rag-chatbot/spec.md](../humanoid-robotics-rag-chatbot/spec.md)
-**Input**: Feature specification from `/specs/humanoid-robotics-rag-chatbot/spec.md`
+**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
+**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
 **Note**: This template is filled in by the `/sp.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
 
 ## Summary
 
-Develop and embed a Retrieval-Augmented Generation (RAG) chatbot into a published book on physical AI and humanoid robotics. The chatbot will use the book's content to answer user questions, including queries based on user-selected text. The system uses FastAPI backend with Qdrant vector database and Neon Postgres for metadata, integrated with ChatKit-JS frontend. The system implements full authentication with role-based access control, comprehensive error handling, and performance targets of <2s response time with support for 1000+ concurrent users.
+Fix the configuration issue where the chatbot UI returns "The book does not provide details about this topic. No context is available and no generative model is configured." This occurs due to a mismatch between the UI calling port 8000 while the properly configured backend with ingested content runs on port 8001. The solution involves ensuring the backend on port 8000 has proper content ingestion and model configuration by running the `restart_and_ingest.bat` script.
 
 ## Technical Context
 
 **Language/Version**: Python 3.11, TypeScript/JavaScript for frontend
-**Primary Dependencies**: FastAPI, ChatKit-Python, ChatKit-JS, Qdrant, Neon Postgres, Cohere/Gemini APIs
-**Storage**: Qdrant vector database, Neon Postgres SQL database, local file system for book content
-**Testing**: pytest for backend, Jest for frontend, Postman for API testing
-**Target Platform**: Web application (Linux server backend, cross-platform frontend)
-**Project Type**: Web application (backend + frontend)
-**Performance Goals**: <2 seconds average response time (target: <1 second for 95th percentile), support 1000+ concurrent users, horizontal scaling capability
-**Constraints**: Must operate within free tier limits of Qdrant, Cohere, and Neon; no hallucinations - responses must be grounded in book content; privacy compliance for user data
+**Primary Dependencies**: FastAPI, Qdrant Client, Google Generative AI SDK, Cohere SDK, Neon Postgres
+**Storage**: Qdrant Cloud (vector database), Neon Postgres (metadata), local file system (book content)
+**Testing**: pytest for backend, manual testing for frontend integration
+**Target Platform**: Web application (Docusaurus-based book site with embedded chatbot)
+**Project Type**: Web application (backend API + frontend chatbot widget)
+**Performance Goals**: <2s response time for queries, support 1000+ concurrent users
+**Constraints**: Must work within free tier limits of external services, no hallucinations in responses
+**Scale/Scope**: Single book content with RAG functionality for user questions
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-1. **Decision Point Mapping**: The plan identifies critical decisions including authentication strategy, RAG pipeline architecture, embedding provider selection, and deployment approach. Each decision includes clear criteria and alternatives evaluation.
+### Decision Point Mapping
+- Backend port configuration (8000 vs 8001) - must ensure consistency between UI and backend
+- Generative model configuration - need to verify GEMINI_API_KEY is properly set
+- Content ingestion - need to ensure book content is properly ingested into vector database
 
-2. **Reasoning Activation**: The implementation plan forces developers to reason about trade-offs (e.g., Cohere vs Gemini embeddings, Qdrant vs other vector DBs) rather than simply following prescriptive steps.
+### Reasoning Activation
+- Understanding the root cause of the mismatch between UI and backend configurations
+- Identifying which backend instance has proper content and model configuration
+- Determining the correct approach to align UI with properly configured backend
 
-3. **Intelligence Accumulation**: The plan builds reusable components (RAG pipeline, authentication system, monitoring framework) that can be extended for future AI applications.
+### Intelligence Accumulation
+- Reuse existing backend architecture and configuration patterns
+- Leverage existing ingestion scripts and deployment processes
+- Build on established error handling and fallback mechanisms
 
-4. **Right Altitude**: The plan provides decision frameworks with concrete reasoning prompts, examples, and constraints rather than being too low-level (rigid steps) or too high-level (vague goals).
+### Right Altitude
+- Focus on system integration issues rather than low-level implementation details
+- Address configuration and deployment consistency
+- Ensure proper alignment between frontend and backend components
 
-5. **Frameworks Over Rules**: The plan uses conditional reasoning frameworks that adapt based on context and requirements rather than hard rules.
+### Frameworks Over Rules
+- Apply systematic approach to diagnose configuration mismatches
+- Use established debugging patterns for distributed systems
+- Follow consistent environment management practices
 
-6. **Meta-Awareness Against Convergence**: The plan disrupts traditional approaches by emphasizing spec-first development, agent-assisted workflows, and agentic AI patterns.
+### Meta-Awareness Against Convergence
+- Avoid generic "restart the server" solutions
+- Focus on understanding the underlying architectural mismatch
+- Address the root cause rather than symptoms
 
 ## Project Structure
 
 ### Documentation (this feature)
 
 ```text
-specs/humanoid-robotics-rag-chatbot/
+specs/main/
 ├── plan.md              # This file (/sp.plan command output)
 ├── research.md          # Phase 0 output (/sp.plan command)
 ├── data-model.md        # Phase 1 output (/sp.plan command)
@@ -54,146 +73,46 @@ specs/humanoid-robotics-rag-chatbot/
 
 ```text
 backend/
-├── main.py                    # FastAPI application entry point
+├── main.py              # FastAPI application entry point
 ├── api/
-│   ├── chat.py               # Chat endpoints
-│   ├── ingestion.py          # Document ingestion endpoints
-│   └── auth.py               # Authentication endpoints
+│   ├── chat.py          # Chat endpoints
+│   ├── ingestion.py     # Document ingestion endpoints
+│   └── ...
 ├── models/
-│   ├── rag.py                # RAG pipeline implementation
-│   ├── database.py           # Database models and connections
-│   ├── user.py               # User models and authentication
-│   └── agent.py              # Agent implementation
+│   ├── rag.py           # RAG pipeline implementation
+│   ├── database.py      # Database models and connections
+│   └── ...
 ├── utils/
-│   ├── embeddings.py         # Embedding utilities
-│   ├── preprocessing.py      # Text preprocessing utilities
-│   ├── auth.py               # Authentication utilities
-│   └── monitoring.py         # Monitoring and logging utilities
+│   ├── embeddings.py    # Embedding utilities
+│   └── ...
 ├── config/
-│   └── settings.py           # Configuration management
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── e2e/
-├── Dockerfile               # Container configuration
-├── docker-compose.yml       # Local development setup
-└── requirements.txt         # Python dependencies
+│   └── settings.py      # Configuration management
+└── .env                 # Environment configuration
 
 frontend/
-├── index.html               # Main chat interface
-├── script.js                # ChatKit-JS integration
-├── styles.css               # Styling for chat interface
-├── components/              # Reusable UI components
-│   ├── chat-interface.js
-│   ├── text-selector.js
-│   └── citation-display.js
-└── reader.js                # Optional book reader integration
+├── components/
+│   └── EmbeddedChatbot.jsx  # Chatbot UI component
+├── hooks/
+│   └── useChatbotAPI.js     # Chatbot API hook
+├── styles/
+│   └── embedded-chatbot.css # Chatbot styling
+└── utils/
+    └── ...
 
-configs/
-├── qdrant.json              # Qdrant configuration
-└── db.sql                   # Database schema
+book-source/             # Docusaurus book site
+├── src/
+│   └── pages/
+└── ...
 
-README.md                    # Comprehensive setup and usage guide
-ARCHITECTURE.md              # System architecture documentation
-DEPLOYMENT.md                # Production deployment guide
-TESTING.md                   # Testing procedures and requirements
-.env.example                 # Environment variables template
+doc/                     # Book content for ingestion
 ```
 
-**Structure Decision**: Web application structure with separate backend (FastAPI) and frontend (ChatKit-JS) components, following the specification requirements for a RAG chatbot system with authentication, vector database integration, and monitoring capabilities.
-
-## Project Phases
-
-### Phase 1: Infrastructure Setup
-- Set up backend folder structure with proper Python package organization
-- Configure Qdrant Cloud and Neon Postgres accounts
-- Create API endpoints skeleton with FastAPI
-- Set up environment configuration with secure credential handling
-- Implement basic authentication system with user registration/login
-- Set up monitoring and logging infrastructure
-- Create Docker configuration for containerization
-
-### Phase 2: Data Ingestion + Chunking Pipeline
-- Implement document parsing from `doc/` folder with support for multiple formats
-- Build text preprocessing pipeline (cleaning, normalization)
-- Build chunking pipeline with configurable chunk size (512) and overlap (64)
-- Implement embedding generation using Gemini (primary) or Cohere (fallback)
-- Create Qdrant upsert pipeline for vector storage
-- Add error handling and validation for ingestion process
-- Implement progress tracking and status reporting for large documents
-
-### Phase 3: Backend (FastAPI + ChatKit Python)
-- Implement `/ask` endpoint with full-book RAG mode
-- Implement `/ask` endpoint with selected-text-only mode
-- Build RAG pipeline with clean → chunk → embed → store → retrieve → generate flow
-- Integrate with ChatKit-Python for conversation management
-- Implement hallucination prevention mechanisms
-- Add source attribution with chunk IDs and paragraph references
-- Implement confidence scoring for responses
-- Add comprehensive error handling with fallback strategies
-- Implement streaming responses to frontend
-- Add rate limiting and request validation
-- Implement user role-based access control for different endpoints
-
-### Phase 4: Vector DB Setup (Qdrant)
-- Configure Qdrant collection for book content chunks
-- Set up proper vector dimensions based on embedding model
-- Implement similarity search with configurable parameters
-- Create efficient indexing strategy for fast retrieval
-- Set up collection management and cleanup procedures
-- Implement backup and recovery procedures
-
-### Phase 5: SQL DB Setup (Neon)
-- Set up Neon Postgres database with required tables
-- Implement user authentication tables with secure password storage
-- Create user queries history table with JSONB for sources
-- Create user-selected text storage table
-- Create chapter metadata table for book organization
-- Implement database connection pooling
-- Set up proper indexing for performance
-- Implement database migration system
-
-### Phase 6: Frontend (Chatkit-JS)
-- Implement responsive chat UI structure with HTML/CSS
-- Integrate ChatKit-JS for conversation interface
-- Create text selection highlighting tool
-- Implement citation display with chunk IDs and source paragraphs
-- Add streaming response capability with real-time updates
-- Create book navigation integration components
-- Implement user authentication UI flows
-- Add loading states and error handling in UI
-- Ensure mobile and desktop compatibility
-
-### Phase 7: Integration
-- Connect frontend to backend API endpoints
-- Implement authentication token management
-- Set up proper CORS configuration
-- Integrate vector DB retrieval with frontend requests
-- Connect user-selected text flow from frontend to backend
-- Implement real-time streaming from backend to frontend
-- Test cross-component functionality
-- Optimize API request/response patterns
-
-### Phase 8: Deployment Pipeline
-- Set up Railway or Render deployment for backend
-- Set up Vercel deployment for frontend
-- Configure environment variables for different environments
-- Implement CI/CD pipeline with testing
-- Set up monitoring and alerting
-- Create deployment scripts and procedures
-- Implement rollback procedures
-
-### Phase 9: QA Testing
-- Create unit tests for RAG pipeline components
-- Implement integration tests for API endpoints
-- Build end-to-end tests for chat functionality
-- Perform performance tests for response times
-- Conduct accuracy tests for information retrieval
-- Execute security testing for authentication
-- Perform load testing for 1000+ concurrent users
-- Validate hallucination prevention mechanisms
-- Test fallback strategies for external service failures
+**Structure Decision**: Web application with separate backend API and frontend components. The backend provides REST API endpoints for the RAG functionality, while the frontend provides an embedded chatbot widget that integrates with the Docusaurus-based book site.
 
 ## Complexity Tracking
 
-No complexity violations identified. All architectural decisions align with the project constitution principles and support the educational objectives of the Physical AI and Humanoid Robotics book project.
+> **Fill ONLY if Constitution Check has violations that must be justified**
+
+| Violation | Why Needed | Simpler Alternative Rejected Because |
+|-----------|------------|-------------------------------------|
+| Port configuration mismatch | System integration issue requiring understanding of multiple components | Direct code changes would be less effective than fixing the configuration |

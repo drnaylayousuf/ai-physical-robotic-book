@@ -1,62 +1,48 @@
-# Research: Integrated RAG Chatbot for Physical AI and Humanoid Robotics Book
+# Research: Chatbot UI Configuration Issue
 
-## Decision: Authentication Strategy
-**Rationale**: Full authentication with user accounts and role-based access control is essential for a production RAG system to ensure proper access management, user tracking, and security.
-**Alternatives considered**:
-- API key-based authentication (simpler but less granular)
-- OAuth 2.0 integration (more complex, overkill for this use case)
-- No authentication (insecure, doesn't meet requirements)
+## Issue Summary
+The chatbot UI returns "The book does not provide details about this topic. No context is available and no generative model is configured." when users ask questions, despite the backend API working correctly when tested directly with curl.
 
-## Decision: Vector Database - Qdrant
-**Rationale**: Qdrant is well-suited for RAG applications with good Python client support, cloud hosting options, and performance for similarity search.
-**Alternatives considered**:
-- Pinecone (commercial alternative, good performance)
-- Weaviate (open-source alternative with GraphQL API)
-- FAISS (Facebook AI Similarity Search, requires more infrastructure management)
+## Root Cause Analysis
 
-## Decision: Embedding Provider - Gemini vs Cohere
-**Rationale**: Both Gemini and Cohere offer good embedding quality with free tier options. Gemini was specified in the requirements, making it the primary choice with Cohere as fallback.
-**Alternatives considered**:
-- OpenAI embeddings (higher cost, not specified in requirements)
-- Sentence Transformers (self-hosted, requires more compute resources)
+### 1. Port Configuration Mismatch
+- **UI Configuration**: The frontend chatbot is configured to call `http://localhost:8000/api/ask` (in `frontend/components/EmbeddedChatbot.jsx` line 98 and `frontend/hooks/useChatbotAPI.js` line 29)
+- **Working Backend**: The curl command that works is hitting port 8001 (`http://localhost:8001/api/ask`)
+- **Multiple Backend Instances**: Scripts exist to run backends on both ports:
+  - `restart_and_ingest.bat` starts backend on port 8000
+  - `test_ingestion_on_port_8001.py` and `run_server_and_ingest.py` start backends on port 8001
 
-## Decision: Database - Neon Postgres
-**Rationale**: Neon's serverless Postgres offers good scalability, compatibility with standard Postgres, and free tier suitable for development.
-**Alternatives considered**:
-- Supabase (also Postgres-based, good for rapid development)
-- PlanetScale (serverless MySQL)
-- SQLite (simpler but lacks scalability and concurrent access features)
+### 2. Content Ingestion Status
+- **Port 8001 Backend**: Likely has content properly ingested from running ingestion scripts
+- **Port 8000 Backend**: May not have content ingested or may be using different data storage
 
-## Decision: Frontend Integration - ChatKit-JS
-**Rationale**: ChatKit-JS provides a ready-made chat interface that can be customized for the RAG use case with minimal development time.
-**Alternatives considered**:
-- Building a custom chat interface from scratch (more time-consuming)
-- Using other chat libraries like ChatUI or similar (would require more customization)
+### 3. Generative Model Configuration
+- **Environment Variables**: Both backends should have access to the same `.env` file with `GEMINI_API_KEY`
+- **Potential Issue**: The backend on port 8000 might not have the generative model properly initialized
 
-## Decision: Backend Framework - FastAPI
-**Rationale**: FastAPI provides excellent performance, automatic API documentation, async support, and good integration with Python ML/AI libraries.
-**Alternatives considered**:
-- Flask (simpler but less performant, no automatic docs)
-- Django (more complex, overkill for API-only use case)
-- Express.js (would require changing to Node.js stack)
+## Error Source
+The exact error message comes from `backend/models/rag.py:408` in the `generate_response` method:
+```python
+if not self.generative_model:
+    # If no generative model is available, return a fallback response based on context
+    logger.warning("No generative model available, returning context-based response")
+    context_texts = [item["content"] for item in context if item.get("content", "").strip()]
 
-## Decision: LLM Provider - Gemini 2.5 Flash
-**Rationale**: Gemini 2.5 Flash was specified in the requirements and offers good performance for RAG applications with cost-effective pricing.
-**Alternatives considered**:
-- GPT models (different pricing structure, not specified in requirements)
-- Claude models (different pricing structure, not specified in requirements)
-- Open-source models (require more infrastructure management)
+    if not context_texts:
+        return "The book does not provide details about this topic. No context is available and no generative model is configured."
+```
 
-## Decision: Error Handling Strategy
-**Rationale**: Comprehensive error handling with multiple fallback strategies and graceful degradation is essential for production reliability, especially when relying on external APIs.
-**Alternatives considered**:
-- Basic error handling (insufficient for production)
-- Simple retry mechanisms (not comprehensive enough)
-- Circuit breaker pattern alone (not sufficient by itself)
+## Solution Approach
+The issue can be resolved by ensuring consistency between the UI and the properly configured backend. This can be achieved through one of these approaches:
 
-## Decision: Monitoring Approach
-**Rationale**: Comprehensive monitoring with metrics, logs, and tracing across all components is essential for maintaining system health and performance in production.
-**Alternatives considered**:
-- Basic logging only (insufficient for debugging complex issues)
-- External monitoring services (would add complexity and cost)
-- No structured monitoring (not suitable for production system)
+1. **Align UI to working backend**: Update the UI to call port 8001 instead of 8000
+2. **Align backend to UI**: Ensure the backend on port 8000 has proper content ingestion and model configuration
+3. **Standardize on one port**: Choose one port as the standard and ensure both UI and ingestion processes use it
+
+## Recommended Solution
+Option 2 is recommended as the production setup likely runs on port 8000. The `restart_and_ingest.bat` script should be run to start the backend on port 8000 and perform content ingestion.
+
+## Verification Steps
+1. Run `restart_and_ingest.bat` to start backend on port 8000 with proper ingestion
+2. Verify content is ingested by calling the diagnostic endpoint
+3. Test the UI to confirm it now works properly

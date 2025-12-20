@@ -1,154 +1,83 @@
-# Quickstart: Integrated RAG Chatbot for Physical AI and Humanoid Robotics Book
+# Quickstart: Fix Chatbot UI Configuration Issue
 
-## Prerequisites
+## Problem
+The chatbot UI returns "The book does not provide details about this topic. No context is available and no generative model is configured." when users ask questions.
 
-- Python 3.11+
-- Node.js 18+ (for frontend development)
-- Docker and Docker Compose
-- Access to Gemini API (for embeddings and generation)
-- Qdrant Cloud account (or local Qdrant instance)
-- Neon Postgres account (or local Postgres instance)
+## Root Cause
+The frontend UI is configured to call port 8000, but the backend with properly ingested content runs on port 8001.
 
-## Setup Instructions
+## Solution
+Run the ingestion script to set up the backend on port 8000 with proper content.
 
-### 1. Clone and Navigate to Project
-
+### Step 1: Run the Ingestion Script
 ```bash
-git clone <repository-url>
-cd humanoid-robotics-book
+# Navigate to the project root directory
+cd C:\Users\nayla\OneDrive\Desktop\humanoid-robotics-book
+
+# Run the restart and ingestion script
+./restart_and_ingest.bat
 ```
 
-### 2. Backend Setup
+This script will:
+1. Stop any existing Python processes
+2. Start the backend server on port 8000
+3. Wait for the server to be ready
+4. Generate an admin token
+5. Call the ingestion endpoint to process book content from the `doc/` directory
+6. Verify the ingestion with diagnostic and QA tests
 
-```bash
-# Navigate to backend directory
-cd backend
+### Step 2: Verify the Fix
+After the script completes successfully:
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+1. **Check that the server is running on port 8000**:
+   ```bash
+   curl http://localhost:8000/api/health
+   ```
 
-# Install dependencies
-pip install -r requirements.txt
-```
+2. **Test the diagnostic endpoint**:
+   ```bash
+   curl http://localhost:8000/api/diagnostic/qdrant
+   ```
+   This should show a non-zero chunk count indicating content has been ingested.
 
-### 3. Environment Configuration
+3. **Test the QA functionality**:
+   ```bash
+   curl -X POST http://localhost:8000/api/ask \
+     -H "Content-Type: application/json" \
+     -d '{"question": "What is humanoid robotics?", "mode": "full_book"}'
+   ```
 
-Create a `.env` file in the backend directory with the following variables:
+### Step 3: Test the UI
+1. Start your Docusaurus book site (if not already running)
+2. Open the book in your browser
+3. Use the chatbot UI to ask questions about the book content
+4. You should now receive meaningful responses instead of the error message
 
-```env
-# Qdrant Configuration
-QDRANT_URL=your_qdrant_url
-QDRANT_API_KEY=your_qdrant_api_key
-QDRANT_COLLECTION_NAME=book_chunks
+## Alternative Approach (if the above doesn't work)
+If the restart_and_ingest.bat script doesn't resolve the issue, you can alternatively:
 
-# Gemini Configuration
-GEMINI_API_KEY=your_gemini_api_key
-GEMINI_MODEL=gemini-2.5-flash
+1. **Manually start the backend on port 8000**:
+   ```bash
+   cd backend
+   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   ```
 
-# Cohere (alternative embedding provider)
-COHERE_API_KEY=your_cohere_api_key  # Optional
-
-# Database Configuration
-DATABASE_URL=your_neon_postgres_connection_string
-
-# Application Configuration
-BOOK_CONTENT_PATH=./doc
-CHUNK_SIZE=512
-CHUNK_OVERLAP=64
-MAX_CONTEXT_LENGTH=2048
-
-# Security
-SECRET_KEY=your_secret_key
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-```
-
-### 4. Database Setup
-
-```bash
-# Run the database migrations (if using Alembic)
-alembic upgrade head
-
-# Or manually execute the SQL schema
-psql -d $DATABASE_URL -f ../configs/db.sql
-```
-
-### 5. Qdrant Setup
-
-Ensure your Qdrant collection is created with the appropriate vector dimensions for your chosen embedding model.
-
-### 6. Frontend Setup
-
-```bash
-# Navigate to frontend directory
-cd frontend
-
-# Install dependencies if needed (for development)
-npm install  # if using build tools
-```
-
-### 7. Running the Application
-
-#### Option 1: Using Docker Compose (Recommended)
-
-```bash
-# From the project root
-docker-compose up --build
-```
-
-#### Option 2: Running Separately
-
-Backend:
-```bash
-cd backend
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-Frontend:
-```bash
-# Serve the frontend files (using Python's built-in server as example)
-cd frontend
-python -m http.server 3000
-```
-
-## Initial Data Ingestion
-
-1. Place your book content in the `doc/` directory
-2. Call the `/ingest` endpoint to process the content:
-
-```bash
-curl -X POST http://localhost:8000/ingest
-```
-
-## API Endpoints
-
-- `POST /ask` - Ask questions about the book content
-- `POST /ingest` - Ingest book content (admin only)
-- `GET /health` - Health check
-- `GET /metadata` - Get book metadata
-- `POST /auth/register` - User registration
-- `POST /auth/login` - User login
-
-## Testing
-
-Run backend tests:
-```bash
-cd backend
-pytest
-```
-
-## Development
-
-For development, use the hot-reload mode:
-```bash
-cd backend
-uvicorn main:app --reload
-```
+2. **Manually run the ingestion process**:
+   - First, ensure you have an admin account and token
+   - Call the `/api/ingest` endpoint with proper authentication
+   - Verify content is ingested using the diagnostic endpoint
 
 ## Troubleshooting
+- If the ingestion fails, verify that the `doc/` directory contains book content
+- Ensure your `.env` file has the required API keys (QDRANT_API_KEY, GEMINI_API_KEY)
+- Check that Qdrant is accessible and properly configured
+- Verify that the database connection is working
 
-1. **API Keys**: Ensure all required API keys are properly set in the environment
-2. **Database Connection**: Verify the DATABASE_URL is correct and accessible
-3. **Qdrant Connection**: Ensure Qdrant is accessible and the collection exists
-4. **CORS**: If running frontend and backend on different ports, ensure CORS is configured
+## Files Modified/Affected
+- `frontend/components/EmbeddedChatbot.jsx` - UI API endpoint (no changes needed)
+- `frontend/hooks/useChatbotAPI.js` - API hook (no changes needed)
+- `backend/main.py` - Backend server (no changes needed)
+- `backend/models/rag.py` - RAG model (no changes needed)
+
+## Expected Outcome
+After running the script, the chatbot UI should return meaningful responses to user questions instead of the error message, as the backend on port 8000 will have both ingested content and properly configured generative model.

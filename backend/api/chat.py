@@ -3,13 +3,13 @@ from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import logging
 
-from ..models.rag import RAGModel, RAGResponse
-from ..config.settings import settings
-from ..models.database import get_db, SessionLocal
-from ..models.user_query import UserQuery
+from backend.models.rag import RAGModel, RAGResponse
+from backend.config.settings import settings
+from backend.models.database import get_db, SessionLocal
+from backend.models.user_query import UserQuery
 from sqlalchemy.orm import Session
-from ..utils.cache import cache
-from ..utils.sanitization import sanitize_input, validate_question, validate_mode, sanitize_selected_text
+from backend.utils.cache import cache
+from backend.utils.sanitization import sanitize_input, validate_question, validate_mode, sanitize_selected_text
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -19,6 +19,7 @@ class AskRequest(BaseModel):
     question: str
     mode: str  # "full_book" or "selected_text"
     selected_text: Optional[str] = None
+    page_context: Optional[Dict] = None
     user_id: Optional[str] = None
 
 class AskResponse(BaseModel):
@@ -71,15 +72,11 @@ async def ask_question(
             # switch to full_book mode internally
             logger.info("Selected text mode requested but no text provided, switching to full_book mode")
             effective_mode = "full_book"
-            # Ensure no empty selected_text is passed to the RAG model
-            sanitized_selected_text = None
         else:
             temp_sanitized_text = sanitize_selected_text(request.selected_text)
             if not temp_sanitized_text.strip():
                 logger.info("Selected text mode requested but text is empty after sanitization, switching to full_book mode")
                 effective_mode = "full_book"
-                # Ensure no empty selected_text is passed to the RAG model
-                sanitized_selected_text = None
             else:
                 # Valid selected text provided, proceed with selected_text mode
                 sanitized_selected_text = temp_sanitized_text
@@ -105,7 +102,7 @@ async def ask_question(
 
             # If selected_text mode was used (based on effective_mode), also store the sanitized selected text
             if effective_mode == "selected_text" and sanitized_selected_text:
-                from ..models.user_selected_text import UserSelectedText
+                from backend.models.user_selected_text import UserSelectedText
 
                 user_selected_text = UserSelectedText(
                     user_id=user_id,
@@ -169,15 +166,15 @@ async def ask_question(
         db.add(user_query)
 
         # If selected_text mode was used, also store the sanitized selected text
-        if effective_mode == "selected_text" and sanitized_selected_text:
-            from ..models.user_selected_text import UserSelectedText
+        if request.mode == "selected_text" and sanitized_selected_text:
+            from backend.models.user_selected_text import UserSelectedText
 
             user_selected_text = UserSelectedText(
                 user_id=user_id,
                 selected_text=sanitized_selected_text,  # Use sanitized text
                 context_metadata={
                     "question": sanitized_question,  # Use sanitized question
-                    "mode": effective_mode,
+                    "mode": request.mode,
                     "timestamp": "current",  # This will be set by the database
                     "from_cache": False
                 }
@@ -194,10 +191,6 @@ async def ask_question(
             references=rag_response.references
         )
 
-    except HTTPException:
-        # Re-raise HTTP exceptions (like 429 quota exceeded) to preserve their status codes
-        db.rollback()
-        raise
     except Exception as e:
         db.rollback()  # Rollback in case of error
         logger.error(f"Error processing RAG query: {e}")

@@ -59,3 +59,5 @@ docs/_build/
 # Local configuration
 .settings/
 *.local
+.env.example/
+.env.example

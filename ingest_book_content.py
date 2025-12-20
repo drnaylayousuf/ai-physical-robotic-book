@@ -47,8 +47,9 @@ def call_ingestion_endpoint(token):
     }
 
     # Request to ingest content from the doc directory
+    # The server runs from backend directory, so ../doc goes up to main then into doc
     ingestion_data = {
-        "source_path": "./doc",
+        "source_path": "../doc",  # Path relative to backend directory where server runs
         "collection_name": "book_chunks"
     }
 

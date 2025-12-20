@@ -11,9 +11,11 @@ class Settings(BaseSettings):
     DATABASE_URL: str = os.getenv("DATABASE_URL", "")
 
     # Qdrant settings
-    QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
+    QDRANT_URL: Optional[str] = os.getenv("QDRANT_URL") or None
     QDRANT_API_KEY: Optional[str] = os.getenv("QDRANT_API_KEY")
     QDRANT_COLLECTION_NAME: str = os.getenv("QDRANT_COLLECTION_NAME", "book_chunks")
+    QDRANT_LOCAL_PATH: Optional[str] = os.getenv("QDRANT_LOCAL_PATH", "./qdrant_storage")
+    qdrant_local_path: str = os.getenv("QDRANT_LOCAL_PATH", "./qdrant_storage")
 
     # Gemini settings
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")

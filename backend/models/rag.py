@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any
 from pydantic import BaseModel
 import logging
 from fastapi import HTTPException
@@ -10,6 +10,21 @@ from ..utils.embeddings import EmbeddingService
 from ..utils.monitoring import monitoring
 
 logger = logging.getLogger(__name__)
+
+class ChatRequest(BaseModel):
+    question: str
+    mode: str = "full_book"
+    selected_text: Optional[str] = None
+    page_context: Optional[Dict] = None
+    user_id: Optional[str] = None
+
+class ChatResponse(BaseModel):
+    question: str
+    answer: str
+    sources: List[Dict[str, Any]]
+    mode: str
+    timestamp: str
+    processing_time_ms: int
 
 class RAGResponse(BaseModel):
     response: str
@@ -23,24 +38,29 @@ class RAGModel:
     """
 
     def __init__(self):
-        self.embedding_service = EmbeddingService()
-        # Initialize Qdrant client
+        # Initialize embedding service with error handling
         try:
-            # Check if we have an API key for authentication
-            if settings.QDRANT_API_KEY:
-                self.qdrant_client = QdrantClient(
-                    url=settings.QDRANT_URL,
-                    api_key=settings.QDRANT_API_KEY,
-                    timeout=10
-                )
-            else:
-                self.qdrant_client = QdrantClient(
-                    url=settings.QDRANT_URL,
-                    timeout=10
-                )
+            self.embedding_service = EmbeddingService()
+            logger.info("Embedding service initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize embedding service: {e}")
+            raise ValueError(f"Embedding service initialization failed: {e}")
+
+        # Initialize Qdrant client for HTTP connection - Qdrant Cloud only (no fallback)
+        if not settings.QDRANT_URL or not settings.QDRANT_API_KEY:
+            raise ValueError("QDRANT_URL and QDRANT_API_KEY environment variables are required for Qdrant Cloud connection")
+
+        try:
+            # Initialize Qdrant client for Qdrant Cloud with authentication
+            self.qdrant_client = QdrantClient(
+                url=settings.QDRANT_URL,
+                api_key=settings.QDRANT_API_KEY,
+                timeout=30  # Increased timeout for cloud operations
+            )
+
             # Test the connection
             self.qdrant_client.get_collections()
-            logger.info(f"Successfully connected to Qdrant at {settings.QDRANT_URL}")
+            logger.info(f"Successfully connected to Qdrant Cloud at {settings.QDRANT_URL}")
 
             # Verify collection exists before proceeding
             collection_name = settings.QDRANT_COLLECTION_NAME
@@ -48,11 +68,11 @@ class RAGModel:
                 collection_info = self.qdrant_client.get_collection(collection_name)
                 logger.info(f"Verified collection '{collection_name}' exists with {collection_info.points_count} points")
             except Exception as e:
-                logger.warning(f"Collection '{collection_name}' does not exist yet: {e}. It will be created when data is ingested.")
-
+                logger.info(f"Collection '{collection_name}' does not exist yet: {e}. It will be created when data is ingested.")
         except Exception as e:
-            logger.error(f"Failed to connect to Qdrant at {settings.QDRANT_URL}: {e}")
-            raise ConnectionError(f"Could not connect to Qdrant: {e}")
+            logger.error(f"Failed to connect to Qdrant Cloud at {settings.QDRANT_URL}: {e}")
+            # No fallback - this is a critical error that should stop the application
+            raise ConnectionError(f"Could not connect to Qdrant Cloud: {e}")
 
         # Initialize Gemini generative model with multiple model support
         self.generative_model = None
@@ -83,6 +103,10 @@ class RAGModel:
                     logger.info(f"Gemini generative model {settings.GEMINI_MODEL} configured (fallback)")
             except Exception as e:
                 logger.error(f"Failed to configure Gemini generative models: {e}")
+                # Instead of failing silently, log a more descriptive error
+                logger.warning("Gemini API is not configured properly. The system will attempt to function but may have limited capabilities.")
+        else:
+            logger.warning("GEMINI_API_KEY not set. Gemini model will not be available. The system will attempt to function but may have limited capabilities.")
 
     async def clean_text(self, text: str) -> str:
         """
@@ -98,6 +122,9 @@ class RAGModel:
         """
         Split text into chunks with specified size and overlap
         """
+        if not text or not text.strip():
+            return []  # Return empty list if text is empty or only whitespace
+
         if chunk_size is None:
             chunk_size = settings.CHUNK_SIZE
         if overlap is None:
@@ -126,18 +153,23 @@ class RAGModel:
         """
         embeddings = []
         for chunk in chunks:
-            embedding = await self.embedding_service.generate_embedding(chunk)
-            embeddings.append(embedding)
+            try:
+                embedding = await self.embedding_service.generate_embedding(chunk)
+                embeddings.append(embedding)
+            except Exception as e:
+                logger.error(f"Failed to generate embedding for chunk: {e}")
+                # Use a default embedding as fallback
+                embeddings.append([0.0] * settings.EMBEDDING_DIMENSION)
         return embeddings
 
     async def store_chunks(self, chunks: List[str], embeddings: List[List[float]], collection_name: str = None) -> List[str]:
         """
-        Store chunks and embeddings in vector database (Qdrant)
+        Store chunks and embeddings in vector database (Qdrant Cloud only - no fallback)
         """
         if collection_name is None:
             collection_name = settings.QDRANT_COLLECTION_NAME
 
-        # Check if collection exists, create if it doesn't
+        # Use Qdrant client - no fallback option
         try:
             collection_info = self.qdrant_client.get_collection(collection_name)
             # Verify the vector size matches
@@ -207,12 +239,13 @@ class RAGModel:
 
     async def retrieve_context(self, query: str, top_k: int = 5, collection_name: str = None) -> List[Dict]:
         """
-        Retrieve relevant context from vector database based on query
+        Retrieve relevant context from vector database based on query (Qdrant Cloud only - no fallback)
         Ensure retrieved chunks return: chunk_id, content, score/confidence, and source metadata
         """
         if collection_name is None:
             collection_name = settings.QDRANT_COLLECTION_NAME
 
+        # Use Qdrant client - no fallback option
         # Verify the collection exists
         try:
             collection_info = self.qdrant_client.get_collection(collection_name)
@@ -222,7 +255,11 @@ class RAGModel:
             return []
 
         # Generate embedding for the query
-        query_embedding = await self.embedding_service.generate_embedding(query)
+        try:
+            query_embedding = await self.embedding_service.generate_embedding(query)
+        except Exception as e:
+            logger.error(f"Failed to generate embedding for query: {e}")
+            return []
 
         # Query in Qdrant (using the newer query_points method)
         try:
@@ -273,7 +310,18 @@ class RAGModel:
         Enhanced to provide better context formatting and response quality
         """
         if not self.generative_model:
-            raise ValueError("Gemini model is not configured properly. Check GEMINI_API_KEY in environment.")
+            # If no generative model is available, return a fallback response based on context
+            logger.warning("No generative model available, returning context-based response")
+            context_texts = [item["content"] for item in context if item.get("content", "").strip()]
+
+            if not context_texts:
+                return "The book does not provide details about this topic. No context is available and no generative model is configured."
+            else:
+                # Return a summary of the context as a fallback
+                combined_context = " ".join(context_texts[:2])  # Take first 2 context items
+                if len(combined_context) > 500:
+                    combined_context = combined_context[:500] + "..."
+                return f"Based on the book content: {combined_context}"
 
         # Prepare the context for the LLM with better formatting
         context_texts = [item["content"] for item in context if item.get("content", "").strip()]
@@ -519,10 +567,10 @@ Response:"""
 
         except ConnectionError as e:
             logger.error(f"Connection error during RAG query processing: {e}")
-            monitoring.log_error(e, "Qdrant connection error")
+            monitoring.log_error(e, "Qdrant Cloud connection error")
             raise HTTPException(
                 status_code=503,
-                detail="Service temporarily unavailable due to vector database connection issues"
+                detail="Service temporarily unavailable due to Qdrant Cloud connection issues"
             )
         except Exception as e:
             error_msg = str(e).lower()
@@ -585,23 +633,33 @@ Response:"""
         chunks = await self.chunk_text(cleaned_text)
 
         # Embed the query for similarity matching
-        query_embedding = await self.embedding_service.generate_embedding(query)
+        try:
+            query_embedding = await self.embedding_service.generate_embedding(query)
+        except Exception as e:
+            logger.error(f"Failed to generate embedding for query in selected text mode: {e}")
+            # If embedding fails, fall back to just using full database context
+            full_db_context = await self.retrieve_context(query, top_k=5)
+            return full_db_context
 
         # Calculate relevance scores for each chunk
         selected_text_context = []
         for i, chunk in enumerate(chunks):
-            # Generate embedding for the chunk
-            chunk_embedding = await self.embedding_service.generate_embedding(chunk)
+            try:
+                # Generate embedding for the chunk
+                chunk_embedding = await self.embedding_service.generate_embedding(chunk)
 
-            # Calculate similarity between query and chunk
-            similarity = self._calculate_similarity(query_embedding, chunk_embedding)
+                # Calculate similarity between query and chunk
+                similarity = self._calculate_similarity(query_embedding, chunk_embedding)
 
-            selected_text_context.append({
-                "chunk_id": f"selected_text_chunk_{i}",
-                "content": chunk,
-                "score": similarity,  # Using 'score' instead of 'confidence' to match requirements
-                "source": "selected_text_input"  # Source metadata for selected text mode
-            })
+                selected_text_context.append({
+                    "chunk_id": f"selected_text_chunk_{i}",
+                    "content": chunk,
+                    "score": similarity,  # Using 'score' instead of 'confidence' to match requirements
+                    "source": "selected_text_input"  # Source metadata for selected text mode
+                })
+            except Exception as e:
+                logger.warning(f"Failed to process chunk {i} in selected text mode: {e}")
+                continue  # Skip this chunk and continue with others
 
         # Sort by score in descending order (rank chunks by similarity)
         selected_text_context.sort(key=lambda x: x["score"], reverse=True)

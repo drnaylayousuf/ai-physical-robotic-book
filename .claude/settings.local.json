@@ -3,7 +3,8 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(powershell -command:*)",
-      "Bash(powershell.exe -command:*)"
+      "Bash(powershell.exe -command:*)",
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \" Test the API Endpoints\n\n  Once the server is running, you can test:\n\n  Health Check\n\n  - GET http://localhost:8000/api/health/qdrant - Check Qdrant Cloud connectivity\n  - GET http://localhost:8000/api/diagnostic/qdrant - Check collection status\n\n  Chat Functionality\n\n  - POST http://localhost:8000/api/ask - Test the main chat functionality\n\n  Example request body:\n  {\n    \"\"question\"\": \"\"What is humanoid robotics?\"\",\n    \"\"mode\"\": \"\"full_book\"\"\n  }\n\n  5. Frontend Integration\n\n  If you have a frontend, ensure it''s pointing to your backend API at http://localhost:8000.\n\n  6. Verify Cloud Storage\n\n  After running the migration, you can verify that content was uploaded by:\n  - Checking the diagnostic endpoint: GET http://localhost:8000/api/diagnostic/qdrant\n  - Looking at your Qdrant Cloud dashboard to see the vectors stored\n\n  7. Test with Sample Questions\n\n  Try asking questions about your book content to verify the RAG \\(Retrieval-Augmented Generation\\) is working properly and retrieving relevant information from Qdrant Cloud.\n\n  The system is now fully migrated from in-memory storage to Qdrant Cloud, so all book content queries will be served from the cloud-based vector database. tell in easy way test these all and tell all working properly or not and dont use openai remember we useing gemini\" -Number 1 -ShortName \"api-endpoint-testing\" \"Test the API Endpoints after Qdrant Cloud Migration\")"
     ],
     "deny": [],
     "ask": []

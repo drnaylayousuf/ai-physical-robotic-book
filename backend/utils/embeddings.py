@@ -16,17 +16,16 @@ class EmbeddingService:
         self.provider = settings.EMBEDDING_PROVIDER.lower()
 
         if self.provider == "cohere":
-            if not settings.COHERE_API_KEY:
-                raise ValueError("COHERE_API_KEY is required when EMBEDDING_PROVIDER is set to 'cohere'")
             self._cohere_service = CohereEmbeddingService()
             logger.info("Configured for Cohere embedding provider")
         elif self.provider == "gemini":
             import google.generativeai as genai
             self.genai = genai
-            self.genai.configure(api_key=settings.GEMINI_API_KEY)
-            if not settings.GEMINI_API_KEY:
-                raise ValueError("GEMINI_API_KEY is required when EMBEDDING_PROVIDER is set to 'gemini'")
-            logger.info("Configured for Gemini embedding provider")
+            if settings.GEMINI_API_KEY:
+                self.genai.configure(api_key=settings.GEMINI_API_KEY)
+                logger.info("Configured for Gemini embedding provider")
+            else:
+                logger.warning("GEMINI_API_KEY not set. Gemini embedding provider will use fallback embeddings.")
         else:
             raise ValueError(f"Unsupported embedding provider: {self.provider}")
 
@@ -37,6 +36,9 @@ class EmbeddingService:
         if self.provider == "cohere":
             return await self._cohere_service.generate_embedding(text)
         elif self.provider == "gemini":
+            if not settings.GEMINI_API_KEY:
+                logger.warning("GEMINI_API_KEY not set, returning default embedding")
+                return [0.0] * settings.EMBEDDING_DIMENSION
             try:
                 # Use Gemini's embedding functionality
                 result = self.genai.embed_content(
@@ -61,6 +63,9 @@ class EmbeddingService:
         if self.provider == "cohere":
             return await self._cohere_service.generate_embeddings_batch(texts)
         elif self.provider == "gemini":
+            if not settings.GEMINI_API_KEY:
+                logger.warning("GEMINI_API_KEY not set, returning default embeddings for batch")
+                return [[0.0] * settings.EMBEDDING_DIMENSION for _ in texts]
             try:
                 result = self.genai.embed_content(
                     model=settings.EMBEDDING_MODEL,

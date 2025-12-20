@@ -1,90 +1,67 @@
-# Data Model: Integrated RAG Chatbot for Physical AI and Humanoid Robotics Book
+# Data Model: Chatbot UI Configuration Issue
 
-## Entities
+## Overview
+This data model addresses the configuration issue where the chatbot UI returns "The book does not provide details about this topic. No context is available and no generative model is configured." due to a mismatch between frontend and backend configurations.
 
-### User
-- **id**: SERIAL PRIMARY KEY
-- **username**: VARCHAR(255) UNIQUE NOT NULL
-- **email**: VARCHAR(255) UNIQUE NOT NULL
-- **password_hash**: VARCHAR(255) NOT NULL
-- **role**: VARCHAR(50) DEFAULT 'user' (values: 'admin', 'moderator', 'user', 'guest')
-- **created_at**: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- **updated_at**: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- **Relationships**: One-to-many with UserQuery, UserSelectedText
+## System Components
 
-### UserQuery
-- **id**: SERIAL PRIMARY KEY
-- **user_id**: INTEGER REFERENCES users(id)
-- **question**: TEXT
-- **response**: TEXT
-- **sources**: JSONB
-- **timestamp**: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- **Relationships**: Many-to-one with User
+### 1. Backend Service Configuration
+- **Port**: 8000 (UI-facing) / 8001 (test/working backend)
+- **API Endpoints**: `/api/ask`, `/api/ingest`, `/api/health`
+- **Environment**: Must have proper `.env` configuration with GEMINI_API_KEY
+- **Content Status**: Book content must be ingested into vector database
 
-### UserSelectedText
-- **id**: SERIAL PRIMARY KEY
-- **user_id**: INTEGER REFERENCES users(id)
-- **selected_text**: TEXT
-- **context_metadata**: JSONB
-- **timestamp**: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- **Relationships**: Many-to-one with User
+### 2. Frontend UI Configuration
+- **API Base URL**: `http://localhost:8000/api` (currently hardcoded)
+- **Request Format**: JSON with question, mode, and optional selected_text
+- **Response Handling**: Processes RAG responses with sources and references
 
-### ChapterMetadata
-- **id**: SERIAL PRIMARY KEY
-- **chapter_title**: VARCHAR(255)
-- **file_path**: VARCHAR(500)
-- **content_summary**: TEXT
-- **paragraph_count**: INTEGER
-- **created_at**: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- **Relationships**: Used for book content organization
+### 3. Vector Database (Qdrant)
+- **Collection**: `book_chunks` containing embedded book content
+- **Status**: Must be populated with content for proper RAG functionality
+- **Connection**: Configured via QDRANT_URL and QDRANT_API_KEY in environment
 
-## Validation Rules
+### 4. Generative Model Configuration
+- **Provider**: Google Gemini 2.5 Flash
+- **API Key**: GEMINI_API_KEY from environment
+- **Status**: Must be initialized and accessible to the RAG pipeline
 
-### User Entity
-- Username and email must be unique
-- Password must be properly hashed
-- Role must be one of the allowed values
-- Email format must be valid
+## Data Flow
 
-### UserQuery Entity
-- user_id must reference an existing user
-- question and response must be non-empty
-- sources must be valid JSON
+### Current Broken Flow
+1. UI sends request to `http://localhost:8000/api/ask`
+2. Backend on port 8000 receives request
+3. Backend has no ingested content or uninitialized generative model
+4. RAG pipeline returns fallback error message
 
-### UserSelectedText Entity
-- user_id must reference an existing user
-- selected_text must be non-empty
-- context_metadata must be valid JSON
+### Expected Fixed Flow
+1. UI sends request to `http://localhost:8000/api/ask`
+2. Backend on port 8000 receives request
+3. Backend has properly ingested content and initialized generative model
+4. RAG pipeline retrieves context and generates response
+5. UI receives and displays meaningful response
 
-### ChapterMetadata Entity
-- file_path must be a valid path
-- paragraph_count must be non-negative
+## Configuration Requirements
 
-## State Transitions
+### Environment Variables
+- `QDRANT_URL`: Vector database connection
+- `QDRANT_API_KEY`: Vector database authentication
+- `GEMINI_API_KEY`: Generative model API key
+- `QDRANT_COLLECTION_NAME`: Collection containing book chunks
 
-### User Authentication Flow
-1. Guest (no account) → Registered User (account created)
-2. Registered User → Active User (authenticated session)
-3. Active User → Different Role (admin, moderator privileges granted)
+### Content Ingestion State
+- Book content must be processed and stored in vector database
+- Ingestion process must have completed successfully
+- Diagnostic endpoint should show non-zero chunk count
 
-### Query Processing Flow
-1. Question submitted → Processing → Response generated → Stored in database
-2. With source attribution and confidence scoring
+## Error Conditions
 
-## Indexes
+### Current Error State
+- No content in vector database (0 chunks)
+- Generative model not initialized
+- Returns: "The book does not provide details about this topic. No context is available and no generative model is configured."
 
-### User Table
-- Index on username (for authentication)
-- Index on email (for account recovery)
-
-### UserQuery Table
-- Index on user_id (for user history queries)
-- Index on timestamp (for time-based queries)
-
-### UserSelectedText Table
-- Index on user_id (for user history queries)
-- Index on timestamp (for time-based queries)
-
-### ChapterMetadata Table
-- Index on chapter_title (for search)
-- Index on file_path (for content lookup)
+### Success State
+- Content properly ingested in vector database
+- Generative model initialized and accessible
+- Returns: Contextually relevant answers to user questions

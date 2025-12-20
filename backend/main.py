@@ -2,8 +2,13 @@ from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.middleware import Middleware
-from .api import health, metadata, auth, chat, ingestion, admin
-from .config.settings import settings
+from backend.api import health, metadata, auth, chat, ingestion, admin
+from backend.config.settings import settings
+import logging
+
+# Initialize logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Create FastAPI app instance
 app = FastAPI(
@@ -42,6 +47,7 @@ app.add_middleware(
         "0.0.0.0",
         # Add your production domains here
         # ".yourdomain.com"  # For subdomains
+       #"your-railway-app-name.up.railway.app",  # Add your Railway domain here
     ]
 )
 
@@ -58,6 +64,8 @@ app.add_middleware(
         "http://localhost:8081",  # Alternative frontend port
         "http://localhost:5173",  # Vite default port
         "http://localhost:3004",  # Claude/Speckit likely port
+        #"https://your-railway-app-name.up.railway.app",  # Add your Railway URL here
+        # Add your actual Railway deployment URL here
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -75,8 +83,30 @@ app.include_router(ingestion.router, prefix="/api", tags=["ingestion"])
 app.include_router(admin.router, prefix="/api", tags=["admin"])
 
 # Include Better Auth compatible endpoints at root level
-from .api.auth import better_auth_router
+from backend.api.auth import better_auth_router
 app.include_router(better_auth_router)
+
+@app.on_event("startup")
+async def startup_event():
+    """
+    Initialize Qdrant Cloud connection on startup
+    """
+    logger.info("Initializing Qdrant Cloud connection...")
+
+    try:
+        from backend.services.rag_service import RAGService
+        rag_service = RAGService()
+
+        # Perform a health check to verify the connection
+        health_status = await rag_service.health_check()
+
+        if health_status["status"] == "ok":
+            logger.info("Successfully connected to Qdrant Cloud")
+        else:
+            logger.error(f"Failed to connect to Qdrant Cloud: {health_status.get('error', 'Unknown error')}")
+    except Exception as e:
+        logger.error(f"Error initializing Qdrant Cloud connection: {e}")
+
 
 @app.get("/")
 async def root():
