@@ -47,7 +47,7 @@ app.add_middleware(
         "0.0.0.0",
         # Add your production domains here
         # ".yourdomain.com"  # For subdomains
-       #"your-railway-app-name.up.railway.app",  # Add your Railway domain here
+       "https://ai-physical-robotic-book-production.up.railway.app/",  # Add your Railway domain here
     ]
 )
 
@@ -64,7 +64,7 @@ app.add_middleware(
         "http://localhost:8081",  # Alternative frontend port
         "http://localhost:5173",  # Vite default port
         "http://localhost:3004",  # Claude/Speckit likely port
-        #"https://your-railway-app-name.up.railway.app",  # Add your Railway URL here
+        "https://ai-physical-robotic-book-production.up.railway.app/",  # Add your Railway URL here
         # Add your actual Railway deployment URL here
     ],
     allow_credentials=True,
