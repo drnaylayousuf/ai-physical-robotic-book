@@ -16,13 +16,15 @@ RUN if [ -f /tmp/root-requirements.txt ]; then \
         pip install --no-cache-dir -r /tmp/root-requirements.txt; \
     fi
 
-# Copy the entire project
-COPY . .
+# Copy only necessary backend files
+COPY backend/ ./backend/
+COPY start_backend.py ./
 
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV HOST=0.0.0.0
 ENV PORT=8000
+ENV BOOK_CONTENT_PATH=./backend  # Point to a minimal directory that exists
 
 # Expose the port
 EXPOSE 8000
