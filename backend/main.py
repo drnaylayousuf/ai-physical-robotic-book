@@ -47,7 +47,8 @@ app.add_middleware(
         "0.0.0.0",
         # Add your production domains here
         # ".yourdomain.com"  # For subdomains
-       "https://ai-physical-robotic-book-production.up.railway.app/",  # Add your Railway domain here
+       "*.railway.app",  # Allow all railway.app domains
+       "ai-physical-robotic-book-production.up.railway.app",  # Your specific Railway domain
     ]
 )
 
@@ -64,7 +65,8 @@ app.add_middleware(
         "http://localhost:8081",  # Alternative frontend port
         "http://localhost:5173",  # Vite default port
         "http://localhost:3004",  # Claude/Speckit likely port
-        "https://ai-physical-robotic-book-production.up.railway.app/",  # Add your Railway URL here
+        "https://ai-physical-robotic-book-production.up.railway.app",  # Your Railway deployment URL
+        "https://*.railway.app",  # Allow all railway.app domains
         # Add your actual Railway deployment URL here
     ],
     allow_credentials=True,
@@ -93,6 +95,12 @@ async def startup_event():
     """
     logger.info("Initializing Qdrant Cloud connection...")
 
+    # Log environment information
+    import os
+    logger.info(f"Environment: Running on Railway")
+    logger.info(f"Port: {os.environ.get('PORT', 8000)}")
+    logger.info(f"Host: {os.environ.get('HOST', '0.0.0.0')}")
+
     try:
         from backend.services.rag_service import RAGService
         rag_service = RAGService()
@@ -104,8 +112,14 @@ async def startup_event():
             logger.info("Successfully connected to Qdrant Cloud")
         else:
             logger.error(f"Failed to connect to Qdrant Cloud: {health_status.get('error', 'Unknown error')}")
+
+        # Log successful startup
+        logger.info("RAG Chatbot API startup completed successfully")
+
     except Exception as e:
         logger.error(f"Error initializing Qdrant Cloud connection: {e}")
+        # Don't crash the server if Qdrant connection fails, just log the error
+        logger.warning("Server starting without Qdrant connection - some features may not work")
 
 
 @app.get("/")
@@ -117,9 +131,14 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
+    import os
+
+    # Get port from environment variable (for Railway) or default to 8000
+    port = int(os.environ.get("PORT", 8000))
+
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True  # Only in development
+        port=port,
+        reload=False  # Disable reload in production
     )

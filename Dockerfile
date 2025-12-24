@@ -1,29 +1,31 @@
-# Multi-stage build for Docusaurus site
-FROM node:20 AS builder
+# Use Python base image for the backend API
+FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copy only package files first for better caching
-COPY book-source/package*.json ./
+# Copy the backend requirements
+COPY backend/requirements.txt .
 
-# Install dependencies
-RUN npm ci --only=production
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the source code
-COPY book-source/ ./
+# Install additional dependencies from root if they exist
+COPY requirements.txt /tmp/root-requirements.txt
+RUN if [ -f /tmp/root-requirements.txt ]; then \
+        pip install --no-cache-dir -r /tmp/root-requirements.txt; \
+    fi
 
-# Build the Docusaurus site
-RUN npm run build
+# Copy the entire project
+COPY . .
 
-# Production stage - serve the static site
-FROM nginx:alpine
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV HOST=0.0.0.0
+ENV PORT=8000
 
-# Copy built site from builder stage
-COPY --from=builder /app/build /usr/share/nginx/html
+# Expose the port
+EXPOSE 8000
 
-# Copy custom nginx configuration to handle client-side routing
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Run the FastAPI application
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload=false"]
