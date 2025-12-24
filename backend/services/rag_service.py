@@ -425,3 +425,6 @@ class RAGService:
 
 # Global instance for easy access
 rag_service = RAGService()
+
+
+
