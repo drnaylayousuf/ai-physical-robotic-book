@@ -1,9 +1,9 @@
-# Multi-stage build to reduce image size
-FROM python:3.11-slim as builder
+# Simple Dockerfile that installs packages directly in final stage
+FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install minimal build dependencies only when needed
+# Install build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     gcc \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy the production requirements file
 COPY production-requirements.txt .
 
-# Install Python dependencies for production with verification
+# Install Python dependencies directly
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --upgrade setuptools && \
     pip install --no-cache-dir -r production-requirements.txt && \
@@ -21,19 +21,6 @@ RUN pip install --no-cache-dir --upgrade pip && \
     # Clean up pip cache and temporary files after installation
     rm -rf /root/.cache/pip && \
     rm -rf /tmp/*
-
-# Production stage
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# Install only essential runtime dependencies and clean up immediately
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /root/.cache /tmp/*
-
-# Copy installed Python packages from builder stage
-COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
 # Copy application code
 COPY backend/ ./backend/
@@ -51,5 +38,5 @@ ENV BOOK_CONTENT_PATH=./doc
 # Expose the port
 EXPOSE 8000
 
-# Run the FastAPI application using a dedicated Python script
+# Run the FastAPI application using the dedicated Python script
 CMD ["python", "backend/run_server.py"]
