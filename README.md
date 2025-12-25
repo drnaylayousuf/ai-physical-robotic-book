@@ -126,3 +126,11 @@ This book was generated using Spec-Kit Plus methodology with Claude Code as the 
 ## License
 
 This project is licensed under the MIT License.
+
+## Railway Deployment
+
+This project is optimized for Railway deployment with:
+- Dockerfile optimized to stay under 4GB limit
+- Environment variables configured for cloud deployment
+- Qdrant Cloud integration for vector storage
+- Cohere embeddings and Gemini LLM for responses
