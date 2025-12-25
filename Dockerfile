@@ -6,14 +6,18 @@ WORKDIR /app
 # Install minimal build dependencies only when needed
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the production requirements file
 COPY production-requirements.txt .
 
-# Install Python dependencies for production only with optimizations
+# Install Python dependencies for production with verification
 RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir --upgrade setuptools && \
     pip install --no-cache-dir -r production-requirements.txt && \
+    # Verify uvicorn is installed
+    pip show uvicorn && \
     # Clean up pip cache and temporary files after installation
     rm -rf /root/.cache/pip && \
     rm -rf /tmp/*
@@ -55,4 +59,4 @@ ENV BOOK_CONTENT_PATH=./doc
 EXPOSE 8000
 
 # Run the FastAPI application
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload=false"]
+CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port $PORT --reload=false"]
