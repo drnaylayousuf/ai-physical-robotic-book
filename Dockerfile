@@ -24,7 +24,8 @@ COPY start_backend.py ./
 ENV PYTHONPATH=/app
 ENV HOST=0.0.0.0
 ENV PORT=8000
-ENV BOOK_CONTENT_PATH=./backend  # Point to a minimal directory that exists
+ENV BOOK_CONTENT_PATH=./backend
+# Point to a minimal directory that exists
 
 # Expose the port
 EXPOSE 8000
