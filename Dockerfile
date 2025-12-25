@@ -51,5 +51,5 @@ ENV BOOK_CONTENT_PATH=./doc
 # Expose the port
 EXPOSE 8000
 
-# Run the FastAPI application using Python module execution
-CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload=false"]
+# Run the FastAPI application using a dedicated Python script
+CMD ["python", "backend/run_server.py"]
