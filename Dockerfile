@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --upgrade setuptools && \
     pip install --no-cache-dir -r production-requirements.txt && \
     # Verify uvicorn is installed
-    pip show uvicorn && \
+    python -m pip show uvicorn && \
     # Clean up pip cache and temporary files after installation
     rm -rf /root/.cache/pip && \
     rm -rf /tmp/*
@@ -58,5 +58,5 @@ ENV BOOK_CONTENT_PATH=./doc
 # Expose the port
 EXPOSE 8000
 
-# Run the FastAPI application
-CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port $PORT --reload=false"]
+# Run the FastAPI application using Python module execution
+CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload=false"]
