@@ -1,0 +1,91 @@
+# Python-related files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Environment variables
+.env
+.env.local
+.env.dev
+.env.production
+.env.example
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.xml
+*.cover
+
+# Database
+*.db
+*.db-journal
+
+# Local configuration
+config.local.json
+*.local.json
+
+# Docker
+.dockerenv
+
+# Python build outputs
+*.egg
+*.egg-info/
+pip-wheel-metadata/
+wheels/
+sdist-bdist/
+*.so
+
+# Node modules (from frontend)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Docusaurus build artifacts
+.docusaurus/
+build/
+
+# Frontend build artifacts (if any)
+dist/
+out/
+public/build/
+
+# Ignore book-source directory since we're running the backend
+book-source/
+
+# Ignore local qdrant storage since we're using Qdrant Cloud
+qdrant_storage/
+
+# Ignore git folders
+.git/
+.gitignore
