@@ -16,8 +16,8 @@ COPY production-requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --upgrade setuptools && \
     pip install --no-cache-dir -r production-requirements.txt && \
-    # Verify uvicorn is installed
-    python -m pip show uvicorn && \
+    # Verify uvicorn is installed and accessible
+    python -c "import uvicorn; print('uvicorn version:', uvicorn.__version__)" && \
     # Clean up pip cache and temporary files after installation
     rm -rf /root/.cache/pip && \
     rm -rf /tmp/*
@@ -26,9 +26,6 @@ RUN pip install --no-cache-dir --upgrade pip && \
 FROM python:3.11-slim
 
 WORKDIR /app
-
-# Create non-root user for security
-RUN groupadd -r appuser && useradd -r -g appuser appuser
 
 # Install only essential runtime dependencies and clean up immediately
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -44,10 +41,6 @@ COPY start_backend.py ./
 
 # Remove unnecessary files that are not needed in production
 RUN rm -rf ./backend/qdrant_storage/ ./backend/rag_chatbot.db ./backend/.env ./backend/.pytest_cache/ ./backend/__pycache__/ ./backend/migrations/ ./backend/docs/
-
-# Change ownership to non-root user
-RUN chown -R appuser:appuser /app
-USER appuser
 
 # Set environment variables
 ENV PYTHONPATH=/app
