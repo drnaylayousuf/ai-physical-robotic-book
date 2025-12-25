@@ -29,10 +29,9 @@ COPY start_backend.py ./
 # Remove unnecessary files that are not needed in production
 RUN rm -rf ./backend/qdrant_storage/ ./backend/rag_chatbot.db ./backend/.env ./backend/.pytest_cache/ ./backend/__pycache__/ ./backend/migrations/ ./backend/docs/
 
-# Set environment variables
+# Set environment variables - DO NOT set PORT here to avoid conflicts
 ENV PYTHONPATH=/app
 ENV HOST=0.0.0.0
-ENV PORT=8000
 ENV BOOK_CONTENT_PATH=./doc
 
 # Expose the port
