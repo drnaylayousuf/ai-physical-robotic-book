@@ -67,7 +67,8 @@ app.add_middleware(
         "http://localhost:3004",  # Claude/Speckit likely port
         "https://ai-physical-robotic-book-production.up.railway.app",  # Your Railway deployment URL
         "https://*.railway.app",  # Allow all railway.app domains
-        # Add your actual Railway deployment URL here
+        "https://*.vercel.app",  # Allow all Vercel domains (for frontend)
+        "https://ai-physical-robotic-book.vercel.app",  # Your specific Vercel URL
     ],
     allow_credentials=True,
     allow_methods=["*"],
