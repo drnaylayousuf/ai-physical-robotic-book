@@ -1,32 +1,48 @@
-# Use Python base image for the backend API
+# Multi-stage build to reduce image size
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+
+# Install build dependencies only when needed
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the production requirements file
+COPY production-requirements.txt .
+
+# Install Python dependencies for production only
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r production-requirements.txt
+
+# Production stage
 FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copy the backend requirements
-COPY backend/requirements.txt .
+# Create non-root user for security
+RUN groupadd -r appuser && useradd -r -g appuser appuser
 
-# Install Python dependencies
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Install only essential runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install additional dependencies from root if they exist
-COPY requirements.txt /tmp/root-requirements.txt
-RUN if [ -f /tmp/root-requirements.txt ]; then \
-        pip install --no-cache-dir -r /tmp/root-requirements.txt; \
-    fi
+# Copy installed Python packages from builder stage
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
-# Copy only necessary backend files
+# Copy application code
 COPY backend/ ./backend/
 COPY start_backend.py ./
+
+# Change ownership to non-root user
+RUN chown -R appuser:appuser /app
+USER appuser
 
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV HOST=0.0.0.0
 ENV PORT=8000
-
-# Point to a minimal directory that exists
-ENV BOOK_CONTENT_PATH=./backend
+ENV BOOK_CONTENT_PATH=./doc
 
 # Expose the port
 EXPOSE 8000
