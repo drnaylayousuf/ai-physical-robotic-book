@@ -16,8 +16,7 @@ sys.path.insert(0, str(backend_dir))
 def main():
     """Main entry point that runs the server directly"""
     try:
-        # Set up environment
-        host = os.environ.get('HOST', '0.0.0.0')
+        # Set up environment - Railway will set PORT, default to 8000 if not set
         port_str = os.environ.get('PORT', '8000')
 
         # Validate and convert port
@@ -27,6 +26,9 @@ def main():
             print(f"Warning: PORT '{port_str}' is not a valid integer, using default 8000")
             port = 8000
 
+        # Always bind to 0.0.0.0 on Railway, not to a specific host
+        host = "0.0.0.0"
+
         print(f"Starting server on {host}:{port}")
         print(f"Environment: PORT={port_str}, HOST={host}")
 
@@ -34,13 +36,15 @@ def main():
         import uvicorn
         from backend.main import app
 
-        # Run the application
+        # Run the application - bind to 0.0.0.0 to accept external connections
         uvicorn.run(
             app,
             host=host,
             port=port,
             reload=False,
-            log_level="info"
+            log_level="info",
+            # Add these parameters to help with Railway deployment
+            access_log=True
         )
     except ImportError as e:
         print(f"Failed to import required modules: {e}")
