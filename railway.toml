@@ -1,0 +1,6 @@
+# Railway configuration
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "python start_app.py"
