@@ -25,6 +25,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code
 COPY backend/ ./backend/
 COPY start_backend.py ./
+COPY start_server.sh ./
 
 # Remove unnecessary files that are not needed in production
 RUN rm -rf ./backend/qdrant_storage/ ./backend/rag_chatbot.db ./backend/.env ./backend/.pytest_cache/ ./backend/__pycache__/ ./backend/migrations/ ./backend/docs/
@@ -37,5 +38,5 @@ ENV BOOK_CONTENT_PATH=./doc
 # Expose the port
 EXPOSE 8000
 
-# Run the FastAPI application using the dedicated Python script
-CMD ["python", "backend/run_server.py"]
+# Run the FastAPI application using the shell script wrapper
+CMD ["sh", "start_server.sh"]
