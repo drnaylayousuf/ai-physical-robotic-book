@@ -1,5 +1,5 @@
-# Simple Dockerfile that installs packages directly in final stage
-FROM python:3.11-slim
+# Multi-stage Dockerfile to reduce image size
+FROM python:3.11-slim as builder
 
 WORKDIR /app
 
@@ -12,15 +12,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy the production requirements file
 COPY production-requirements.txt .
 
-# Install Python dependencies directly
+# Install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --upgrade setuptools && \
-    pip install --no-cache-dir -r production-requirements.txt && \
-    # Verify uvicorn is installed and accessible
-    python -c "import uvicorn; print('uvicorn version:', uvicorn.__version__)" && \
-    # Clean up pip cache and temporary files after installation
-    rm -rf /root/.cache/pip && \
-    rm -rf /tmp/*
+    pip install --no-cache-dir -r production-requirements.txt
+
+# Production stage
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install only runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy installed Python packages from builder stage
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
 # Copy application code
 COPY backend/ ./backend/
