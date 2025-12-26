@@ -88,7 +88,8 @@ app.include_router(admin.router, prefix="/api", tags=["admin"])
 @app.on_event("startup")
 async def startup_event():
     """
-    Log startup information (don't initialize RAG services to avoid blocking)
+    Log startup information without blocking on RAG service initialization
+    RAG services will be initialized lazily when first requested to prevent startup timeouts
     """
     logger.info("RAG Chatbot API starting up...")
 
@@ -98,9 +99,13 @@ async def startup_event():
     logger.info(f"Port: {os.environ.get('PORT', 8000)}")
     logger.info(f"Host: {os.environ.get('HOST', '0.0.0.0')}")
 
-    # Don't initialize RAG services during startup to avoid blocking
+    # Don't initialize RAG services during startup to prevent blocking
     # RAG services will be initialized lazily when first requested
     logger.info("RAG Chatbot API startup completed successfully (RAG services will initialize on first use)")
+
+    # Add a small delay to ensure all routes are registered before accepting requests
+    import asyncio
+    await asyncio.sleep(0.1)  # Small delay to ensure proper startup
 
 
 @app.get("/")

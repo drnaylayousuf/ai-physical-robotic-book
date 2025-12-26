@@ -14,6 +14,41 @@ from backend.utils.sanitization import sanitize_input, validate_question, valida
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
+# Global RAG model instance for reuse to prevent timeout on first request
+_rag_model_instance = None
+_rag_model_initialized = False
+_rag_model_initialization_error = None
+
+
+def get_rag_model():
+    """
+    Get or create a singleton RAG model instance to prevent repeated initialization
+    This helps avoid timeout issues during first request on Railway
+    """
+    global _rag_model_instance, _rag_model_initialized, _rag_model_initialization_error
+
+    # If already initialized successfully, return the instance
+    if _rag_model_initialized and _rag_model_instance is not None:
+        return _rag_model_instance
+
+    # If there was a previous initialization error, return cached error info
+    if _rag_model_initialization_error is not None:
+        logger.warning("RAG model initialization previously failed, returning cached error")
+        raise _rag_model_initialization_error
+
+    # Try to initialize the RAG model
+    try:
+        _rag_model_instance = RAGModel()
+        _rag_model_initialized = True
+        _rag_model_initialization_error = None
+        logger.info("RAG model initialized successfully")
+        return _rag_model_instance
+    except Exception as e:
+        logger.error(f"Failed to initialize RAG model: {e}")
+        _rag_model_initialization_error = e
+        # Re-raise the exception to indicate initialization failure
+        raise
+
 # Request/Response models
 class AskRequest(BaseModel):
     question: str
@@ -129,15 +164,32 @@ async def ask_question(
         # Cache miss - process normally
         logger.info(f"Cache miss for question: {sanitized_question[:50]}...")
 
-        # Initialize RAG model
-        rag_model = RAGModel()
+        # Get or create the singleton RAG model instance to prevent timeout issues
+        try:
+            rag_model = get_rag_model()
+        except Exception as e:
+            logger.error(f"Failed to initialize RAG model for query: {e}")
+            # Return a helpful error response instead of crashing
+            return AskResponse(
+                response="The RAG service is currently unavailable. Please try again later.",
+                sources=[],
+                references=[]
+            )
 
         # Process the query using the RAG pipeline with sanitized inputs
-        rag_response = await rag_model.process_query(
-            query=sanitized_question,  # Use sanitized question
-            mode=effective_mode,  # Use effective mode (may have been switched from selected_text to full_book)
-            selected_text=sanitized_selected_text  # Use sanitized selected text
-        )
+        try:
+            rag_response = await rag_model.process_query(
+                query=sanitized_question,  # Use sanitized question
+                mode=effective_mode,  # Use effective mode (may have been switched from selected_text to full_book)
+                selected_text=sanitized_selected_text  # Use sanitized selected text
+            )
+        except Exception as e:
+            logger.error(f"Error processing RAG query: {e}")
+            return AskResponse(
+                response="Error processing your question. Please try again later.",
+                sources=[],
+                references=[]
+            )
 
         # Create a default user ID for guest users (in a real system, this would come from authentication)
         # For now, we'll use a default user_id of 1 (representing a guest user)

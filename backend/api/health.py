@@ -21,6 +21,29 @@ async def health_check():
         "timestamp": datetime.utcnow().isoformat()
     }
 
+
+@router.get("/health/rag", response_model=HealthResponse)
+async def rag_health_check():
+    """
+    Health check endpoint specifically for RAG service status
+    This helps monitor if the RAG service is ready to handle requests
+    """
+    try:
+        from backend.api.chat import get_rag_model
+        # Try to get the RAG model (this will attempt initialization if not done yet)
+        rag_model = get_rag_model()
+        return {
+            "status": "healthy",
+            "message": "RAG service is available and ready",
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    except Exception as e:
+        return {
+            "status": "unhealthy",
+            "message": f"RAG service is not available: {str(e)}",
+            "timestamp": datetime.utcnow().isoformat()
+        }
+
 @router.get("/health/qdrant", response_model=QdrantHealthResponse)
 async def qdrant_cloud_health():
     """

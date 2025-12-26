@@ -55,12 +55,15 @@ class RAGModel:
             self.qdrant_client = QdrantClient(
                 url=settings.QDRANT_URL,
                 api_key=settings.QDRANT_API_KEY,
-                timeout=30  # Increased timeout for cloud operations
+                timeout=10  # Reduced timeout to prevent long blocking during initialization
             )
 
-            # Test the connection
+            # Test the connection with a timeout to avoid blocking during initialization
+            import time
+            start_time = time.time()
             self.qdrant_client.get_collections()
-            logger.info(f"Successfully connected to Qdrant Cloud at {settings.QDRANT_URL}")
+            connection_time = time.time() - start_time
+            logger.info(f"Successfully connected to Qdrant Cloud at {settings.QDRANT_URL} (connection time: {connection_time:.2f}s)")
 
             # Verify collection exists before proceeding
             collection_name = settings.QDRANT_COLLECTION_NAME
