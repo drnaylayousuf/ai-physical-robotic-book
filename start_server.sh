@@ -13,4 +13,4 @@ if ! [ "$PORT" -eq "$PORT" ] 2>/dev/null; then
 fi
 
 # Run the Python server script with the validated port
-exec python backend/run_server.py
+exec python start_app.py

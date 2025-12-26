@@ -5,6 +5,7 @@ from starlette.middleware import Middleware
 from backend.api import health, metadata, auth, chat, ingestion, admin
 from backend.config.settings import settings
 import logging
+from datetime import datetime
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
@@ -105,9 +106,20 @@ async def startup_event():
 @app.get("/")
 async def root():
     """
-    Root endpoint for the API
+    Root endpoint for the API - also serves as health check
     """
-    return {"message": "RAG Chatbot API for Physical AI and Humanoid Robotics Book"}
+    return {
+        "message": "RAG Chatbot API for Physical AI and Humanoid Robotics Book",
+        "status": "running",
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
+@app.get("/healthz")
+async def healthz():
+    """
+    Kubernetes-style health check endpoint for Railway
+    """
+    return {"status": "healthy"}
 
 if __name__ == "__main__":
     import uvicorn

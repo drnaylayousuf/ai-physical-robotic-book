@@ -34,8 +34,6 @@ COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/pytho
 
 # Copy application code
 COPY backend/ ./backend/
-COPY start_backend.py ./
-COPY start_server.sh ./
 COPY start_app.py ./
 
 # Remove unnecessary files that are not needed in production
@@ -46,7 +44,7 @@ ENV PYTHONPATH=/app
 ENV HOST=0.0.0.0
 ENV BOOK_CONTENT_PATH=./doc
 
-# Expose the port
+# Expose the port - Railway will set the PORT environment variable
 EXPOSE 8000
 
 # Run the FastAPI application using direct Python execution
