@@ -87,9 +87,9 @@ app.include_router(admin.router, prefix="/api", tags=["admin"])
 @app.on_event("startup")
 async def startup_event():
     """
-    Initialize Qdrant Cloud connection on startup
+    Log startup information (don't initialize RAG services to avoid blocking)
     """
-    logger.info("Initializing Qdrant Cloud connection...")
+    logger.info("RAG Chatbot API starting up...")
 
     # Log environment information
     import os
@@ -97,31 +97,9 @@ async def startup_event():
     logger.info(f"Port: {os.environ.get('PORT', 8000)}")
     logger.info(f"Host: {os.environ.get('HOST', '0.0.0.0')}")
 
-    try:
-        # Import and create RAG service instance (but don't do heavy initialization here)
-        # to avoid blocking startup
-        from backend.services.rag_service import RAGService
-
-        # The RAGService constructor will handle connection, but we'll do it in a way
-        # that doesn't block the startup event
-        logger.info("RAG service initialization started")
-
-        # Perform a quick health check to verify the connection
-        rag_service = RAGService()
-        health_status = await rag_service.health_check()
-
-        if health_status["status"] == "ok":
-            logger.info("Successfully connected to Qdrant Cloud")
-        else:
-            logger.error(f"Failed to connect to Qdrant Cloud: {health_status.get('error', 'Unknown error')}")
-
-        # Log successful startup
-        logger.info("RAG Chatbot API startup completed successfully")
-
-    except Exception as e:
-        logger.error(f"Error initializing Qdrant Cloud connection: {e}")
-        # Don't crash the server if Qdrant connection fails, just log the error
-        logger.warning("Server starting without Qdrant connection - some features may not work")
+    # Don't initialize RAG services during startup to avoid blocking
+    # RAG services will be initialized lazily when first requested
+    logger.info("RAG Chatbot API startup completed successfully (RAG services will initialize on first use)")
 
 
 @app.get("/")

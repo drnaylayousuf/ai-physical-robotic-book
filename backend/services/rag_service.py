@@ -423,8 +423,18 @@ class RAGService:
         logger.info("In-memory fallback functionality is not implemented - using Qdrant Cloud only")
 
 
-# Global instance for easy access
-rag_service = RAGService()
+# Lazy initialization to avoid startup issues
+_rag_service_instance = None
+
+def get_rag_service():
+    """
+    Get the RAG service instance, creating it if it doesn't exist
+    This allows lazy initialization to avoid startup blocking
+    """
+    global _rag_service_instance
+    if _rag_service_instance is None:
+        _rag_service_instance = RAGService()
+    return _rag_service_instance
 
 
 
